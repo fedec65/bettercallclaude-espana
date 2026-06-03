@@ -1,16 +1,9 @@
 {
   "name": "bettercallclaude-espana",
   "version": "1.0.0",
-  "description": "Spain Legal Intelligence — TS/AP/STS/STC precedent research, case strategy, legal drafting, and citation verification across all 17 Autonomous Communities with secreto profesional privacy protection.",
+  "description": "Spain Legal Intelligence -- TS/AP/STS/STC precedent research, case strategy, legal drafting, and citation verification across all 17 Autonomous Communities with secreto profesional privacy protection.",
   "author": { "name": "Federico Cesconi" },
   "userConfig": {
-    "ollama_host": {
-      "type": "string",
-      "title": "Ollama host URL",
-      "description": "URL of the Ollama host used by the bundled ollama MCP server for local-only translation and summarisation.",
-      "default": "http://localhost:11434",
-      "sensitive": false
-    },
     "default_jurisdiction": {
       "type": "string",
       "title": "Default Spanish Autonomous Community",
@@ -35,7 +28,7 @@
     "privacy_mode": {
       "type": "string",
       "title": "Privacy mode",
-      "description": "Privacy routing mode: strict (same pattern matching as balanced but blocks instead of prompting — non-privileged content passes through, only Ollama exempt from all checks), balanced (prompt on privilege markers), or cloud (prompt on strong markers only, weak signals pass through).",
+      "description": "Privacy routing mode: strict (same pattern matching as balanced but blocks instead of prompting -- non-privileged content passes through, only Ollama exempt from all checks), balanced (prompt on privilege markers), or cloud (prompt on strong markers only, weak signals pass through).",
       "default": "balanced",
       "sensitive": false
     }
