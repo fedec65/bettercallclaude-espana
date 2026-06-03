@@ -1,0 +1,43 @@
+{
+  "name": "bettercallclaude-espana",
+  "version": "1.0.0",
+  "description": "Spain Legal Intelligence — TS/AP/STS/STC precedent research, case strategy, legal drafting, and citation verification across all 17 Autonomous Communities with secreto profesional privacy protection.",
+  "author": { "name": "Federico Cesconi" },
+  "userConfig": {
+    "ollama_host": {
+      "type": "string",
+      "title": "Ollama host URL",
+      "description": "URL of the Ollama host used by the bundled ollama MCP server for local-only translation and summarisation.",
+      "default": "http://localhost:11434",
+      "sensitive": false
+    },
+    "default_jurisdiction": {
+      "type": "string",
+      "title": "Default Spanish Autonomous Community",
+      "description": "Default Spanish Autonomous Community code for autonomic research (e.g. MD, CT, AN, PV, GA). Leave blank for state-level only queries.",
+      "default": "",
+      "sensitive": false
+    },
+    "output_language": {
+      "type": "string",
+      "title": "Output language",
+      "description": "Preferred output language for agents and drafter output. One of: ES, EN.",
+      "default": "ES",
+      "sensitive": false
+    },
+    "api_token": {
+      "type": "string",
+      "title": "MCP gateway API token (optional)",
+      "description": "Optional bearer token for accessing a protected BetterCallClaude España MCP deployment. Leave blank for the public service.",
+      "default": "",
+      "sensitive": true
+    },
+    "privacy_mode": {
+      "type": "string",
+      "title": "Privacy mode",
+      "description": "Privacy routing mode: strict (same pattern matching as balanced but blocks instead of prompting — non-privileged content passes through, only Ollama exempt from all checks), balanced (prompt on privilege markers), or cloud (prompt on strong markers only, weak signals pass through).",
+      "default": "balanced",
+      "sensitive": false
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "mcpServers": {
+    "boe-legislacion": {
+      "type": "http",
+      "url": "https://mcp.bettercallclaude.es/boe-legislacion/mcp"
+    },
+    "legal-citations-esp": {
+      "type": "http",
+      "url": "https://mcp.bettercallclaude.es/legal-citations-esp/mcp"
+    },
+    "legal-persona-esp": {
+      "type": "http",
+      "url": "https://mcp.bettercallclaude.es/legal-persona-esp/mcp"
+    },
+    "cendoj-jurisprudencia": {
+      "type": "http",
+      "url": "https://mcp.bettercallclaude.es/cendoj-jurisprudencia/mcp"
+    },
+    "tribunal-constitucional": {
+      "type": "http",
+      "url": "https://mcp.bettercallclaude.es/tribunal-constitucional/mcp"
+    },
+    "eu-law-esp": {
+      "type": "http",
+      "url": "https://mcp.bettercallclaude.es/eu-law-esp/mcp"
+    },
+    "congreso-debates": {
+      "type": "http",
+      "url": "https://mcp.bettercallclaude.es/congreso-debates/mcp"
+    },
+    "doctrina-academica": {
+      "type": "http",
+      "url": "https://mcp.bettercallclaude.es/doctrina-academica/mcp"
+    },
+    "derecho-historico": {
+      "type": "http",
+      "url": "https://mcp.bettercallclaude.es/derecho-historico/mcp"
+    },
+    "catalunya-legal": {
+      "type": "http",
+      "url": "https://mcp.bettercallclaude.es/catalunya-legal/mcp"
+    },
+    "busqueda-general": {
+      "type": "http",
+      "url": "https://mcp.bettercallclaude.es/busqueda-general/mcp"
+    },
+    "ollama": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/mcp-servers/ollama/dist/index.js"]
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "@bettercallclaude-espana/ollama",
+  "version": "1.0.0",
+  "description": "MCP server for local LLM processing via Ollama - Spain legal privacy protection",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build:bundle": "esbuild src/index.ts --bundle --platform=node --target=node20 --format=esm --outfile=dist/index.js --banner:js=\"import { createRequire } from 'module'; const require = createRequire(import.meta.url);\" --sourcemap=inline --minify-syntax --log-level=warning"
+  },
+  "keywords": [
+    "mcp",
+    "spain-law",
+    "ollama",
+    "privacy",
+    "local-llm",
+    "attorney-client-privilege",
+    "secreto-profesional"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.26.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "typescript": "^5.7.2"
+  }
+}

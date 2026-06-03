@@ -1,0 +1,17 @@
+{
+  "description": "Secreto profesional (attorney-client privilege) detection for Spanish law practice. Scans Write/Edit/MultiEdit/Bash/WebFetch and all MCP tool inputs (mcp__.*) before content leaves the machine. Strong patterns are blocked (deny); weak patterns prompt for confirmation (ask). Respects privacy_mode from userConfig (strict/balanced/cloud).",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit|Bash|WebFetch|mcp__.*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/scripts/privacy-check.js",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  }
+}
