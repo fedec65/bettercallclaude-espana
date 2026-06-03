@@ -1,86 +1,86 @@
-[![Version](https://img.shields.io/badge/version-1.0.0-blue)](https://github.com/fedec65/bettercallclaude-espana/releases)
-[![License: AGPL-3.0](https://img.shields.io/badge/license-AGPL--3.0-green)](LICENSE)
-[![Platform](https://img.shields.io/badge/platform-Cowork%20Desktop-orange)](https://claude.ai)
-[![Website](https://img.shields.io/badge/web-bettercallclaude.es-brightgreen)](https://bettercallclaude.es)
-[![MCP Servers](https://img.shields.io/badge/MCP%20servers-12-purple)](https://mcp.bettercallclaude.es/health)
+[![Versión](https://img.shields.io/badge/version-1.0.0-blue)](https://github.com/fedec65/bettercallclaude-espana/releases)
+[![Licencia: AGPL-3.0](https://img.shields.io/badge/license-AGPL--3.0-green)](LICENSE)
+[![Plataforma](https://img.shields.io/badge/platform-Cowork%20Desktop-orange)](https://claude.ai)
+[![Web](https://img.shields.io/badge/web-bettercallclaude.es-brightgreen)](https://bettercallclaude.es)
+[![Servidores MCP](https://img.shields.io/badge/MCP%20servers-12-purple)](https://mcp.bettercallclaude.es/health)
 
 <p align="center">
-  <img src="docs/images/bettercallclaude_logo.png" alt="BetterCallClaude España" width="480">
+  <img src="docs/images/bettercallclaude_logo.png" alt="Mejor llamaré Claude" width="480">
 </p>
 
-<p align="center"><strong>Spain Legal Intelligence Plugin for Cowork Desktop</strong></p>
+<p align="center"><strong>Plugin de inteligencia jurídica española para Cowork Desktop</strong></p>
 
-BetterCallClaude España transforms legal research, case strategy, and document drafting for Spanish lawyers. It provides deep integration with Spanish legal databases, bilingual analysis (ES/EN), and built-in *secreto profesional* protection — 20 agents, 21 commands, 15 skills, and 12 MCP servers covering TS/STS/AP/STC precedent research, litigation strategy, adversarial analysis, legal drafting, citation verification, document intelligence, and sports arbitration across all 17 Autonomous Communities.
+BetterCallClaude España transforma la investigación jurídica, la estrategia procesal y la redacción documental para abogados y despachos españoles. Integra bases de datos jurídicas españolas, análisis bilingüe (ES/EN) y protección del *secreto profesional* — 20 agentes, 21 comandos, 15 skills y 12 servidores MCP para jurisprudencia TS/STS/AP/STC, legislación BOE, doctrina académica, estrategia de litigios, análisis adversarial, verificación de citas y arbitraje deportivo en las 17 Comunidades Autónomas.
 
-> **Claude Code CLI users**: this repository is Cowork Desktop only. The CLI version is at [fedec65/bettercallclaude-cli](https://github.com/fedec65/bettercallclaude-cli).
+> **Usuarios de Claude Code CLI**: este repositorio es para Cowork Desktop. La versión CLI está en [fedec65/bettercallclaude-cli](https://github.com/fedec65/bettercallclaude-cli).
 
 ---
 
-## Overview
+## Visión general
 
-BetterCallClaude provides a structured methodology for handling legal work with AI assistance. The framework consists of five interconnected phases.
+BetterCallClaude España proporciona una metodología estructurada para gestionar trabajo jurídico con asistencia de IA. El framework coordina investigación, análisis, estrategia, revisión adversarial y redacción final.
 
 ![BetterCallClaude Framework](docs/images/bettercallclaude_framework.png)
 
 ---
 
-## What's New in v1.0.0
+## Novedades en v1.0.0
 
-**v1.0.0 — Initial Spain release.** Complete adaptation of the Swiss BetterCallClaude plugin to the Spanish legal environment.
+**v1.0.0 — Primera versión para España.** Adaptación completa del plugin BetterCallClaude al entorno jurídico español.
 
-- **20 specialist agents** covering all major areas of Spanish law
-- **21 commands** for research, strategy, drafting, citation, analysis, and workflow
-- **15 skills** providing reusable legal expertise
-- **7 MCP servers** connecting to Spanish legal databases (placeholder configs — actual URLs to be provided)
-- **Plugin scope enforcement** — all legal work uses exclusively BetterCallClaude España agents, skills, and MCP servers
+- **20 agentes especializados** para las principales áreas del derecho español
+- **21 comandos** para investigación, estrategia, redacción, citas, análisis y workflows
+- **15 skills** con conocimiento jurídico reutilizable
+- **12 servidores MCP** en `.mcp.json` (11 remotos HTTP + `ollama` local STDIO)
+- **Protección de secreto profesional** con hook local antes del uso de herramientas externas
 
-**Content counts**: 20 agents, 21 commands, 15 skills, 12 MCP servers in `.mcp.json` (11 remote HTTP + `ollama` local STDIO).
-
----
-
-## Installation
-
-1. In Cowork, click **Customize** > **Browse plugins** > **Personal** > **+** > **Add marketplace from GitHub**
-2. Enter `fedec65/bettercallclaude-espana` and click **Sync**
-3. Click **Install** on the BetterCallClaude España card
-
-MCP servers connect automatically via HTTP. No Node.js, no local setup, no API keys required.
+**Contenido**: 20 agentes, 21 comandos, 15 skills y 12 servidores MCP.
 
 ---
 
-## Commands
+## Instalación
 
-| Command | Description |
+1. En Cowork, haz clic en **Personalizar** > **Explorar plugins** > **Personales** > **+** > **Añadir marketplace desde GitHub**
+2. Introduce `fedec65/bettercallclaude-espana` y haz clic en **Sincronizar**
+3. Haz clic en **Instalar** en la tarjeta BetterCallClaude España
+
+Los servidores MCP se conectan automáticamente por HTTP. No se requiere configuración local ni claves API para los servidores remotos.
+
+---
+
+## Comandos
+
+| Comando | Descripción |
 |---------|-------------|
-| `/bettercallclaude-espana:legal` | Intelligent gateway — analyzes intent, routes to specialist agent, manages workflows. Use `--refine` for vague queries. |
-| `/bettercallclaude-espana:refine` | Transform vague queries into structured prompts via Socratic dialogue. |
-| `/bettercallclaude-espana:research` | Search Spanish precedents and compile research memos. TS/STS/AP databases, doctrine. |
-| `/bettercallclaude-espana:strategy` | Litigation strategy with risk assessment and cost-benefit under LEC. |
-| `/bettercallclaude-espana:draft` | Draft Spanish documents: contracts, court submissions, opinions with citations. |
-| `/bettercallclaude-espana:cite` | Verify and format Spanish citations (STS, SAP, STC, BOE). |
-| `/bettercallclaude-espana:validate` | Validate Spanish citations in bulk — format, existence, consistency. |
-| `/bettercallclaude-espana:precedent` | Search and analyze TS/STS/STC precedents with chain tracking. |
-| `/bettercallclaude-espana:federal` | Analyze under Spanish state law (CC, CP, LEC, LOPJ, CE). |
-| `/bettercallclaude-espana:autonomic` | Analyze under autonomic law for a specific CCAA. |
-| `/bettercallclaude-espana:adversarial` | Three-agent adversarial: advocate, adversary, judicial analyst. |
-| `/bettercallclaude-espana:briefing` | Pre-execution briefing with specialist panel and execution plan. |
-| `/bettercallclaude-espana:workflow` | Multi-agent workflows: due diligence, litigation prep, contract lifecycle. |
-| `/bettercallclaude-espana:translate` | ES ↔ EN legal translation preserving terminology precision. |
-| `/bettercallclaude-espana:doc-analyze` | Analyze Spanish legal documents — issues, clauses, citations, compliance. |
-| `/bettercallclaude-espana:summarize` | Consolidate pipeline output — deduplicate, control length. |
-| `/bettercallclaude-espana:setup` | Check MCP connectivity for all 7 servers. |
-| `/bettercallclaude-espana:version` | Display version, components, system status. |
-| `/bettercallclaude-espana:legal-5step` | Execute 5-step framework: intake → research → strategy → adversarial → draft. |
-| `/bettercallclaude-espana:privacy` | View/change privacy mode (`strict` / `balanced` / `cloud`). |
-| `/bettercallclaude-espana:help` | Show command reference, agents, skills, examples. |
+| `/bettercallclaude-espana:legal` | Gateway inteligente: analiza la intención, enruta al agente especialista y gestiona workflows. |
+| `/bettercallclaude-espana:refine` | Convierte consultas vagas en prompts jurídicos estructurados mediante diálogo socrático. |
+| `/bettercallclaude-espana:research` | Busca precedentes españoles y compila memorandos de investigación. |
+| `/bettercallclaude-espana:strategy` | Estrategia procesal con evaluación de riesgos, costes y probabilidad de éxito. |
+| `/bettercallclaude-espana:draft` | Redacta contratos, escritos judiciales, opiniones y documentos jurídicos españoles. |
+| `/bettercallclaude-espana:cite` | Verifica y formatea citas españolas (STS, SAP, STC, BOE). |
+| `/bettercallclaude-espana:validate` | Valida citas jurídicas españolas en lote. |
+| `/bettercallclaude-espana:precedent` | Busca y analiza jurisprudencia TS/STS/STC con seguimiento de cadenas jurisprudenciales. |
+| `/bettercallclaude-espana:federal` | Analiza conforme al derecho estatal español (CC, CP, LEC, LOPJ, CE). |
+| `/bettercallclaude-espana:autonomic` | Analiza normativa autonómica para una Comunidad Autónoma específica. |
+| `/bettercallclaude-espana:adversarial` | Análisis adversarial con tres agentes: abogado, contraparte y analista judicial. |
+| `/bettercallclaude-espana:briefing` | Briefing previo con panel de especialistas y plan de ejecución. |
+| `/bettercallclaude-espana:workflow` | Workflows multiagente para due diligence, preparación de litigios y ciclo contractual. |
+| `/bettercallclaude-espana:translate` | Traducción jurídica ES ↔ EN preservando terminología y citas. |
+| `/bettercallclaude-espana:doc-analyze` | Analiza documentos jurídicos españoles: riesgos, cláusulas, citas y cumplimiento. |
+| `/bettercallclaude-espana:summarize` | Consolida resultados de pipelines multiagente. |
+| `/bettercallclaude-espana:setup` | Comprueba conectividad MCP. |
+| `/bettercallclaude-espana:version` | Muestra versión, componentes y estado del sistema. |
+| `/bettercallclaude-espana:legal-5step` | Ejecuta el framework de 5 pasos: intake → investigación → estrategia → adversarial → borrador. |
+| `/bettercallclaude-espana:privacy` | Consulta o cambia el modo de privacidad (`strict` / `balanced` / `cloud`). |
+| `/bettercallclaude-espana:help` | Muestra referencia de comandos, agentes, skills y ejemplos. |
 
 ### Skills
 
-| Skill | Description |
+| Skill | Descripción |
 |-------|-------------|
-| `legal-5step-framework` | Coordinates the 5-step pipeline, enforces data flow, manages quality gates. |
+| `legal-5step-framework` | Coordina el pipeline de 5 pasos, controla el flujo de datos y gestiona quality gates. |
 
-### Usage Examples
+### Ejemplos de uso
 
 ```
 /bettercallclaude-espana:legal Necesito evaluar nuestra exposición bajo el Art. 1255 CC por incumplimiento contractual
@@ -106,104 +106,110 @@ MCP servers connect automatically via HTTP. No Node.js, no local setup, no API k
 
 ---
 
-## Key Features
+## Funcionalidades clave
 
-- **Briefing sessions** — Complex queries trigger collaborative intake with specialist panels and structured plans.
-- **Adversarial analysis** — Three-agent workflow: advocate, adversary, judicial analyst using Spanish legal methodology.
-- **Multi-agent workflows** — Predefined pipelines for due diligence, litigation prep, contract lifecycle.
-- **All 17 CCAA** — Full autonomic coverage with court systems, citation formats, and MCP search.
-- **Bilingual** — Automatic ES/EN detection with correct legal terminology and citation formats.
-
----
-
-## MCP Servers
-
-All servers connect automatically. No configuration required.
-
-| Server | Purpose | Transport |
-|--------|---------|-----------|
-| `cendoj-jurisprudencia` | Spanish court decision search (TS + autonomic) | HTTP |
-| `cendoj-jurisprudencia` | Tribunal Supremo decision search | HTTP |
-| `legal-citations-esp` | Citation verification and formatting | HTTP |
-| `boe-legislacion` | State legislation database (SPARQL) | HTTP |
-| `legal-persona-esp` | Spain-law document intelligence | HTTP |
-| `tribunal-constitucional` | Tribunal Constitucional decisions | HTTP |
-| `ollama` | Local privacy classification for secreto profesional | Local |
-
-The 11 remote HTTP servers connect directly to `https://mcp.bettercallclaude.es`. No API keys required.
-
-See [CONNECTORS.md](bettercallclaude-espana/CONNECTORS.md) for detailed API documentation.
+- **Sesiones de briefing** — Las consultas complejas activan intake colaborativo con paneles de especialistas y planes estructurados.
+- **Análisis adversarial** — Workflow con abogado, contraparte y analista judicial según metodología jurídica española.
+- **Workflows multiagente** — Pipelines para due diligence, preparación de litigios, contratos y análisis documental.
+- **Cobertura de las 17 CCAA** — Soporte autonómico con jurisdicciones, formatos de cita y búsqueda MCP.
+- **Bilingüe ES/EN** — Detección de idioma y terminología jurídica adecuada.
 
 ---
 
-## Privacy
+## Servidores MCP
 
-BetterCallClaude España includes built-in *secreto profesional* detection (attorney-client privilege, Art. 24 LOPJ / Art. 542 CP). A `PreToolUse` hook scans outgoing tool calls for privilege indicators in Spanish and English.
+Todos los servidores se conectan automáticamente tras la instalación.
 
-| Mode | Behavior |
-|------|----------|
-| `strict` | Blocks (`deny`) strong markers. Non-privileged content passes through. Ollama exempt. |
-| `balanced` | Strong markers prompt (`ask`). Weak markers with legal context also prompt. Default. |
-| `cloud` | Strong markers prompt (`ask`). Weak markers allowed without prompt. |
+| Servidor | Finalidad | Transporte |
+|----------|-----------|------------|
+| `boe-legislacion` | Legislación estatal española | HTTP |
+| `legal-citations-esp` | Verificación y formato de citas jurídicas | HTTP |
+| `legal-persona-esp` | Inteligencia documental jurídica española | HTTP |
+| `cendoj-jurisprudencia` | Jurisprudencia española | HTTP |
+| `tribunal-constitucional` | Sentencias del Tribunal Constitucional | HTTP |
+| `eu-law-esp` | Derecho de la Unión Europea en contexto español | HTTP |
+| `congreso-debates` | Debates y actividad parlamentaria | HTTP |
+| `doctrina-academica` | Doctrina académica jurídica | HTTP |
+| `derecho-historico` | Derecho histórico español | HTTP |
+| `catalunya-legal` | Derecho catalán y fuentes autonómicas | HTTP |
+| `busqueda-general` | Búsqueda jurídica general | HTTP |
+| `ollama` | Clasificación local de privacidad para secreto profesional | Local |
 
-> **Disclaimer**: Privacy routing is assistive and does not guarantee compliance with Art. 24 LOPJ or Art. 542 CP. Lawyers remain professionally responsible for protecting client confidentiality.
+Los 11 servidores HTTP remotos se conectan a `https://mcp.bettercallclaude.es`. No requieren claves API.
 
----
-
-## Language Support
-
-| Language | Code | Legal Context |
-|----------|------|---------------|
-| Spanish | ES | Primary: CC, CP, LEC, STS. Used throughout Spain. |
-| English | EN | Working language with Spanish legal term mapping. |
-
----
-
-## Requirements
-
-- Claude Cowork Desktop (latest version)
-- Node.js >= 18 (for the ollama privacy classifier only)
+Consulta [CONNECTORS.md](bettercallclaude-espana/CONNECTORS.md) para la documentación técnica de las APIs MCP.
 
 ---
 
-## CLI Version
+## Privacidad
 
-Prefer working from the terminal? **[BetterCallClaude CLI](https://github.com/fedec65/bettercallclaude-cli)** is the Claude Code CLI edition.
+BetterCallClaude España incluye detección integrada de *secreto profesional*. Un hook `PreToolUse` analiza llamadas salientes a herramientas para detectar indicadores de confidencialidad en español e inglés.
+
+| Modo | Comportamiento |
+|------|----------------|
+| `strict` | Bloquea marcadores fuertes. El contenido no privilegiado pasa. Ollama queda exento. |
+| `balanced` | Pide confirmación ante marcadores fuertes y señales débiles con contexto jurídico. Predeterminado. |
+| `cloud` | Pide confirmación solo ante marcadores fuertes. Las señales débiles pasan sin confirmación. |
+
+> **Aviso**: el enrutamiento de privacidad es asistivo y no garantiza cumplimiento normativo. Los abogados mantienen la responsabilidad profesional de proteger la confidencialidad del cliente.
 
 ---
 
-## Author
+## Idiomas
+
+| Idioma | Código | Contexto jurídico |
+|--------|--------|-------------------|
+| Español | ES | Principal: CC, CP, LEC, STS, STC, BOE. |
+| Inglés | EN | Idioma de trabajo con mapeo de terminología jurídica española. |
+
+---
+
+## Requisitos
+
+- Claude Cowork Desktop actualizado
+- Node.js >= 18 solo para el clasificador local de privacidad Ollama
+
+---
+
+## Versión CLI
+
+¿Prefieres trabajar desde terminal? **[BetterCallClaude CLI](https://github.com/fedec65/bettercallclaude-cli)** es la edición para Claude Code CLI.
+
+---
+
+## Autor
 
 Federico Cesconi — [fedec65/bettercallclaude-espana](https://github.com/fedec65/bettercallclaude-espana) — [bettercallclaude.es](https://bettercallclaude.es)
 
-## License
+## Licencia
 
-AGPL-3.0 — See [LICENSE](LICENSE) for full terms.
+AGPL-3.0 — Consulta [LICENSE](LICENSE) para los términos completos.
 
-[Support the project](https://buymeacoffee.com/federicocesconi)
+[Apoya el proyecto](https://buymeacoffee.com/federicocesconi)
 
 ---
 
-## For Developers
+## Para desarrolladores
 
-This repo contains the plugin only. MCP server source code lives in a separate repository.
+Este repositorio contiene el plugin. El código fuente de los servidores MCP vive en un repositorio separado.
 
 ```bash
-npm run package        # Create distributable plugin zip
+npm run validate       # Validar manifiesto y estructura del plugin
+npm run package        # Crear zip distribuible para Cowork
 ```
 
-See [CONNECTORS.md](bettercallclaude-espana/CONNECTORS.md) for MCP server API docs and [CONTRIBUTING.md](CONTRIBUTING.md) for contributor workflow.
+Consulta [CONNECTORS.md](bettercallclaude-espana/CONNECTORS.md) para las APIs MCP y [CONTRIBUTING.md](CONTRIBUTING.md) para el flujo de contribución.
 
 ---
 
-## Professional Disclaimer
+## Aviso profesional
 
-BetterCallClaude is a legal research and analysis tool. All outputs:
+BetterCallClaude España es una herramienta de investigación y análisis jurídico. Todos los resultados:
 
-- Require professional lawyer review before use.
-- Do not constitute legal advice.
-- May contain errors or outdated information.
-- Must be verified against official sources (BOE, court databases, official gazettes).
-- Must be adapted to specific case circumstances.
+- Requieren revisión profesional por un abogado antes de su uso.
+- No constituyen asesoramiento jurídico.
+- Pueden contener errores, omisiones o información desactualizada.
+- Deben verificarse frente a fuentes oficiales (BOE, CENDOJ, bases de datos judiciales, diarios oficiales).
+- Deben adaptarse a las circunstancias concretas de cada asunto.
 
-Lawyers maintain full professional responsibility. This tool assists but does not replace professional judgment.
+Los abogados mantienen plena responsabilidad profesional. Esta herramienta asiste, pero no sustituye, el juicio profesional.

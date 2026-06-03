@@ -1,33 +1,47 @@
 # BetterCallClaude España Plugin
 
-Spain Legal Intelligence — TS/AP/STS/STC precedent research, case strategy, legal drafting, and citation verification across all 17 Autonomous Communities with *secreto profesional* privacy protection.
+<p align="center">
+  <img src="docs/images/logo.png" alt="Mejor llamaré Claude" width="400">
+</p>
 
-## Plugin Structure
+<p align="center"><strong>Inteligencia jurídica española para Cowork Desktop</strong></p>
 
-| Directory | Contents |
-|-----------|----------|
-| `agents/` | 20 specialist agents (researcher, drafter, strategist, etc.) |
-| `commands/` | 21 slash commands (`:legal`, `:research`, `:draft`, etc.) |
-| `skills/` | 15 reusable skill modules |
-| `hooks/` | PreToolUse privacy hook configuration |
-| `scripts/` | Privacy check script (`privacy-check.js`) |
-| `mcp-servers/` | Bundled ollama local STDIO server (privacy classifier) |
+BetterCallClaude España ofrece investigación de jurisprudencia TS/AP/STS/STC, estrategia procesal, redacción jurídica, verificación de citas y soporte para las 17 Comunidades Autónomas, con protección integrada del *secreto profesional*.
 
-## Files
+## Estructura del plugin
 
-- `.claude-plugin/plugin.json` — Plugin manifest and user configuration schema
-- `.mcp.json` — MCP server transport configuration
-- `hooks/hooks.json` — Hook event bindings
+| Directorio | Contenido |
+|------------|-----------|
+| `agents/` | 20 agentes especialistas (investigación, redacción, estrategia, compliance, etc.) |
+| `commands/` | 21 comandos slash (`:legal`, `:research`, `:draft`, etc.) |
+| `skills/` | 15 módulos reutilizables de conocimiento jurídico |
+| `hooks/` | Configuración del hook `PreToolUse` de privacidad |
+| `scripts/` | Script de control de privacidad (`privacy-check.js`) |
+| `mcp-servers/` | Servidor local Ollama STDIO empaquetado para clasificación de privacidad |
 
-## Documentation
+## Archivos principales
 
-- [CONNECTORS.md](CONNECTORS.md) — MCP server API reference
-- [LICENSE](LICENSE) — AGPL-3.0 license
+- `.claude-plugin/plugin.json` — Manifiesto del plugin y esquema de configuración de usuario
+- `.mcp.json` — Configuración de transporte de servidores MCP
+- `hooks/hooks.json` — Enlaces de eventos para hooks
 
-## Packaging
+## Instalación en Cowork
+
+1. En Cowork, abre **Personalizar** > **Explorar plugins** > **Personales** > **+**.
+2. Añade el marketplace desde GitHub: `fedec65/bettercallclaude-espana`.
+3. Instala **BetterCallClaude España**.
+
+Los servidores MCP remotos se conectan automáticamente mediante HTTPS.
+
+## Documentación
+
+- [CONNECTORS.md](CONNECTORS.md) — Referencia de servidores MCP
+- [LICENSE](LICENSE) — Licencia AGPL-3.0
+
+## Empaquetado
 
 ```bash
 npm run package
 ```
 
-Creates `dist/bettercallclaude-espana-<version>.zip` ready for Cowork Desktop installation.
+Crea `dist/bettercallclaude-espana-v<version>.zip`, listo para instalación o distribución en Cowork Desktop.
