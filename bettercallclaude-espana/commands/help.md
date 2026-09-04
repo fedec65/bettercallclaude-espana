@@ -7,12 +7,6 @@ tools:
   - Bash
   - WebSearch
   - WebFetch
-  - mcp__plugin_bettercallclaude-espana_ollama__classify_privacy
-  - mcp__plugin_bettercallclaude-espana_ollama__translate
-  - mcp__plugin_bettercallclaude-espana_ollama__summarize
-  - mcp__ollama__classify_privacy
-  - mcp__ollama__translate
-  - mcp__ollama__summarize
 ---
 
 # help — Command Reference & Help

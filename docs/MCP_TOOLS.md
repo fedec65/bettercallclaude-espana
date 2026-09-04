@@ -2,9 +2,11 @@
 
 **CORRECTED 2026-09-04** — the first version of this inventory was derived from `bettercallclaude-espana/CONNECTORS.md` and is superseded. CONNECTORS.md documents tool names that **do not exist** on the deployed servers. The true source of truth is the server implementations in [`fedec65/BetterCallClaudeMCP_Espana`](https://github.com/fedec65/BetterCallClaudeMCP_Espana) (`mcp-servers/<server>/src/server.ts`), verified live via MCP `tools/list` handshakes against `https://mcp.bettercallclaude.es` (probed 2026-09-04: `legal-citations-esp` and `boe-legislacion` both match the repo exactly).
 
+**UPDATED 2026-09-04 (t16)** — the `ollama` entry in the first correction was itself wrong: it was derived from the old CONNECTORS.md, and the live probes covered only the remote gateway servers. The plugin bundles ollama at `bettercallclaude-espana/mcp-servers/ollama` (verified against both `src/index.ts` and `dist/index.js`): it exposes **5 tools, all prefixed `ollama_`**. The unprefixed `translate`/`summarize` tools do not exist.
+
 Consumed by `scripts/generate-tool-frontmatter.js` (parity floor script) and `scripts/check-tool-names.js` (parity guard). Do not edit the `SERVER_TOOLS` map by hand — re-derive from this file when tools change.
 
-Total: **11 remote servers (42 tools) + 1 local (`ollama`, 3 tools) = 12 servers, 45 tools.**
+Total: **11 remote servers (42 tools) + 1 local (`ollama`, 5 tools) = 12 servers, 47 tools.**
 
 ## Tool map
 
@@ -52,9 +54,11 @@ Total: **11 remote servers (42 tools) + 1 local (`ollama`, 3 tools) = 12 servers
 | `tribunal-constitucional` | `search_sentencias_tc` | `mcp__plugin_bettercallclaude-espana_tribunal-constitucional__search_sentencias_tc` | `mcp__tribunal-constitucional__search_sentencias_tc` |
 | `tribunal-constitucional` | `get_sentencia_tc` | `mcp__plugin_bettercallclaude-espana_tribunal-constitucional__get_sentencia_tc` | `mcp__tribunal-constitucional__get_sentencia_tc` |
 | `tribunal-constitucional` | `search_by_tema` | `mcp__plugin_bettercallclaude-espana_tribunal-constitucional__search_by_tema` | `mcp__tribunal-constitucional__search_by_tema` |
-| `ollama` *(local stdio)* | `classify_privacy` | `mcp__plugin_bettercallclaude-espana_ollama__classify_privacy` | `mcp__ollama__classify_privacy` |
-| `ollama` | `translate` | `mcp__plugin_bettercallclaude-espana_ollama__translate` | `mcp__ollama__translate` |
-| `ollama` | `summarize` | `mcp__plugin_bettercallclaude-espana_ollama__summarize` | `mcp__ollama__summarize` |
+| `ollama` *(local stdio)* | `ollama_check_status` | `mcp__plugin_bettercallclaude-espana_ollama__ollama_check_status` | `mcp__ollama__ollama_check_status` |
+| `ollama` | `ollama_generate` | `mcp__plugin_bettercallclaude-espana_ollama__ollama_generate` | `mcp__ollama__ollama_generate` |
+| `ollama` | `ollama_chat` | `mcp__plugin_bettercallclaude-espana_ollama__ollama_chat` | `mcp__ollama__ollama_chat` |
+| `ollama` | `ollama_classify_privacy` | `mcp__plugin_bettercallclaude-espana_ollama__ollama_classify_privacy` | `mcp__ollama__ollama_classify_privacy` |
+| `ollama` | `ollama_list_models` | `mcp__plugin_bettercallclaude-espana_ollama__ollama_list_models` | `mcp__ollama__ollama_list_models` |
 
 ## Per-server tool counts
 
@@ -71,8 +75,8 @@ Total: **11 remote servers (42 tools) + 1 local (`ollama`, 3 tools) = 12 servers
 | `legal-citations-esp` | 6 |
 | `legal-persona-esp` | 5 |
 | `tribunal-constitucional` | 3 |
-| `ollama` *(local)* | 3 |
-| **Total** | **45** |
+| `ollama` *(local)* | 5 |
+| **Total** | **47** |
 
 ## Server → tool list (compact form for `SERVER_TOOLS` in `scripts/generate-tool-frontmatter.js`)
 
@@ -89,13 +93,13 @@ const SERVER_TOOLS = {
   'legal-citations-esp': ['validate_citation', 'parse_citation', 'format_citation', 'convert_to_ecli', 'convert_to_boe_id', 'extract_citations'],
   'legal-persona-esp': ['draft_documento', 'analizar_caso', 'estrategia_procesal', 'redactar_informe', 'responder_consulta'],
   'tribunal-constitucional': ['search_sentencias_tc', 'get_sentencia_tc', 'search_by_tema'],
-  'ollama': ['classify_privacy', 'translate', 'summarize'],
+  'ollama': ['ollama_check_status', 'ollama_generate', 'ollama_chat', 'ollama_classify_privacy', 'ollama_list_models'],
 };
 ```
 
 ## CONNECTORS.md discrepancies (why this correction matters)
 
-`bettercallclaude-espana/CONNECTORS.md` documents 31 tools whose names almost never match the deployed reality. Only 4 names coincide:
+*(Historical record — CONNECTORS.md was rewritten to the deployed surface in wayfinder t16; the table below documents the pre-rewrite errors for audit.)* The pre-rewrite `bettercallclaude-espana/CONNECTORS.md` documented 31 tools whose names almost never matched the deployed reality. Only 4 names coincided:
 
 | Server | CONNECTORS.md claims | Actually deployed |
 |---|---|---|
@@ -126,7 +130,7 @@ const SERVER_TOOLS = {
 | **Legislative history** | `congreso-debates` | proyectos de ley, debates, status tracking |
 | **Doctrine** | `doctrina-academica` | search doctrina, search by autor |
 | **Cross-source** | `busqueda-general` | Pórtico, Findiur, multi-source search |
-| **Local / privacy** | `ollama` | classify_privacy / translate / summarize (offline) |
+| **Local / privacy** | `ollama` | offline privacy classification + local LLM generate/chat for PRIVILEGED content |
 
 ## Convention check (parity guard contract)
 

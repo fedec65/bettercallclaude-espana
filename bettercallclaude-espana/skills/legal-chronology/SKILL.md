@@ -8,12 +8,16 @@ tools:
   - Bash
   - WebSearch
   - WebFetch
-  - mcp__plugin_bettercallclaude-espana_ollama__classify_privacy
-  - mcp__plugin_bettercallclaude-espana_ollama__translate
-  - mcp__plugin_bettercallclaude-espana_ollama__summarize
-  - mcp__ollama__classify_privacy
-  - mcp__ollama__translate
-  - mcp__ollama__summarize
+  - mcp__plugin_bettercallclaude-espana_ollama__ollama_check_status
+  - mcp__plugin_bettercallclaude-espana_ollama__ollama_generate
+  - mcp__plugin_bettercallclaude-espana_ollama__ollama_chat
+  - mcp__plugin_bettercallclaude-espana_ollama__ollama_classify_privacy
+  - mcp__plugin_bettercallclaude-espana_ollama__ollama_list_models
+  - mcp__ollama__ollama_check_status
+  - mcp__ollama__ollama_generate
+  - mcp__ollama__ollama_chat
+  - mcp__ollama__ollama_classify_privacy
+  - mcp__ollama__ollama_list_models
 ---
 
 # Cronología Legal
@@ -43,7 +47,7 @@ Cada evento es conforme a `references/event-schema.md`:
 Construye o carga el registro de partes (`references/party-register.md`): nombre normalizado, alias vistos en los documentos, rol (actora/demandada, vendedora/compradora, ...). Todas las referencias a las partes en los eventos usan el nombre normalizado.
 
 ### Paso 2: EXTRACCIÓN (delegada)
-Por documento, el agente `chronology-builder` extrae los candidatos a evento: lectura estructural (tipo de documento, fecha del documento, partes) → hechos fechados → candidatos conformes al esquema. Las fechas se normalizan según `references/date-normalization.md` (ES/EN/FR/DE + lenguas cooficiales → ISO). Clasifica la privacidad del documento con el tool local `ollama__classify_privacy` antes de cualquier tratamiento (routing de privacidad).
+Por documento, el agente `chronology-builder` extrae los candidatos a evento: lectura estructural (tipo de documento, fecha del documento, partes) → hechos fechados → candidatos conformes al esquema. Las fechas se normalizan según `references/date-normalization.md` (ES/EN/FR/DE + lenguas cooficiales → ISO). Clasifica la privacidad del documento con el tool local `ollama_classify_privacy` antes de cualquier tratamiento (routing de privacidad).
 
 ### Paso 3: RECONCILIACIÓN
 Fusiona los candidatos:
