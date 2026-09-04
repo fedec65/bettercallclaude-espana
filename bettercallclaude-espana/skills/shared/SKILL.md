@@ -84,7 +84,8 @@ Comandos que producen archivos de salida con esta convención:
 | `legal-5step` | los 5 archivos + `fuentes.md` |
 | `briefing` | `plan-briefing.md` |
 | `autonomic` *(CCAA)* | `dictamen-autonomico-<ccaa>.md` |
+| `cronologia-legal` | `bcc-output/cronologia/` — `events.json` + `cronologia.md`/`.html`/`.docx` (excepción deliberada: artefacto vivo del caso, sin carpeta fechada) |
 
-> **Pendiente (Map B)**: `/triage-nda`, `/cronologia-legal`, `/percurso-legal`, `/mapa-legal`, `/objetivo-legal`, `/bucle-legal` ampliarán esta tabla cuando se creen. Hasta entonces sus archivos de salida no están definidos.
+> **Pendiente (Map B)**: `/triage-nda`, `/percurso-legal`, `/mapa-legal`, `/objetivo-legal`, `/bucle-legal` ampliarán esta tabla cuando se creen. Hasta entonces sus archivos de salida no están definidos.
 
 Comandos que se quedan en chat: `cite`, `validate`, `refine`, `summarize --breve`, `version`, `help`, `privacy`, `setup`. Los comandos pendientes de Map B que también permanecerán en chat: `start`, `doctor`.
