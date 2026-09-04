@@ -1,0 +1,67 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '20'
+
+      - name: Extract version from tag
+        id: get_version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Validate version alignment
+        run: |
+          VERSION="${{ steps.get_version.outputs.VERSION }}"
+          MARKETPLACE_VERSION=$(node -p "require('./.claude-plugin/marketplace.json').plugins[0].version")
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          PLUGIN_VERSION=$(node -p "require('./bettercallclaude-espana/.claude-plugin/plugin.json').version")
+          if [ "$MARKETPLACE_VERSION" != "$VERSION" ] || [ "$PACKAGE_VERSION" != "$VERSION" ] || [ "$PLUGIN_VERSION" != "$VERSION" ]; then
+            echo "ERROR: Tag version $VERSION does not match manifest versions!"
+            echo "marketplace.json: $MARKETPLACE_VERSION"
+            echo "package.json:     $PACKAGE_VERSION"
+            echo "plugin.json:      $PLUGIN_VERSION"
+            exit 1
+          fi
+          echo "✅ Version alignment confirmed: $VERSION"
+
+      - name: Build Ollama bundle
+        run: npm run build:ollama
+
+      - name: Package plugin
+        run: npm run package
+
+      - name: Extract release notes for this version
+        id: release_notes
+        run: |
+          VERSION="${{ steps.get_version.outputs.VERSION }}"
+          awk "/^## \[${VERSION}\]/{found=1; next} found && /^## \[/{exit} found{print}" CHANGELOG.md > /tmp/release-notes.md
+          if [ ! -s /tmp/release-notes.md ]; then
+            echo "ERROR: No release notes found for version ${VERSION} in CHANGELOG.md"
+            exit 1
+          fi
+          echo "Generated release notes for v${VERSION}:"
+          cat /tmp/release-notes.md
+
+      - name: Create Release
+        uses: softprops/action-gh-release@da05d552573ad5aba039eaac05058a918a7bf631 # v2.2.2
+        with:
+          name: "v${{ steps.get_version.outputs.VERSION }}"
+          body_path: /tmp/release-notes.md
+          files: |
+            dist/*.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
