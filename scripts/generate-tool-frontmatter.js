@@ -23,7 +23,7 @@ const commandsDir = path.join(root, 'bettercallclaude-espana', 'commands');
 const apply = process.argv.includes('--apply');
 
 // Server → list of tools (canonical contract: docs/MCP_TOOLS.md lines 79-94).
-// 11 remote servers (42 tools) + 1 local stdio (ollama, 3 tools) = 12 servers, 45 tools.
+// 11 remote servers (42 tools) + 1 local stdio (ollama, 5 tools) = 12 servers, 47 tools.
 const SERVER_TOOLS = {
   'boe-legislacion': ['search_boe', 'get_legislacion', 'get_metadatos', 'get_texto_consolidado', 'get_indice', 'get_bloque', 'get_analisis'],
   'busqueda-general': ['search_portico', 'search_findiur', 'search_multi_source'],
@@ -36,7 +36,7 @@ const SERVER_TOOLS = {
   'legal-citations-esp': ['validate_citation', 'parse_citation', 'format_citation', 'convert_to_ecli', 'convert_to_boe_id', 'extract_citations'],
   'legal-persona-esp': ['draft_documento', 'analizar_caso', 'estrategia_procesal', 'redactar_informe', 'responder_consulta'],
   'tribunal-constitucional': ['search_sentencias_tc', 'get_sentencia_tc', 'search_by_tema'],
-  ollama: ['classify_privacy', 'translate', 'summarize'],
+  ollama: ['ollama_check_status', 'ollama_generate', 'ollama_chat', 'ollama_classify_privacy', 'ollama_list_models'],
 };
 
 const TOOL_TO_SERVERS = {};
@@ -186,6 +186,21 @@ function commandTools(cmdFile) {
   return [...tools];
 }
 
+// Stale = MCP entry (scoped or bare form) whose server is a known ESP server
+// but whose tool is not in SERVER_TOOLS. Third-party MCP servers and non-MCP
+// (built-in) entries are never pruned.
+function isStaleMcpEntry(entry) {
+  let rest = null;
+  if (entry.startsWith(SCOPED_PREFIX)) rest = entry.slice(SCOPED_PREFIX.length);
+  else if (entry.startsWith(BARE_PREFIX)) rest = entry.slice(BARE_PREFIX.length);
+  else return false;
+  const m = rest.match(/^(.+?)__(.+)$/);
+  if (!m) return false;
+  const [, server, tool] = m;
+  return Object.prototype.hasOwnProperty.call(SERVER_TOOLS, server)
+    && !SERVER_TOOLS[server].includes(tool);
+}
+
 function insertToolsIntoFrontmatter(content, tools) {
   const fmMatch = content.match(/^---\n([\s\S]*?)\n---\n/);
   if (!fmMatch) return null;
@@ -193,7 +208,9 @@ function insertToolsIntoFrontmatter(content, tools) {
   const rest = content.slice(fmMatch[0].length);
 
   // Drop the existing tools: block but keep its entries: regeneration is a
-  // union (computed ∪ existing) and never removes previously granted tools.
+  // union (computed ∪ existing) — except MCP entries for known ESP servers
+  // whose tool is no longer in SERVER_TOOLS, which are pruned (the inventory
+  // is the contract; e.g. phantom ollama tools from an earlier inventory).
   const oldLines = fmMatch[1].split('\n');
   const existing = [];
   const lines = [];
@@ -211,7 +228,8 @@ function insertToolsIntoFrontmatter(content, tools) {
     lines.push(line);
   }
 
-  const merged = twinExpand([...new Set([...existing, ...tools])]);
+  const kept = existing.filter((e) => !isStaleMcpEntry(e));
+  const merged = twinExpand([...new Set([...kept, ...tools])]);
   const toolsYaml = 'tools:\n' + merged.map(t => `  - ${t}`).join('\n');
 
   // Preserve the original `tools:` position when one existed (we just dropped

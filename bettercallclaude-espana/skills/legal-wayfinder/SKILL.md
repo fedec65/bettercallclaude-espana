@@ -40,14 +40,18 @@ tools:
   - mcp__legal-citations-esp__extract_citations
   - mcp__plugin_bettercallclaude-espana_legal-citations-esp__convert_to_ecli
   - mcp__plugin_bettercallclaude-espana_legal-citations-esp__convert_to_boe_id
-  - mcp__plugin_bettercallclaude-espana_ollama__classify_privacy
-  - mcp__plugin_bettercallclaude-espana_ollama__translate
-  - mcp__plugin_bettercallclaude-espana_ollama__summarize
   - mcp__legal-citations-esp__convert_to_ecli
   - mcp__legal-citations-esp__convert_to_boe_id
-  - mcp__ollama__classify_privacy
-  - mcp__ollama__translate
-  - mcp__ollama__summarize
+  - mcp__plugin_bettercallclaude-espana_ollama__ollama_check_status
+  - mcp__plugin_bettercallclaude-espana_ollama__ollama_generate
+  - mcp__plugin_bettercallclaude-espana_ollama__ollama_chat
+  - mcp__plugin_bettercallclaude-espana_ollama__ollama_classify_privacy
+  - mcp__plugin_bettercallclaude-espana_ollama__ollama_list_models
+  - mcp__ollama__ollama_check_status
+  - mcp__ollama__ollama_generate
+  - mcp__ollama__ollama_chat
+  - mcp__ollama__ollama_classify_privacy
+  - mcp__ollama__ollama_list_models
 ---
 
 # Legal Wayfinder — Mapas Decisionales para Prácticas Legales Grandes
@@ -184,7 +188,7 @@ paso de la ruta.
 
 La `privacy-mode` del mapa gobierna cada ticket; el hook PreToolUse sigue vigilando las
 escrituras pase lo que pase. El clasificador se prueba una sola vez al trazar el mapa
-(`classify_privacy` de ollama, si Ollama está configurado) — nunca se re-prueba por
+(`ollama_classify_privacy`, detección de patrones 100% offline — no requiere Ollama en marcha) — nunca se re-prueba por
 ticket. La degradación sigue la matriz decisional de `privacy-routing`:
 
 | Contenido | classifier: ollama | classifier: none |

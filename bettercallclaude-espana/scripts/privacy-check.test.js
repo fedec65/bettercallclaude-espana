@@ -230,7 +230,7 @@ t('strict: no pattern → null (allow, pattern matching finds nothing)', () => {
 });
 
 t('strict: Ollama tool → null (exempt, local processing)', () => {
-  const r = classifyWithMode('Secreto profesional.', '', 'strict', 'mcp__ollama__translate');
+  const r = classifyWithMode('Secreto profesional.', '', 'strict', 'mcp__ollama__ollama_generate');
   assert.strictEqual(r, null);
 });
 
@@ -256,7 +256,7 @@ t('strict: weak pattern + context → deny', () => {
 });
 
 t('strict: empty content Ollama → null (exempt)', () => {
-  const r = classifyWithMode('', '', 'strict', 'mcp__ollama__translate');
+  const r = classifyWithMode('', '', 'strict', 'mcp__ollama__ollama_generate');
   assert.strictEqual(r, null);
 });
 
@@ -280,12 +280,12 @@ t('cloud: no pattern → null (allow)', () => {
 
 console.log('privacy-check: isOllamaTool');
 
-t('identifies mcp__ollama__translate as Ollama', () => {
-  assert.strictEqual(isOllamaTool('mcp__ollama__translate'), true);
+t('identifies mcp__ollama__ollama_generate as Ollama', () => {
+  assert.strictEqual(isOllamaTool('mcp__ollama__ollama_generate'), true);
 });
 
-t('identifies mcp__ollama__summarize as Ollama', () => {
-  assert.strictEqual(isOllamaTool('mcp__ollama__summarize'), true);
+t('identifies mcp__ollama__ollama_classify_privacy as Ollama', () => {
+  assert.strictEqual(isOllamaTool('mcp__ollama__ollama_classify_privacy'), true);
 });
 
 t('rejects mcp__jurisprudencia__search', () => {
