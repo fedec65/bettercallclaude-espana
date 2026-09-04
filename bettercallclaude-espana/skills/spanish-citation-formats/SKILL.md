@@ -1,6 +1,13 @@
 ---
 name: spanish-citation-formats
 description: "Citation verification and formatting for Spanish legal sources. Triggered when citations need validation, standardization, batch processing, or cross-language conversion between Spanish and English. Use for court decisions, statutes, regulations, and official gazette references. Ensures citation accuracy target >95%."
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
 # Spanish Citation Formats

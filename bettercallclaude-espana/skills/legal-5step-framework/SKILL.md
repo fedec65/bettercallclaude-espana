@@ -1,6 +1,13 @@
 ---
 name: legal-5step-framework
 description: "End-to-end 5-step legal pipeline for Spanish law: intake → research → strategy → adversarial → draft. Coordinates the full workflow, enforces data flow between agents, implements quality gates, provides progress reporting, and offers a post-execution framework menu. Triggered for comprehensive legal matters requiring multi-phase analysis."
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
 # Legal 5-Step Framework

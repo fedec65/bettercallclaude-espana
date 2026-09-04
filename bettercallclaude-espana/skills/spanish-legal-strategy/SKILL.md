@@ -1,6 +1,13 @@
 ---
 name: spanish-legal-strategy
 description: "Litigation and dispute resolution strategy under Spanish procedural law (LEC). Triggered when planning a lawsuit, choosing procedural pathways, estimating timelines, analyzing costs, or designing appeal strategy. Covers ordinario, verbal, monitorio, cambiario, and ejecutivo procedures under LEC."
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
 # Spanish Legal Strategy

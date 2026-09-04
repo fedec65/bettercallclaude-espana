@@ -1,6 +1,13 @@
 ---
 name: spanish-legal-translation
 description: "ES ↔ EN legal terminology translation for Spanish law. Triggered when translating contracts, court documents, legal opinions, or correspondence between Spanish and English. Preserves legal register, precision, and context. Follows court document translation standards."
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
 # Spanish Legal Translation

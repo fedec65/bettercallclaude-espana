@@ -1,5 +1,12 @@
 ---
 description: "View or change privacy mode (strict/balanced/cloud). Settings stored in ~/.betterask/config.yaml."
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
 # privacy — Privacy Mode Management

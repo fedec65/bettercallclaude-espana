@@ -1,6 +1,13 @@
 ---
 name: adversarial-analysis
 description: "Three-agent adversarial methodology to stress-test legal positions under Spanish law. Triggered when evaluating the strength of a legal argument, preparing for litigation, or assessing risks. Uses advocate → adversary → judicial analyst roles with probability scoring for each argument. Outputs strengths, weaknesses, and synthesis."
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
 # Adversarial Analysis

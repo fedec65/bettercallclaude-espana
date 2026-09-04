@@ -1,5 +1,12 @@
 ---
 description: "Develop litigation strategy with risk assessment, cost-benefit analysis, and procedural pathway evaluation under LEC."
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
 # strategy — Litigation Strategy Development

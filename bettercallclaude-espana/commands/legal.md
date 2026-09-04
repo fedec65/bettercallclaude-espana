@@ -1,5 +1,12 @@
 ---
 description: "Main gateway. Classifies intent, resolves jurisdiction, routes to specialist agents."
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
 # legal — Gateway & Intent Routing

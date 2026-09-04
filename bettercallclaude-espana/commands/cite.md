@@ -1,5 +1,12 @@
 ---
 description: "Verify and format Spanish legal citations (STS, SAP, STC, BOE formats)."
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
 # cite — Citation Verification & Formatting

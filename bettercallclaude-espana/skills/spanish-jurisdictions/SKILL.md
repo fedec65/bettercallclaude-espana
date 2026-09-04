@@ -1,6 +1,13 @@
 ---
 name: spanish-jurisdictions
 description: "Resolves state vs autonomic law applicability across Spain's 17 CCAA. Triggered when determining which jurisdiction applies, comparing CCAA legal regimes, analyzing foral systems, or navigating court hierarchy. Use for civil law differences, co-official language requirements, and federal competence questions under CE Art. 149 vs Art. 148."
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
 # Spanish Jurisdictions

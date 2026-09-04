@@ -1,5 +1,12 @@
 ---
 description: "Validate Spanish legal citations in bulk — check format, existence, and consistency."
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
 # validate — Bulk Citation Validation

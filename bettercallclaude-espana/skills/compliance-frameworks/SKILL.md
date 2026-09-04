@@ -1,6 +1,13 @@
 ---
 name: compliance-frameworks
 description: "Regulatory compliance analysis for Spanish supervised entities. Covers CNMV (securities markets), BdE (banking supervision), SEPBLAC (AML/PBC-FT), Código de Buen Gobierno (corporate governance), and sectoral regulations. Triggered when assessing compliance obligations, designing compliance programs, or responding to regulatory inquiries in Spain."
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
 # Compliance Frameworks

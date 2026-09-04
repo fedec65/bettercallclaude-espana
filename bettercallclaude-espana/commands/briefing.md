@@ -1,5 +1,12 @@
 ---
 description: "Structured pre-execution briefing — assembles specialist panel, collects case context, builds execution plan."
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
 # briefing — Pre-Execution Briefing

@@ -1,5 +1,12 @@
 ---
 description: "Search and analyze STS/SAP/STC precedents with precedent chain tracking."
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
 # precedent — Precedent Search & Analysis

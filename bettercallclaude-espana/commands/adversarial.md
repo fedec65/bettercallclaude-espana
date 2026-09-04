@@ -1,5 +1,12 @@
 ---
 description: "Three-agent adversarial analysis: advocate builds case, adversary challenges it, judicial analyst synthesizes."
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
 # adversarial — Adversarial Legal Analysis

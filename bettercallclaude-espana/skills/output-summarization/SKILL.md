@@ -1,6 +1,19 @@
 ---
 name: output-summarization
 description: "Consolidate and summarize output from multi-agent pipelines in the BetterCallClaude España plugin. Triggered as the terminal step after multi-agent execution. Deduplicates disclaimers, terminology, and citations. Supports --short, --medium, and --long length control. Provides bilingual summarization (ES/EN). This is a terminal step — no further menu is offered."
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
+  - mcp__plugin_bettercallclaude-espana_ollama__classify_privacy
+  - mcp__plugin_bettercallclaude-espana_ollama__translate
+  - mcp__plugin_bettercallclaude-espana_ollama__summarize
+  - mcp__ollama__classify_privacy
+  - mcp__ollama__translate
+  - mcp__ollama__summarize
 ---
 
 # Output Summarization

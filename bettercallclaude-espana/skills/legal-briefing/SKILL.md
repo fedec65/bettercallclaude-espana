@@ -1,6 +1,13 @@
 ---
 name: legal-briefing
 description: "Pre-execution intake coordination for complex Spanish legal matters. Triggered before multi-agent execution on complex disputes, transactions, or compliance reviews. Assembles a specialist panel of 3-5 agents, conducts adaptive questioning, builds an execution plan, and assigns a complexity score (1-10). Supports cross-session persistence."
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
 # Legal Briefing

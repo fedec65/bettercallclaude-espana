@@ -1,5 +1,12 @@
 ---
 description: "Search Spanish legal precedents (STS, SAP, STC) and compile research memoranda."
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
 # research — Legal Research & Precedent Search

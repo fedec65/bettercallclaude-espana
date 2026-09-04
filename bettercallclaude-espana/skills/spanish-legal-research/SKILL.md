@@ -1,6 +1,13 @@
 ---
 name: spanish-legal-research
 description: "Comprehensive legal research across Spanish state and autonomic law. Triggered when the user requests legal research, case law search, legislation lookup, doctrine review, or precedent analysis involving Spanish law (state or CCAA). Use for identifying applicable statutes, interpreting articles, finding judicial precedents from TS/AP, or reviewing academic commentary. Reduced mode applies when MCP servers (cendoj-jurisprudencia, boe-legislacion, legal-persona-esp, tribunal-constitucional, doctrina-academica) are unavailable."
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
 # Spanish Legal Research

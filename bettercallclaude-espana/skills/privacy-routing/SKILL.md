@@ -1,6 +1,13 @@
 ---
 name: privacy-routing
 description: "Secreto profesional detection and privacy routing for Spanish law practice. Scans outgoing tool calls for privilege indicators in Spanish and English. Respects privacy_mode from userConfig (strict/balanced/cloud). Trigger when: PreToolUse hook fires, or user queries about privacy settings."
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
 # Privacy Routing
