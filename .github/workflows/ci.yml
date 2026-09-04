@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main, dev] # dev: ESP delta — CI runs on the dev branch too (no-PR review flow)
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '20'
+
+      - name: Validate plugin manifests
+        run: node scripts/validate-plugin.js
+
+      - name: Validate privacy hook
+        run: node bettercallclaude-espana/scripts/privacy-check.test.js
+
+      - name: Check MCP tool-name parity
+        run: node scripts/check-tool-names.js
+
+      - name: Check version alignment
+        run: |
+          MARKETPLACE_VERSION=$(node -p "require('./.claude-plugin/marketplace.json').plugins[0].version")
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          PLUGIN_VERSION=$(node -p "require('./bettercallclaude-espana/.claude-plugin/plugin.json').version")
+          echo "marketplace.json: $MARKETPLACE_VERSION"
+          echo "package.json:     $PACKAGE_VERSION"
+          echo "plugin.json:      $PLUGIN_VERSION"
+          if [ "$MARKETPLACE_VERSION" != "$PACKAGE_VERSION" ] || [ "$PACKAGE_VERSION" != "$PLUGIN_VERSION" ]; then
+            echo "ERROR: Versions are not aligned!"
+            exit 1
+          fi
+          echo "✅ All versions aligned: $PACKAGE_VERSION"

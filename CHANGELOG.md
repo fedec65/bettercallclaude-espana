@@ -1,6 +1,6 @@
 # Changelog
 
-## v1.0.0 — Initial Spain Release
+## [1.0.0] - 2026-06-03 — Initial Spain Release
 
 **BetterCallClaude España** — Complete adaptation of the Swiss BetterCallClaude plugin to the Spanish legal environment.
 
