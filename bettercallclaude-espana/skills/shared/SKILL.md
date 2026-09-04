@@ -87,7 +87,9 @@ Comandos que producen archivos de salida con esta convención:
 | `cronologia-legal` | `bcc-output/cronologia/` — `events.json` + `cronologia.md`/`.html`/`.docx` (excepción deliberada: artefacto vivo del caso, sin carpeta fechada) |
 | `mapa-legal` | `bcc-output/YYYY-MM-DD-<slug>/wayfinder/map.md` + `wayfinder/tickets/` (mapa decisional: carpeta fechada del caso) |
 | `percurso-legal` | actualiza in situ `wayfinder/map.md` y `wayfinder/tickets/`; memos y prototipos en `assets/` |
+| `objetivo-legal` | `bcc-output/goals/<id>.md` (Goal Record: draft → confirmed) |
+| `bucle-legal` | `bcc-output/loops/<goal-id>/` — `iteration-N.md`, `summary.md`, `final/` |
 
-> **Pendiente (Map B)**: `/triage-nda`, `/objetivo-legal`, `/bucle-legal` ampliarán esta tabla cuando se creen. Hasta entonces sus archivos de salida no están definidos.
+> **Pendiente (Map B)**: `/triage-nda` ampliará esta tabla cuando se cree. Hasta entonces sus archivos de salida no están definidos.
 
 Comandos que se quedan en chat: `cite`, `validate`, `refine`, `summarize --breve`, `version`, `help`, `privacy`, `setup`. Los comandos pendientes de Map B que también permanecerán en chat: `start`, `doctor`.
