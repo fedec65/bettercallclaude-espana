@@ -39,3 +39,6 @@ jobs:
             exit 1
           fi
           echo "✅ All versions aligned: $PACKAGE_VERSION"
+
+      - name: Timeline render selfcheck
+        run: node bettercallclaude-espana/scripts/timeline-render.mjs selfcheck
