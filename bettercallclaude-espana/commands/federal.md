@@ -1,5 +1,12 @@
 ---
 description: "Analyze a legal question under Spanish state law (Derecho estatal): CC, CP, LEC, and related state statutes."
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
 # federal — State Law Analysis (Derecho Estatal)

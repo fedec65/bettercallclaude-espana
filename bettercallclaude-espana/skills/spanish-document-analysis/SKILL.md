@@ -1,6 +1,13 @@
 ---
 name: spanish-document-analysis
 description: "Analyze Spanish legal documents to identify issues, extract clauses, verify citations, assess compliance, and flag risks. Triggered when reviewing contracts, court filings, notarial deeds, corporate documents, or any text involving Spanish law. Checks mandatory law compliance and references Spanish databases."
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
 # Spanish Document Analysis

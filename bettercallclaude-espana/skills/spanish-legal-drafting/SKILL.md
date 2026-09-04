@@ -1,6 +1,13 @@
 ---
 name: spanish-legal-drafting
 description: "Draft Spanish legal documents including contracts, court submissions, and legal opinions. Triggered when the user needs a contract, demanda, escrito, informe jurídico, or any formal legal document under Spanish law. Follows mandatory law compliance, proper court submission structure, and CCAA-specific formatting where applicable."
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
 # Spanish Legal Drafting

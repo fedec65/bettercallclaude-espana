@@ -1,5 +1,12 @@
 ---
 description: "Draft Spanish legal documents: contracts, court submissions, legal opinions with proper citation formatting."
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
 # draft — Legal Document Drafting

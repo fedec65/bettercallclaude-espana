@@ -1,5 +1,12 @@
 ---
 description: "Display plugin version, installed components, system status."
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
 # version — Plugin Version & System Status

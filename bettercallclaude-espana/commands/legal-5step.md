@@ -1,5 +1,12 @@
 ---
 description: "Execute the 5-step end-to-end framework: intake → research → strategy → adversarial → draft."
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
 # legal-5step — End-to-End 5-Step Framework

@@ -1,6 +1,13 @@
 ---
 name: legal-query-refinement
 description: "Socratic dialogue to refine vague legal queries into actionable research tasks. Triggered when a user's query is underspecified, ambiguous, or lacks essential context for Spanish legal analysis. Identifies missing information and reformulates queries with proper Spanish legal terminology."
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
 # Legal Query Refinement

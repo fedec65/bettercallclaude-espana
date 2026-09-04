@@ -1,5 +1,12 @@
 ---
 description: "Analyze a legal question under autonomic law for a specific CCAA."
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
 # autonomic — Autonomic Law Analysis (Derecho Autonómico)

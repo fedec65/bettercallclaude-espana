@@ -1,6 +1,13 @@
 ---
 name: data-protection-law
 description: "Spanish data protection specialist — LOPDGDD, GDPR, AEPD guidance, DPIA (EIPD), data subject rights, cross-border transfers, and CCAA data protection laws. Trigger when: a user asks about data protection, privacy, GDPR, LOPDGDD, AEPD, DPIA, data subject rights, cross-border transfers, or breaches. Uses boe-legislacion and legal-persona-esp MCP servers."
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
 # Data Protection Law

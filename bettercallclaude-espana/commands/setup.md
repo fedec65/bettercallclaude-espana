@@ -1,5 +1,12 @@
 ---
 description: "Check MCP server connectivity and display status for all servers."
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
 # setup — MCP Server Status Check

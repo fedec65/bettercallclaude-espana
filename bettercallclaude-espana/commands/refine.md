@@ -1,5 +1,12 @@
 ---
 description: "Transform vague legal queries into structured prompts through Socratic dialogue."
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
 # refine — Query Refinement (Socratic Dialogue)
