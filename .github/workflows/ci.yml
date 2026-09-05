@@ -26,7 +26,7 @@ jobs:
       - name: Timeline render selfcheck
         run: node bettercallclaude-espana/scripts/timeline-render.mjs selfcheck
 
-      - name: Check MCP tool-name parity
+      - name: Check MCP tool-name parity + access guarantees
         run: node scripts/check-tool-names.js
 
       - name: Check version alignment
