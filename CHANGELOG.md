@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.1.1] - 2026-09-05 — Add workflows-esp consumer commands
+
+Delta incrementale sobre v1.1.0: trae a `main` el commit `feat(workflows-esp): plugin commands create-workflow + workflow hub` (#37), que añade el comando consumer `/create-workflow` y convierte `/workflow` en un hub de gestión de flujos. Resuelto el conflicto de rebase en `scripts/generate-tool-frontmatter.js` moviendo `SERVER_TOOLS` / `MULTI_AGENT_COMMANDS` a `scripts/tool-contracts.js` (single source of truth compartida con `check-tool-names.js`).
+
+### Changed
+- `scripts/tool-contracts.js`: añadido `workflows-esp` (9 tool) a `SERVER_TOOLS` y `create-workflow.md` a `MULTI_AGENT_COMMANDS`; comentario de cabecera actualizado a 12 remote + 1 stdio = 13 server / 56 tool.
+- `scripts/generate-tool-frontmatter.js`: importa los contratos desde `./tool-contracts` (sin duplicación local).
+- `check-tool-names.js`: pasa (72 archivos, 876 entradas, 18 agentes mapeados, 13 comandos orquestadores, 21 skills limpias).
+- `validate-plugin.js`: alineado a 1.1.1 en marketplace.json / plugin.json / package.json.
+
+### Notes
+- Rebase del commit único `fe9f0a7` sobre `origin/main` (post v1.1.0), no dev → main, para mantener la historia lineal.
+- Mismo árbol funcional que el PR original #37 contra dev: sin regresión semántica.
+
 ## [1.1.0] - 2026-09-05 — Flujos persistentes (Map D)
 
 **Workflows persistentes** end-to-end en el plugin España, con nuevo servidor MCP `workflows-esp` (ADR 0001) y dos comandos nuevos.
