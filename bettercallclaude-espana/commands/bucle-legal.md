@@ -37,6 +37,7 @@ tools:
   - mcp__ollama__ollama_chat
   - mcp__ollama__ollama_classify_privacy
   - mcp__ollama__ollama_list_models
+  - Task
 ---
 
 # Bucle Legal

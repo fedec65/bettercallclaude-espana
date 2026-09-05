@@ -8,6 +8,32 @@ tools:
   - Bash
   - WebSearch
   - WebFetch
+  - mcp__plugin_bettercallclaude-espana_boe-legislacion__search_boe
+  - mcp__plugin_bettercallclaude-espana_boe-legislacion__get_legislacion
+  - mcp__plugin_bettercallclaude-espana_boe-legislacion__get_metadatos
+  - mcp__plugin_bettercallclaude-espana_boe-legislacion__get_texto_consolidado
+  - mcp__plugin_bettercallclaude-espana_boe-legislacion__get_indice
+  - mcp__plugin_bettercallclaude-espana_boe-legislacion__get_bloque
+  - mcp__plugin_bettercallclaude-espana_boe-legislacion__get_analisis
+  - mcp__plugin_bettercallclaude-espana_cendoj-jurisprudencia__search_jurisprudencia
+  - mcp__plugin_bettercallclaude-espana_cendoj-jurisprudencia__get_sentencia_by_ecli
+  - mcp__plugin_bettercallclaude-espana_cendoj-jurisprudencia__search_by_tribunal
+  - mcp__plugin_bettercallclaude-espana_tribunal-constitucional__search_sentencias_tc
+  - mcp__plugin_bettercallclaude-espana_tribunal-constitucional__get_sentencia_tc
+  - mcp__plugin_bettercallclaude-espana_tribunal-constitucional__search_by_tema
+  - mcp__boe-legislacion__search_boe
+  - mcp__boe-legislacion__get_legislacion
+  - mcp__boe-legislacion__get_metadatos
+  - mcp__boe-legislacion__get_texto_consolidado
+  - mcp__boe-legislacion__get_indice
+  - mcp__boe-legislacion__get_bloque
+  - mcp__boe-legislacion__get_analisis
+  - mcp__cendoj-jurisprudencia__search_jurisprudencia
+  - mcp__cendoj-jurisprudencia__get_sentencia_by_ecli
+  - mcp__cendoj-jurisprudencia__search_by_tribunal
+  - mcp__tribunal-constitucional__search_sentencias_tc
+  - mcp__tribunal-constitucional__get_sentencia_tc
+  - mcp__tribunal-constitucional__search_by_tema
 ---
 
 # Spanish Legal Research
@@ -17,19 +43,20 @@ Conduct rigorous, source-verified legal research across the Spanish legal system
 
 ## MCP Servers
 - `cendoj-jurisprudencia` — Search and retrieve decisions from TS, AP, and lower courts.
-- `cendoj-jurisprudencia` — Search Tribunal Supremo decisions (STS, Auto del TS).
 - `boe-legislacion` — Query BOE legislation database (state statutes and regulations).
-- `legal-persona-esp` — Apply Spanish judicial reasoning styles and doctrinal perspectives.
 - `tribunal-constitucional` — Search Tribunal Constitucional decisions (STC, Auto del TC).
+- `doctrina-academica` — Search doctrinal and academic commentary.
 - `legal-citations-esp` — Verify and normalize citation accuracy.
+- `legal-persona-esp` — Apply Spanish judicial reasoning styles and doctrinal perspectives.
 
 ## Tools
-- `search_decisions` — Full-text search across Spanish court decisions (STS, SAP, Auto).
-- `get_decision` — Retrieve full text and metadata of a specific decision.
-- `search_legislation` — Search statutes and regulations in BOE and CCAA official gazettes.
-- `get_article` — Retrieve a specific article from a Spanish statute (e.g., Art. 1255 CC).
-- `get_doctrine` — Retrieve academic commentary and doctrinal summaries.
-- `get_commentary` — Retrieve official commentary or legislative history (exposición de motivos).
+- `search_jurisprudencia` — Full-text search across Spanish court decisions (STS, SAP, Auto).
+- `get_sentencia_by_ecli` — Retrieve full text and metadata of a specific decision.
+- `search_boe` — Search statutes and regulations in BOE and CCAA official gazettes.
+- `get_legislacion` — Retrieve a specific provision from a Spanish statute (e.g., Art. 1255 CC).
+- `get_texto_consolidado` — Retrieve the consolidated text of a statute (last updated version).
+- `search_doctrine` — Retrieve academic commentary and doctrinal summaries.
+- `search_sentencias_tc` — Search Tribunal Constitucional decisions (STC, Auto del TC).
 
 ## Research Protocol
 
@@ -41,19 +68,19 @@ Identify:
 - Language preference (ES / EN / bilingual)
 
 ### Step 2: Legislation Search
-1. Query `search_legislation` for the relevant statute and articles.
-2. Retrieve specific articles via `get_article`.
+1. Query `search_boe` for the relevant statute and articles.
+2. Retrieve specific provisions via `get_legislacion` or the consolidated text via `get_texto_consolidado`.
 3. Note CCAA statutes where applicable (e.g., Derecho Civil Vasco, Derecho Civil Navarro).
 
 ### Step 3: Case Law Search
 1. Search `cendoj-jurisprudencia` for Tribunal Supremo precedents.
 2. Search `cendoj-jurisprudencia` for Audiencias Provinciales and lower courts.
 3. Search `tribunal-constitucional` for constitutional review (STC) if fundamental rights are involved.
-4. Use `get_decision` to retrieve full texts for key precedents.
+4. Use `get_sentencia_by_ecli` to retrieve full texts for key precedents.
 
 ### Step 4: Doctrinal Review
-1. Query `get_doctrine` for leading academic commentary.
-2. Query `get_commentary` for legislative history where interpretive ambiguity exists.
+1. Query `search_doctrine` for leading academic commentary.
+2. For legislative history where interpretive ambiguity exists, retrieve the BOE exposición de motivos via `get_texto_consolidado` or `get_legislacion`.
 
 ### Step 5: Precedent Analysis
 For each key precedent, analyze:

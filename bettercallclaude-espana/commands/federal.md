@@ -7,6 +7,32 @@ tools:
   - Bash
   - WebSearch
   - WebFetch
+  - mcp__plugin_bettercallclaude-espana_boe-legislacion__search_boe
+  - mcp__plugin_bettercallclaude-espana_boe-legislacion__get_legislacion
+  - mcp__plugin_bettercallclaude-espana_boe-legislacion__get_metadatos
+  - mcp__plugin_bettercallclaude-espana_boe-legislacion__get_texto_consolidado
+  - mcp__plugin_bettercallclaude-espana_boe-legislacion__get_indice
+  - mcp__plugin_bettercallclaude-espana_boe-legislacion__get_bloque
+  - mcp__plugin_bettercallclaude-espana_boe-legislacion__get_analisis
+  - mcp__plugin_bettercallclaude-espana_cendoj-jurisprudencia__search_jurisprudencia
+  - mcp__plugin_bettercallclaude-espana_cendoj-jurisprudencia__get_sentencia_by_ecli
+  - mcp__plugin_bettercallclaude-espana_cendoj-jurisprudencia__search_by_tribunal
+  - mcp__plugin_bettercallclaude-espana_tribunal-constitucional__search_sentencias_tc
+  - mcp__plugin_bettercallclaude-espana_tribunal-constitucional__get_sentencia_tc
+  - mcp__plugin_bettercallclaude-espana_tribunal-constitucional__search_by_tema
+  - mcp__boe-legislacion__search_boe
+  - mcp__boe-legislacion__get_legislacion
+  - mcp__boe-legislacion__get_metadatos
+  - mcp__boe-legislacion__get_texto_consolidado
+  - mcp__boe-legislacion__get_indice
+  - mcp__boe-legislacion__get_bloque
+  - mcp__boe-legislacion__get_analisis
+  - mcp__cendoj-jurisprudencia__search_jurisprudencia
+  - mcp__cendoj-jurisprudencia__get_sentencia_by_ecli
+  - mcp__cendoj-jurisprudencia__search_by_tribunal
+  - mcp__tribunal-constitucional__search_sentencias_tc
+  - mcp__tribunal-constitucional__get_sentencia_tc
+  - mcp__tribunal-constitucional__search_by_tema
 ---
 
 # federal — State Law Analysis (Derecho Estatal)

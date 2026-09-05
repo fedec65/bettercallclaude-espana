@@ -34,6 +34,74 @@ tools:
   - mcp__busqueda-general__search_portico
   - mcp__ollama__ollama_check_status
   - mcp__ollama__ollama_classify_privacy
+  - mcp__plugin_bettercallclaude-espana_boe-legislacion__get_legislacion
+  - mcp__plugin_bettercallclaude-espana_boe-legislacion__get_metadatos
+  - mcp__plugin_bettercallclaude-espana_boe-legislacion__get_texto_consolidado
+  - mcp__plugin_bettercallclaude-espana_boe-legislacion__get_indice
+  - mcp__plugin_bettercallclaude-espana_boe-legislacion__get_bloque
+  - mcp__plugin_bettercallclaude-espana_boe-legislacion__get_analisis
+  - mcp__plugin_bettercallclaude-espana_busqueda-general__search_findiur
+  - mcp__plugin_bettercallclaude-espana_busqueda-general__search_multi_source
+  - mcp__plugin_bettercallclaude-espana_catalunya-legal__compare_catalan_spanish_civil
+  - mcp__plugin_bettercallclaude-espana_catalunya-legal__get_articulo_civil_cat
+  - mcp__plugin_bettercallclaude-espana_cendoj-jurisprudencia__get_sentencia_by_ecli
+  - mcp__plugin_bettercallclaude-espana_cendoj-jurisprudencia__search_by_tribunal
+  - mcp__plugin_bettercallclaude-espana_congreso-debates__search_proyectos_ley
+  - mcp__plugin_bettercallclaude-espana_congreso-debates__track_legislative_status
+  - mcp__plugin_bettercallclaude-espana_derecho-historico__search_gazeta_historica
+  - mcp__plugin_bettercallclaude-espana_derecho-historico__get_texto_historico
+  - mcp__plugin_bettercallclaude-espana_doctrina-academica__search_by_autor
+  - mcp__plugin_bettercallclaude-espana_eu-law-esp__get_eurlex_document
+  - mcp__plugin_bettercallclaude-espana_eu-law-esp__search_curia
+  - mcp__plugin_bettercallclaude-espana_eu-law-esp__get_eu_treaty
+  - mcp__plugin_bettercallclaude-espana_legal-citations-esp__parse_citation
+  - mcp__plugin_bettercallclaude-espana_legal-citations-esp__format_citation
+  - mcp__plugin_bettercallclaude-espana_legal-citations-esp__convert_to_ecli
+  - mcp__plugin_bettercallclaude-espana_legal-citations-esp__convert_to_boe_id
+  - mcp__plugin_bettercallclaude-espana_legal-citations-esp__extract_citations
+  - mcp__plugin_bettercallclaude-espana_legal-persona-esp__analizar_caso
+  - mcp__plugin_bettercallclaude-espana_legal-persona-esp__estrategia_procesal
+  - mcp__plugin_bettercallclaude-espana_legal-persona-esp__redactar_informe
+  - mcp__plugin_bettercallclaude-espana_legal-persona-esp__responder_consulta
+  - mcp__plugin_bettercallclaude-espana_tribunal-constitucional__get_sentencia_tc
+  - mcp__plugin_bettercallclaude-espana_tribunal-constitucional__search_by_tema
+  - mcp__plugin_bettercallclaude-espana_ollama__ollama_generate
+  - mcp__plugin_bettercallclaude-espana_ollama__ollama_chat
+  - mcp__plugin_bettercallclaude-espana_ollama__ollama_list_models
+  - mcp__boe-legislacion__get_legislacion
+  - mcp__boe-legislacion__get_metadatos
+  - mcp__boe-legislacion__get_texto_consolidado
+  - mcp__boe-legislacion__get_indice
+  - mcp__boe-legislacion__get_bloque
+  - mcp__boe-legislacion__get_analisis
+  - mcp__busqueda-general__search_findiur
+  - mcp__busqueda-general__search_multi_source
+  - mcp__catalunya-legal__compare_catalan_spanish_civil
+  - mcp__catalunya-legal__get_articulo_civil_cat
+  - mcp__cendoj-jurisprudencia__get_sentencia_by_ecli
+  - mcp__cendoj-jurisprudencia__search_by_tribunal
+  - mcp__congreso-debates__search_proyectos_ley
+  - mcp__congreso-debates__track_legislative_status
+  - mcp__derecho-historico__search_gazeta_historica
+  - mcp__derecho-historico__get_texto_historico
+  - mcp__doctrina-academica__search_by_autor
+  - mcp__eu-law-esp__get_eurlex_document
+  - mcp__eu-law-esp__search_curia
+  - mcp__eu-law-esp__get_eu_treaty
+  - mcp__legal-citations-esp__parse_citation
+  - mcp__legal-citations-esp__format_citation
+  - mcp__legal-citations-esp__convert_to_ecli
+  - mcp__legal-citations-esp__convert_to_boe_id
+  - mcp__legal-citations-esp__extract_citations
+  - mcp__legal-persona-esp__analizar_caso
+  - mcp__legal-persona-esp__estrategia_procesal
+  - mcp__legal-persona-esp__redactar_informe
+  - mcp__legal-persona-esp__responder_consulta
+  - mcp__tribunal-constitucional__get_sentencia_tc
+  - mcp__tribunal-constitucional__search_by_tema
+  - mcp__ollama__ollama_generate
+  - mcp__ollama__ollama_chat
+  - mcp__ollama__ollama_list_models
 ---
 
 # BetterCallClaude España — Diagnóstico

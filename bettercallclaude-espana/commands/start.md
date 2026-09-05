@@ -19,6 +19,17 @@ tools:
   - mcp__eu-law-esp__search_eurlex
   - mcp__legal-citations-esp__validate_citation
   - mcp__legal-persona-esp__draft_documento
+  - mcp__plugin_bettercallclaude-espana_ollama__ollama_check_status
+  - mcp__plugin_bettercallclaude-espana_ollama__ollama_generate
+  - mcp__plugin_bettercallclaude-espana_ollama__ollama_chat
+  - mcp__plugin_bettercallclaude-espana_ollama__ollama_classify_privacy
+  - mcp__plugin_bettercallclaude-espana_ollama__ollama_list_models
+  - Task
+  - mcp__ollama__ollama_check_status
+  - mcp__ollama__ollama_generate
+  - mcp__ollama__ollama_chat
+  - mcp__ollama__ollama_classify_privacy
+  - mcp__ollama__ollama_list_models
 ---
 
 # BetterCallClaude España — Bienvenida

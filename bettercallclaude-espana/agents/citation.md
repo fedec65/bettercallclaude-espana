@@ -11,6 +11,18 @@ tools:
   - Bash
   - WebSearch
   - WebFetch
+  - mcp__plugin_bettercallclaude-espana_legal-citations-esp__validate_citation
+  - mcp__plugin_bettercallclaude-espana_legal-citations-esp__parse_citation
+  - mcp__plugin_bettercallclaude-espana_legal-citations-esp__format_citation
+  - mcp__plugin_bettercallclaude-espana_legal-citations-esp__convert_to_ecli
+  - mcp__plugin_bettercallclaude-espana_legal-citations-esp__convert_to_boe_id
+  - mcp__plugin_bettercallclaude-espana_legal-citations-esp__extract_citations
+  - mcp__legal-citations-esp__validate_citation
+  - mcp__legal-citations-esp__parse_citation
+  - mcp__legal-citations-esp__format_citation
+  - mcp__legal-citations-esp__convert_to_ecli
+  - mcp__legal-citations-esp__convert_to_boe_id
+  - mcp__legal-citations-esp__extract_citations
 ---
 
 # Spanish Citation Expert

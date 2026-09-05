@@ -39,6 +39,25 @@ tools:
   - mcp__ollama__ollama_chat
   - mcp__ollama__ollama_classify_privacy
   - mcp__ollama__ollama_list_models
+  - mcp__plugin_bettercallclaude-espana_boe-legislacion__get_metadatos
+  - mcp__plugin_bettercallclaude-espana_boe-legislacion__get_indice
+  - mcp__plugin_bettercallclaude-espana_boe-legislacion__get_bloque
+  - mcp__plugin_bettercallclaude-espana_boe-legislacion__get_analisis
+  - mcp__plugin_bettercallclaude-espana_eu-law-esp__search_curia
+  - mcp__plugin_bettercallclaude-espana_eu-law-esp__get_eu_treaty
+  - mcp__plugin_bettercallclaude-espana_legal-citations-esp__convert_to_ecli
+  - mcp__plugin_bettercallclaude-espana_legal-citations-esp__convert_to_boe_id
+  - mcp__plugin_bettercallclaude-espana_legal-citations-esp__extract_citations
+  - Task
+  - mcp__boe-legislacion__get_metadatos
+  - mcp__boe-legislacion__get_indice
+  - mcp__boe-legislacion__get_bloque
+  - mcp__boe-legislacion__get_analisis
+  - mcp__eu-law-esp__search_curia
+  - mcp__eu-law-esp__get_eu_treaty
+  - mcp__legal-citations-esp__convert_to_ecli
+  - mcp__legal-citations-esp__convert_to_boe_id
+  - mcp__legal-citations-esp__extract_citations
 ---
 
 # /percurso-legal — Trabajar Un Ticket Decisional

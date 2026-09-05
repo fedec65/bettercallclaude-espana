@@ -43,3 +43,24 @@ _Avoid_: parere (generico), dictamen (senza specificare CCAA)
 **patrón de comandos nuevos**:
 Sostantivo spagnolo + `-legal` (`mapa-legal`, `percurso-legal`, `cronologia-legal`, `bucle-legal`, `objetivo-legal`). I 21 nomi inglesi esistenti restano fino a decisione Map C.
 _Avoid_: prefisso `legale-` (italiano), nomi inglesi per comandi nuovi
+
+## Lingua: prossima migrazione (Map C)
+
+**Canonical language plugin**: spagnolo (ESP). Le skill ad alto contatto utente (research, drafting, strategy) sono prioritarie. NON tradurre adesso — solo documento il piano per Map C.
+
+**File di prosa ancora in inglese da tradurre** (inventario iniziale — aggiornare in Map C):
+
+- `bettercallclaude-espana/skills/spanish-legal-research/SKILL.md` — ricerca legale, evidenze BOE/CENDOJ/TC/doctrina. Tool rinominati già allineati alla convenzione canonica (issue 2 della PR #29). Priorità: **alta** (skill user-facing, primo contatto col plugin).
+- `bettercallclaude-espana/skills/data-protection-law/SKILL.md` — riferimenti residui a nomi tool pre-ritiro (`search_legislation`, `get_article`); la prosa del protocollo è ancora in inglese. Priorità: **media** (specialistica, non primo contatto).
+- `bettercallclaude-espana/skills/legal-chronology/SKILL.md` — già spagnolo per il corpo principale; verificare riferimenti secondari. Priorità: **bassa** (corpo già localizzato).
+- `bettercallclaude-espana/agents/*.md` — prosa del system prompt in inglese per molti agent (`advocate.md`, `adversary.md`, `researcher.md`, `judicial.md`, `procedure.md`, `corporate.md`, `realestate.md`, `compliance.md`, `risk.md`, `summarizer.md`, `translator.md`, `briefing.md`, `drafter.md`, `fiscal.md`, `citation.md`, `data-protection.md`, `autonomic.md`, `orchestrator.md`, `prompt-engineer.md`). Priorità: **media** (prosa interna al system prompt, non esposta all'utente finale).
+- `bettercallclaude-espana/skills/spanish-citation-formats/SKILL.md` — da verificare.
+- `bettercallclaude-espana/skills/spanish-jurisdictions/SKILL.md` — da verificare.
+- `bettercallclaude-espana/skills/spanish-legal-strategy/SKILL.md` — da verificare.
+- `bettercallclaude-espana/skills/spanish-document-analysis/SKILL.md` — da verificare.
+- `bettercallclaude-espana/skills/spanish-legal-drafting/SKILL.md` — da verificare.
+- `bettercallclaude-espana/skills/spanish-legal-translation/SKILL.md` — bilingue per definizione, gestire caso per caso.
+
+**Decisione pending per Map C**: tradurre il system prompt degli agent allo spagnolo (impatto sulla qualità del prompt stesso — da valutare) oppure mantenere l'ingernese come "lingua di lavoro del modello" ed esporre solo le descrizioni `description:` in spagnolo (prosa utente-facing).
+
+Vincolni sempre: zero cirillico, zero emoji, prosa in spagnolo canonico, italiano solo per meta-documentazione interna (CONTEXT.md, AGENTS.md).

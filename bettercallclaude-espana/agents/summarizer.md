@@ -7,6 +7,8 @@ tools:
   - Grep
   - Glob
   - Bash
+  - WebSearch
+  - WebFetch
 ---
 
 # Spanish Summarizer Agent

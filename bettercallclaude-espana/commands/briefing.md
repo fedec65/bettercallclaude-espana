@@ -7,6 +7,7 @@ tools:
   - Bash
   - WebSearch
   - WebFetch
+  - Task
 ---
 
 # briefing — Pre-Execution Briefing

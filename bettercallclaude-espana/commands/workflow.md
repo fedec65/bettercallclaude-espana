@@ -7,6 +7,7 @@ tools:
   - Bash
   - WebSearch
   - WebFetch
+  - Task
 ---
 
 # workflow — Multi-Agent Legal Workflows
