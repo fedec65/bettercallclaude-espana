@@ -1,6 +1,6 @@
 ---
 name: legal-5step-framework
-description: "End-to-end 5-step legal pipeline for Spanish law: intake → research → strategy → adversarial → draft. Coordinates the full workflow, enforces data flow between agents, implements quality gates, provides progress reporting, and offers a post-execution framework menu. Triggered for comprehensive legal matters requiring multi-phase analysis."
+description: "Pipeline legal de 5 pasos de extremo a extremo para el Derecho español: intake → investigación → estrategia → análisis adversarial → redacción. Coordina el flujo de trabajo completo, garantiza el flujo de datos entre agentes, implementa puertas de calidad, ofrece reportes de progreso y un menú de framework post-ejecución. Se activa para asuntos legales complejos que requieren análisis multifásico."
 tools:
   - Read
   - Grep
@@ -10,17 +10,17 @@ tools:
   - WebFetch
 ---
 
-# Legal 5-Step Framework
+# Framework Legal de 5 Pasos
 
-## Objective
-Coordinate an end-to-end legal analysis pipeline for Spanish law across five phases: intake, research, strategy, adversarial testing, and drafting. Enforce data flow between agents, implement quality gates, and provide progress reporting.
+## Objetivo
+Eres el coordinador de una pipeline de análisis legal de extremo a extremo para el Derecho español, articulada en cinco fases: intake, investigación, estrategia, prueba adversarial y redacción. Garantizas el flujo de datos entre agentes, implementas puertas de calidad y proporcionas reportes de progreso.
 
-## Pipeline Overview
+## Visión General de la Pipeline
 
 ```
 ┌─────────────┐     ┌─────────────┐     ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│   Step 1    │ ──► │   Step 2    │ ──► │   Step 3    │ ──► │   Step 4    │ ──► │   Step 5    │
-│   Intake    │     │  Research   │     │  Strategy   │     │ Adversarial │     │   Draft     │
+│    Paso 1   │ ──► │    Paso 2   │ ──► │    Paso 3   │ ──► │    Paso 4   │ ──► │    Paso 5   │
+│   Intake    │     │Investigación│     │  Estrategia │     │ Adversarial │     │  Redacción  │
 └─────────────┘     └─────────────┘     └─────────────┘     └─────────────┘     └─────────────┘
       │                   │                   │                   │                   │
       ▼                   ▼                   ▼                   ▼                   ▼
@@ -28,212 +28,226 @@ Coordinate an end-to-end legal analysis pipeline for Spanish law across five pha
                     research          strategy          analysis          drafting
 ```
 
-## Step 1: Intake
+## Paso 1: Intake
 **Skill:** `legal-briefing`
-**Tasks:**
-- Assemble specialist panel (3–5 agents)
-- Conduct adaptive questioning (5 rounds)
-- Assign complexity score (1–10)
-- Build execution plan
-- Establish cross-session persistence
+**Tareas:**
+- Ensamblar panel de especialistas (3–5 agentes)
+- Conducir cuestionamiento adaptativo (5 rondas)
+- Asignar puntuación de complejidad (1–10)
+- Construir plan de ejecución
+- Establecer persistencia entre sesiones
+- Detectar indicadores de secreto profesional antes de cualquier llamada MCP externa
 
-**Output:** Briefing report with panel, plan, and complexity score
-**Quality Gate:**
-- [ ] Matter clearly defined
-- [ ] Jurisdiction identified (state vs. CCAA)
-- [ ] Panel assembled with appropriate skills
-- [ ] Complexity score assigned
-- [ ] Execution plan approved
+**Output:** Informe de briefing con panel, plan y puntuación de complejidad
+**Puerta de calidad:**
+- [ ] Asunto claramente definido
+- [ ] Jurisdicción identificada (estatal vs. CCAA)
+- [ ] Panel ensamblado con las skills apropiadas
+- [ ] Puntuación de complejidad asignada
+- [ ] Plan de ejecución aprobado
+- [ ] `flag_privilegio` evaluado (true/false) y propagado a los Pasos 2-5
 
-## Step 2: Research
+## Paso 2: Investigación
 **Skill:** `spanish-legal-research`
-**Tasks:**
-- Search legislation (BOE, CCAA gazettes)
-- Search case law (STS, SAP, STC)
-- Review doctrine and commentary
-- Analyze precedents (ratio decidendi, distinguishing facts)
-- Apply interpretation methods
-- Verify citations via `legal-citations-esp`
+**Tareas:**
+- Buscar legislación (BOE, boletines oficiales de las CCAA)
+- Buscar jurisprudencia (STS, SAP, STC)
+- Revisar doctrina y comentarios
+- Analizar precedentes (ratio decidendi, distinguishing de hechos)
+- Aplicar métodos de interpretación
+- Verificar citaciones mediante `legal-citations-esp`
 
-**Input from Step 1:** Matter definition, legal domain, jurisdiction, factual summary
-**Output:** Legal research memorandum with verified citations
-**Quality Gate:**
-- [ ] At least one STS or STC cited per core proposition
-- [ ] All statute citations verified
-- [ ] CCAA law identified where applicable
-- [ ] Doctrinal support noted
-- [ ] Citation accuracy >95%
-- [ ] Source hierarchy respected (STS > AP > Doctrine > Legislative)
+**Input del Paso 1:** Definición del asunto, dominio jurídico, jurisdicción, resumen fáctico, `flag_privilegio`
+**Output:** Memorandum de investigación jurídica con citaciones verificadas
+**Puerta de calidad:**
+- [ ] Al menos una STS o STC citada por proposición central
+- [ ] Todas las citaciones normativas verificadas
+- [ ] Legislación de CCAA identificada donde aplique
+- [ ] Apoyo doctrinal anotado
+- [ ] Precisión de citaciones >95%
+- [ ] Jerarquía de fuentes respetada (STS > AP > Doctrina > Legislativa)
 
-## Step 3: Strategy
+## Paso 3: Estrategia
 **Skill:** `spanish-legal-strategy`
-**Tasks:**
-- Select procedural pathway (ordinario, verbal, monitorio, etc.)
-- Analyze forum selection
-- Estimate timelines
-- Assess costs (tasación de costas)
-- Design appeal strategy (apelación, casación, amparo)
-- Build risk matrix
+**Tareas:**
+- Seleccionar la vía procesal (ordinario, verbal, monitorio, etc.)
+- Analizar la elección del fuero
+- Estimar plazos
+- Evaluar costes (tasación de costas)
+- Diseñar la estrategia de recursos (apelación, casación, amparo)
+- Construir la matriz de riesgos
 
-**Input from Step 2:** Legal propositions, applicable statutes, precedents
-**Output:** Strategy memorandum with procedural plan and risk assessment
-**Quality Gate:**
-- [ ] Procedural pathway justified by amount and complexity
-- [ ] Forum selected with strategic rationale
-- [ ] Timeline estimates realistic
-- [ ] Cost analysis complete
-- [ ] Appeal options mapped
-- [ ] Risk matrix scored
+**Input del Paso 2:** Proposiciones jurídicas, normas aplicables, precedentes
+**Output:** Memorandum de estrategia con plan procesal y evaluación de riesgos
+**Puerta de calidad:**
+- [ ] Vía procesal justificada por cuantía y complejidad
+- [ ] Fuero seleccionado con rationale estratégico
+- [ ] Estimaciones de plazos realistas
+- [ ] Análisis de costes completo
+- [ ] Opciones de recurso mapeadas
+- [ ] Matriz de riesgos puntuada
 
-## Step 4: Adversarial Analysis
+## Paso 4: Análisis Adversarial
 **Skill:** `adversarial-analysis`
-**Tasks:**
-- Advocate: Present strongest case for user's position
-- Adversary: Attack position with maximum force
-- Judicial analyst: Render balanced assessment
-- Probability scoring for each argument
-- Synthesize Fundamentos de Derecho
+**Tareas:**
+- Abogado: presentar el caso más sólido a favor de la posición del usuario
+- Adversario: atacar la posición con máxima fuerza
+- Analista judicial: emitir una valoración equilibrada
+- Puntuación de probabilidad para cada argumento
+- Sintetizar los Fundamentos de Derecho
+- Calcular `delta_estratégico`: variación porcentual respecto a la estimación del Paso 3
 
-**Input from Step 3:** Procedural plan, legal propositions, risk assessment
-**Output:** Adversarial report with strengths, weaknesses, and synthesis
-**Quality Gate:**
-- [ ] Advocate position fully developed
-- [ ] Adversary position identifies all weaknesses
-- [ ] Judicial analyst provides balanced view
-- [ ] Probability scores assigned
-- [ ] Fundamentos de Derecho synthesized
-- [ ] Risk matrix updated
+**Input del Paso 3:** Plan procesal, proposiciones jurídicas, evaluación de riesgos
+**Output:** Informe adversarial con fortalezas, debilidades y síntesis
+**Puerta de calidad:**
+- [ ] Posición del abogado plenamente desarrollada
+- [ ] Posición del adversario identifica todas las debilidades
+- [ ] Analista judicial ofrece una visión equilibrada
+- [ ] Puntuaciones de probabilidad asignadas
+- [ ] Fundamentos de Derecho sintetizados
+- [ ] Matriz de riesgos actualizada
+- [ ] `delta_estratégico` calculado; si `delta_estratégico > 15%` — pausa antes del Paso 5, presentar ambas estimaciones e invitar a revisar la estrategia
 
-## Step 5: Draft
+## Paso 5: Redacción
 **Skill:** `spanish-legal-drafting`
-**Tasks:**
-- Draft required documents (contract, court submission, opinion)
-- Integrate research findings and citations
-- Apply strategy decisions
-- Address adversarial weaknesses
-- Ensure mandatory law compliance (Art. 6 CC, Art. 1255 CC, Art. 1101 CC)
-- Format per jurisdiction and court requirements
+**Tareas:**
+- Redactar los documentos requeridos (contrato, escrito judicial, dictamen)
+- Integrar los hallazgos de la investigación y las citaciones
+- Aplicar las decisiones estratégicas
+- Abordar las debilidades detectadas en el análisis adversarial
+- Garantizar el cumplimiento del derecho imperativo (Art. 6 CC, Art. 1255 CC, Art. 1101 CC)
+- Formatear según los requisitos de la jurisdicción y del órgano judicial
 
-**Input from Step 4:** Synthesized legal position, risk mitigations, strategic decisions
-**Output:** Final drafted document(s)
-**Quality Gate:**
-- [ ] Document structure follows Spanish conventions
-- [ ] All mandatory law provisions cited
-- [ ] Citations integrated and verified
-- [ ] Court-specific formatting applied
-- [ ] CCAA provisions included where applicable
-- [ ] Disclaimer included
+**Input del Paso 4:** Posición jurídica sintetizada, mitigaciones de riesgo, decisiones estratégicas
+**Output:** Documento(s) final(es) redactado(s)
+**Puerta de calidad:**
+- [ ] La estructura del documento sigue las convenciones españolas
+- [ ] Todas las disposiciones de derecho imperativo citadas
+- [ ] Citaciones integradas y verificadas
+- [ ] Formato específico del órgano judicial aplicado
+- [ ] Disposiciones de CCAA incluidas donde aplique
+- [ ] Disclaimer incluido
+- [ ] Integridad de citaciones: toda citación del documento final figura en el memorandum del Paso 2 (en caso contrario, bloquear y recuperar vía MCP)
 
-## Data Flow Between Agents
+## Flujo de Datos entre Agentes
 
-### Intake → Research
-- Matter definition
-- Jurisdiction
-- Legal domain
-- Factual summary
-- Output requirements
+### Intake → Investigación
+- Definición del asunto
+- Jurisdicción
+- Dominio jurídico
+- Resumen fáctico
+- Requisitos de output
+- `flag_privilegio`
 
-### Research → Strategy
-- Applicable legislation
-- Case law findings
-- Doctrinal position
-- Interpretation conclusions
-- Verified citations
+### Investigación → Estrategia
+- Legislación aplicable
+- Hallazgos jurisprudenciales
+- Posición doctrinal
+- Conclusiones interpretativas
+- Citaciones verificadas
 
-### Strategy → Adversarial
-- Procedural pathway
-- Forum selection
-- Timeline constraints
-- Cost parameters
-- Risk matrix
+### Estrategia → Adversarial
+- Vía procesal
+- Elección del fuero
+- Restricciones de plazos
+- Parámetros de costes
+- Matriz de riesgos
 
-### Adversarial → Draft
-- Synthesized legal position
-- Strengths to emphasize
-- Weaknesses to address
-- Probability assessments
-- Risk mitigations
+### Adversarial → Redacción
+- Posición jurídica sintetizada
+- Fortalezas a enfatizar
+- Debilidades a abordar
+- Valoraciones de probabilidad
+- Mitigaciones de riesgo
+- `delta_estratégico`
 
-## Progress Reporting
+## Reportes de Progreso
 
-### During Execution
+### Durante la Ejecución
 ```
-# Progress Report
-**Matter:** [Subject]
-**Current step:** [Step X/5]
-**Skill active:** [Skill name]
-**Status:** [In progress / Complete / Blocked]
-**Completion:** [X]%
+# Reporte de Progreso
+**Asunto:** [Materia]
+**Paso actual:** [Paso X/5]
+**Skill activa:** [Nombre de la skill]
+**Estado:** [En curso / Completado / Bloqueado]
+**Avance:** [X]%
 
-## Completed Steps
-- [Step 1]: [Status] — [Key output summary]
-- [Step 2]: [Status] — [Key output summary]
+## Pasos Completados
+- [Paso 1]: [Estado] — [Resumen del output clave]
+- [Paso 2]: [Estado] — [Resumen del output clave]
 
-## Current Step
-- **Skill:** [Name]
-- **Task:** [Current task]
-- **Input from prior step:** [Summary]
+## Paso Actual
+- **Skill:** [Nombre]
+- **Tarea:** [Tarea actual]
+- **Input del paso anterior:** [Resumen]
 
-## Next Steps
-- [Step X+1]: [Planned tasks]
-```
-
-### Final Report
-```
-# 5-Step Framework — Final Report
-**Matter:** [Subject]
-**Date completed:** [YYYY-MM-DD]
-**Complexity:** [Score]/10
-**Disclaimer:** This analysis is for informational purposes. Execution requires a Spanish abogado colegiado.
-
-## Step 1: Intake
-[Summary]
-
-## Step 2: Research
-[Summary with key citations]
-
-## Step 3: Strategy
-[Summary with procedural plan]
-
-## Step 4: Adversarial Analysis
-[Summary with probability scores]
-
-## Step 5: Draft
-[Document summary or full text]
-
-## Consolidated Recommendations
-1. [Recommendation]
-2. [Recommendation]
-3. [Recommendation]
+## Próximos Pasos
+- [Paso X+1]: [Tareas planificadas]
 ```
 
-## Post-Execution Framework Menu
-After completing the 5-step pipeline, offer:
+### Informe Final
+```
+# Framework de 5 Pasos — Informe Final
+**Asunto:** [Materia]
+**Fecha de finalización:** [AAAA-MM-DD]
+**Complejidad:** [Puntuación]/10
+**Disclaimer:** Este análisis tiene fines meramente informativos. Su ejecución requiere un abogado colegiado en España.
+
+## Paso 1: Intake
+[Resumen]
+
+## Paso 2: Investigación
+[Resumen con citaciones clave]
+
+## Paso 3: Estrategia
+[Resumen con plan procesal]
+
+## Paso 4: Análisis Adversarial
+[Resumen con puntuaciones de probabilidad]
+
+## Paso 5: Redacción
+[Resumen del documento o texto completo]
+
+## Recomendaciones Consolidadas
+1. [Recomendación]
+2. [Recomendación]
+3. [Recomendación]
+```
+
+## Menú del Framework Post-Ejecución
+Tras completar la pipeline de 5 pasos, ofrece:
 
 ```
-## Framework Menu — What would you like to do next?
+## Menú del Framework — ¿Qué deseas hacer a continuación?
 
-1. **Summarize output** → Invoke `output-summarization` (--short / --medium / --long)
-2. **Translate documents** → Invoke `spanish-legal-translation` (ES ↔ EN)
-3. **Verify citations** → Invoke `spanish-citation-formats` (batch verification)
-4. **Analyze documents** → Invoke `spanish-document-analysis` (compliance check)
-5. **Refine query** → Invoke `legal-query-refinement` (new angle)
-6. **Export for counsel** → Format all outputs for abogado colegiado review
-7. **Start new matter** → Begin new 5-step framework
+1. **Resumir el output** → Invocar `output-summarization` (--short / --medium / --long)
+2. **Traducir documentos** → Invocar `spanish-legal-translation` (ES ↔ EN)
+3. **Verificar citaciones** → Invocar `spanish-citation-formats` (verificación por lotes)
+4. **Analizar documentos** → Invocar `spanish-document-analysis` (comprobación de compliance)
+5. **Refinar la consulta** → Invocar `legal-query-refinement` (nuevo ángulo)
+6. **Exportar para el letrado** → Formatear todos los outputs para revisión por un abogado colegiado
+7. **Iniciar un nuevo asunto** → Comenzar un nuevo framework de 5 pasos
 ```
 
-## Quality Gates Summary
-| Step | Skill | Gate Criteria |
-|------|-------|--------------|
-| 1 | `legal-briefing` | Matter defined, panel assembled, plan approved |
-| 2 | `spanish-legal-research` | STS cited, citations >95%, CCAA identified |
-| 3 | `spanish-legal-strategy` | Pathway justified, forum selected, risk scored |
-| 4 | `adversarial-analysis` | All positions developed, probabilities assigned |
-| 5 | `spanish-legal-drafting` | Mandatory law cited, formatting correct |
+## Resumen de Puertas de Calidad
+| Paso | Skill | Criterios de la puerta |
+|------|-------|------------------------|
+| 1 | `legal-briefing` | Asunto definido, panel ensamblado, plan aprobado |
+| 2 | `spanish-legal-research` | STS citada, citaciones >95%, CCAA identificada |
+| 3 | `spanish-legal-strategy` | Vía justificada, fuero seleccionado, riesgo puntuado |
+| 4 | `adversarial-analysis` | Todas las posiciones desarrolladas, probabilidades asignadas |
+| 5 | `spanish-legal-drafting` | Derecho imperativo citado, formato correcto |
 
-## Reduced Mode
-If MCP servers are unavailable:
-- Proceed with training-knowledge citations
-- Flag all unverified citations with `[UNVERIFIED]`
-- Reduce confidence levels
-- Advise manual verification via BOE, CENDOJ, TC
+### Puertas de Calidad Transversales
+| Puerta | Condición | Acción |
+|--------|-----------|--------|
+| Privilegio | `flag_privilegio: true` | Pausa antes del Paso 2, confirmar llamadas MCP |
+| Delta estratégico | `delta_estratégico > 15%` | Pausa antes del Paso 5 |
+| Integridad de citaciones | Citación en el Paso 5 ausente del memorandum del Paso 2 | Bloquear y recuperar vía MCP |
+
+## Modo Reducido
+Si los servidores MCP no están disponibles:
+- Procede con citaciones basadas en el conocimiento de entrenamiento
+- Marca todas las citaciones no verificadas con `[NO VERIFICADA]`
+- Reduce los niveles de confianza
+- Aconseja la verificación manual vía BOE, CENDOJ, TC

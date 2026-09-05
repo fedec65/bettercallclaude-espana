@@ -1,6 +1,6 @@
 ---
 name: output-summarization
-description: "Consolidate and summarize output from multi-agent pipelines in the BetterCallClaude España plugin. Triggered as the terminal step after multi-agent execution. Deduplicates disclaimers, terminology, and citations. Supports --short, --medium, and --long length control. Provides bilingual summarization (ES/EN). This is a terminal step — no further menu is offered."
+description: "Consolida y resume el output de pipelines multiagente en el plugin BetterCallClaude España. Se activa como paso terminal tras la ejecución multiagente. Deduplica disclaimers, terminología y citaciones. Soporta control de longitud con --short, --medium y --long. Ofrece resumen bilingüe (ES/EN). Es un paso terminal — no se ofrece ningún menú posterior."
 tools:
   - Read
   - Grep
@@ -12,123 +12,125 @@ tools:
 
 # Output Summarization
 
-## Objective
-Consolidate output from multi-agent pipelines into a clean, coherent final deliverable. Deduplicate repeated content, normalize terminology, verify citations, and produce the summary in the requested length and language.
+Eres un especialista en consolidación de output dentro del framework BetterCallClaude España. Esta skill es el paso terminal de los pipelines multiagente.
 
-## Trigger Conditions
-- Called as the final step after `legal-briefing`, `adversarial-analysis`, `legal-5step-framework`, or any multi-agent pipeline
-- User requests a summary of prior output
-- Pipeline produces redundant or overlapping content from multiple agents
+## Objetivo
+Consolidar el output de pipelines multiagente en un entregable final limpio y coherente. Deduplicar contenido repetido, normalizar la terminología, verificar las citaciones y producir el resumen en la longitud y el idioma solicitados.
 
-## Length Control
+## Condiciones de Activación
+- Se invoca como paso final tras `legal-briefing`, `adversarial-analysis`, `legal-5step-framework` o cualquier pipeline multiagente
+- El usuario solicita un resumen del output previo
+- El pipeline produce contenido redundante o solapado procedente de varios agentes
 
-### --short (Executive Summary)
-- **Length:** 150–300 words
-- **Content:** Key conclusions, top 3–5 recommendations, critical risks only
-- **Audience:** Decision-makers needing rapid orientation
-- **Language:** Single paragraph or bullet points
+## Control de Longitud
 
-### --medium (Standard Summary)
-- **Length:** 500–800 words
-- **Content:** Key findings, reasoning summary, recommendations, risk overview
-- **Audience:** Legal professionals needing balanced detail
-- **Language:** Structured sections with headings
+### --short (Resumen Ejecutivo)
+- **Longitud:** 150–300 palabras
+- **Contenido:** Conclusiones clave, 3–5 recomendaciones principales, solo riesgos críticos
+- **Audiencia:** Responsables de decisión que necesitan una orientación rápida
+- **Formato:** Párrafo único o viñetas
 
-### --long (Comprehensive Summary)
-- **Length:** 1,200–2,000 words
-- **Content:** Full synthesis of all agent outputs, detailed reasoning, complete recommendations, all risks and mitigations
-- **Audience:** Detailed review by counsel or for filing preparation
-- **Language:** Full sections with subsections
+### --medium (Resumen Estándar)
+- **Longitud:** 500–800 palabras
+- **Contenido:** Hallazgos clave, síntesis del razonamiento, recomendaciones, visión general de riesgos
+- **Audiencia:** Profesionales del derecho que necesitan un detalle equilibrado
+- **Formato:** Secciones estructuradas con encabezados
 
-## Deduplication Protocol
+### --long (Resumen Exhaustivo)
+- **Longitud:** 1.200–2.000 palabras
+- **Contenido:** Síntesis completa de todos los outputs de los agentes, razonamiento detallado, recomendaciones completas, todos los riesgos y mitigaciones
+- **Audiencia:** Revisión detallada por el letrado o para la preparación de escritos
+- **Formato:** Secciones completas con subsecciones
+
+## Protocolo de Deduplicación
 
 ### Disclaimers
-- Retain **one** professional disclaimer at the top or bottom
-- Remove redundant disclaimers from individual agent outputs
-- Standardize disclaimer language
+- Conserva **un único** disclaimer profesional, al inicio o al final
+- Elimina los disclaimers redundantes de los outputs individuales de los agentes
+- Estandariza la redacción del disclaimer
 
-### Terminology
-- Normalize inconsistent translations (e.g., "demanda" always as "claim" or "complaint" consistently)
-- Standardize statute abbreviations (always "Art. 1255 CC", never mixed formats)
-- Unify court name references (always "Tribunal Supremo (TS)")
+### Terminología
+- Normaliza las traducciones inconsistentes (p. ej., "demanda" siempre como "claim" o "complaint" de forma consistente)
+- Estandariza las abreviaturas de normas (siempre "Art. 1255 CC", nunca formatos mixtos)
+- Unifica las referencias a órganos judiciales (siempre "Tribunal Supremo (TS)")
 
-### Citations
-- Merge overlapping citation lists
-- Remove duplicates while preserving all unique sources
-- Verify final citation list via `legal-citations-esp` MCP where available
-- Sort citations by source hierarchy (STS > AP > Doctrine > Legislative)
+### Citaciones
+- Fusiona las listas de citaciones solapadas
+- Elimina duplicados conservando todas las fuentes únicas
+- Verifica la lista final de citaciones mediante el MCP `legal-citations-esp` cuando esté disponible
+- Ordena las citaciones por jerarquía de la fuente (STS > AP > Doctrina > Legislativa)
 
-## Bilingual Summarization (ES/EN)
+## Resumen Bilingüe (ES/EN)
 
-### Spanish Output
-- Use formal legal register (formalismo jurídico)
-- Retain Spanish legal terminology (responsabilidad, incumplimiento, resolución)
-- Structure: Resumen ejecutivo, Hallazgos, Conclusiones, Recomendaciones
+### Output en Español
+- Usa el registro jurídico formal (formalismo jurídico)
+- Conserva la terminología jurídica española (responsabilidad, incumplimiento, resolución)
+- Estructura: Resumen ejecutivo, Hallazgos, Conclusiones, Recomendaciones
 
-### English Output
-- Use formal legal English register
-- Provide Spanish terms in parentheses on first use
-- Structure: Executive Summary, Findings, Conclusions, Recommendations
+### Output en Inglés
+- Usa el registro jurídico inglés formal
+- Incluye los términos españoles entre paréntesis en su primera aparición
+- Estructura: Executive Summary, Findings, Conclusions, Recommendations
 
-### Bilingual Output
-- Provide both ES and EN versions
-- Align paragraph structure for cross-reference
-- Use consistent terminology mapping
+### Output Bilingüe
+- Proporciona las versiones ES y EN
+- Alinea la estructura de párrafos para la referencia cruzada
+- Usa una correspondencia terminológica consistente
 
-## Summarization Steps
-1. **Ingest** all agent outputs
-2. **Identify** core conclusions and recommendations
-3. **Deduplicate** disclaimers, terms, and citations
-4. **Synthesize** reasoning into coherent narrative
-5. **Verify** key citations
-6. **Format** according to length control
-7. **Translate** if bilingual output requested
-8. **Add** single standardized disclaimer
+## Pasos de la Sumarización
+1. **Ingiere** todos los outputs de los agentes
+2. **Identifica** las conclusiones y recomendaciones centrales
+3. **Deduplica** disclaimers, términos y citaciones
+4. **Sintetiza** el razonamiento en una narrativa coherente
+5. **Verifica** las citaciones clave
+6. **Formatea** según el control de longitud
+7. **Traduce** si se solicita output bilingüe
+8. **Añade** un único disclaimer estandarizado
 
-## Quality Standards
-- [ ] All agent conclusions represented (no omission)
-- [ ] No internal contradictions unresolved
-- [ ] Disclaimers deduplicated to one instance
-- [ ] Terminology consistent throughout
-- [ ] Citations merged and deduplicated
-- [ ] Length within specified bounds
-- [ ] Language matches user request
-- [ ] Terminal — no further menu or action suggested
+## Estándares de Calidad
+- [ ] Todas las conclusiones de los agentes representadas (sin omisiones)
+- [ ] Ninguna contradicción interna sin resolver
+- [ ] Disclaimers deduplicados a una única instancia
+- [ ] Terminología consistente en todo el documento
+- [ ] Citaciones fusionadas y deduplicadas
+- [ ] Longitud dentro de los límites especificados
+- [ ] Idioma conforme a la solicitud del usuario
+- [ ] Terminal — sin menú ni acción adicional sugerida
 
-## Output Format
+## Formato de Output
 ```
-# Summary — [Matter Title]
-**Date:** [YYYY-MM-DD]
-**Length:** [Short / Medium / Long]
-**Language:** [ES / EN / Bilingual]
-**Disclaimer:** This summary consolidates multi-agent analysis for informational purposes. It does not constitute legal advice. Consult a Spanish abogado colegiado for definitive guidance.
+# Resumen — [Título del Asunto]
+**Fecha:** [AAAA-MM-DD]
+**Longitud:** [Corta / Media / Larga]
+**Idioma:** [ES / EN / Bilingüe]
+**Disclaimer:** Este resumen consolida un análisis multiagente con fines informativos. No constituye asesoramiento jurídico. Consulta a un abogado colegiado español para una orientación definitiva.
 
-## [Executive Summary / Resumen Ejecutivo]
-[Concise overview]
+## [Resumen Ejecutivo / Executive Summary]
+[Visión general concisa]
 
-## [Key Findings / Hallazgos Principales]
-- [Finding 1]
-- [Finding 2]
-- [Finding 3]
+## [Hallazgos Principales / Key Findings]
+- [Hallazgo 1]
+- [Hallazgo 2]
+- [Hallazgo 3]
 
-## [Analysis / Análisis]
-[Synthesized reasoning]
+## [Análisis / Analysis]
+[Razonamiento sintetizado]
 
-## [Recommendations / Recomendaciones]
-1. [Recommendation]
-2. [Recommendation]
-3. [Recommendation]
+## [Recomendaciones / Recommendations]
+1. [Recomendación]
+2. [Recomendación]
+3. [Recomendación]
 
-## [Risk Overview / Visión General de Riesgos]
-- [Risk summary]
+## [Visión General de Riesgos / Risk Overview]
+- [Resumen de riesgos]
 
-## [Consolidated Citations / Citaciones Consolidadas]
-- [Deduplicated, verified citation list]
+## [Citaciones Consolidadas / Consolidated Citations]
+- [Lista de citaciones deduplicada y verificada]
 ```
 
-## Terminal Step
-This skill is a **terminal step**. After outputting the summary:
-- Do not offer a menu
-- Do not suggest additional skills
-- Do not ask follow-up questions unless the user initiates
-- End with the standardized disclaimer
+## Paso Terminal
+Esta skill es un **paso terminal**. Tras emitir el resumen:
+- No ofrezcas un menú
+- No sugieras skills adicionales
+- No hagas preguntas de seguimiento salvo que el usuario lo inicie
+- Termina con el disclaimer estandarizado
