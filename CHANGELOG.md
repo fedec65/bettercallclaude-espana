@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.1.0] - 2026-09-05 — Flujos persistentes (Map D)
+
+**Workflows persistentes** end-to-end en el plugin España, con nuevo servidor MCP `workflows-esp` (ADR 0001) y dos comandos nuevos.
+
+### New
+- **Servidor MCP `workflows-esp`** (en el repo MCP): 9 tools concretos (`claim_user_id`, `list_agents`, `validate_pipeline`, `save_workflow`, `list_workflows`, `get_workflow`, `delete_workflow`, `log_run`, `delete_user`) con 3 providers — Postgres (prod, `DATABASE_URL`), SQLite (dev, `WORKFLOWS_STORE=sqlite`), InMemory (fallback/test). Schema idempotente + `migrations/0001_init.sql`. Cuota 50 workflows activos/user; cascade-delete LOPDGDD §17.
+- **Comando `/bettercallclaude-espana:create-workflow`** — entrevista guiada para diseñar un workflow, validarlo contra el manifest y guardarlo en el servidor.
+- **Comando `/bettercallclaude-espana:workflow`** (reescrito como hub) — plantillas fijas (litigation-prep, due-diligence, contract-lifecycle, realestate-closing) + flujos guardados, con `--resume` desde el último paso completado.
+- **Setting `user_id`** en `plugin.json` (CLI) más cadena de resolución 4-fallback (plugin setting → custom instructions Cowork → `~/.betterask/config.yaml` → generado y reclamado).
+- **Sección «Workflows persistentes»** en `INSTALL_ES.md` con ejemplo `flusso-nda` (NDA review chain) y notas de privacidad.
+- **Doc `docs/workflows-esp.md`** en el repo MCP con arquitectura, schema DB y ejemplos.
+- **Test E2E** `scripts/test-flusso-nda-e2e.mjs` que arranca el aggregator MCP, guarda `flusso-nda`, simula reinicio de Cowork (subprocess kill/relaunch) y verifica la persistencia + `--resume`. Invocable con `npm run test:flusso-nda`.
+- **PR bifase**: plugin-side (este PR) + MCP-side (#3 en `BetterCallClaudeMCP_Espana`); merge coordinado.
+
+### Changed
+- `commands/workflow.md` ampliado con gestión de flujos guardados (`list`, `show`, `delete`) y reanudar por etapa (no es nuevo, pasa de 21 a 30 comandos totales junto con `create-workflow`).
+- `skills/shared/SKILL.md`: secciones «User ID resolution» y «Workflow execution conventions».
+- `docs/MCP_TOOLS.md` y `CONNECTORS.md`: alineados a 13 servers / 56+9 tools (workflows-esp añade 9).
+- `validate-plugin.js`, `check-tool-names.js`: cobertura ampliada a la fila `workflows-esp` y los 9 nombres scoped/bare.
+
+### Notes
+- Versión bump a 1.1.0 (no a 2.0.0 — el bump mayor queda en Map C fuera de este PR).
+- El agente descrito como `nda-triage-agent` en la documentación inicial corresponde a `spanish-data-protection-expert` (no hay agente NDA dedicado en el manifest).
+- Pipeline de ejemplo a **4 etapas** `briefing → researcher → drafter → data-protection`: `spanish-citation-expert` no encadena con `spanish-legal-drafter` (`verified_citations` no figura entre los `input_types` del drafter), así que las citas (`citations.md`) las produce `spanish-legal-researcher` en la etapa 2. La cadena semántica original (brief → research/citas → draft → revisión LOPDGDD) se preserva.
+
 ## [1.0.0] - 2026-06-03 — Initial Spain Release
 
 **BetterCallClaude España** — Complete adaptation of the Swiss BetterCallClaude plugin to the Spanish legal environment.

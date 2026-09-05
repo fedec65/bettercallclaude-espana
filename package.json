@@ -1,12 +1,13 @@
 {
   "name": "bettercallclaude-espana",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "description": "Spain Legal Intelligence Plugin for Claude",
   "scripts": {
     "build:ollama": "cd bettercallclaude-espana/mcp-servers/ollama && npm install && npm run build:bundle",
     "package": "bash scripts/package-plugin.sh",
-    "validate": "node scripts/validate-plugin.js"
+    "validate": "node scripts/validate-plugin.js",
+    "test:flusso-nda": "node scripts/test-flusso-nda-e2e.mjs"
   },
   "repository": {
     "type": "git",
