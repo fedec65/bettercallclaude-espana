@@ -37,6 +37,13 @@ tools:
   - mcp__ollama__ollama_chat
   - mcp__ollama__ollama_classify_privacy
   - mcp__ollama__ollama_list_models
+  - mcp__plugin_bettercallclaude-espana_busqueda-general__search_portico
+  - mcp__plugin_bettercallclaude-espana_busqueda-general__search_findiur
+  - mcp__plugin_bettercallclaude-espana_busqueda-general__search_multi_source
+  - Task
+  - mcp__busqueda-general__search_portico
+  - mcp__busqueda-general__search_findiur
+  - mcp__busqueda-general__search_multi_source
 ---
 
 # /mapa-legal — Trazar un Mapa Decisional

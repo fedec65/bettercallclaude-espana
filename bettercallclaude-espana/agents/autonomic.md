@@ -11,6 +11,24 @@ tools:
   - Bash
   - WebSearch
   - WebFetch
+  - mcp__plugin_bettercallclaude-espana_derecho-historico__search_gazeta_historica
+  - mcp__plugin_bettercallclaude-espana_derecho-historico__search_legislacion_historica
+  - mcp__plugin_bettercallclaude-espana_derecho-historico__get_texto_historico
+  - mcp__plugin_bettercallclaude-espana_catalunya-legal__search_norma_civil_cat
+  - mcp__plugin_bettercallclaude-espana_catalunya-legal__compare_catalan_spanish_civil
+  - mcp__plugin_bettercallclaude-espana_catalunya-legal__get_articulo_civil_cat
+  - mcp__plugin_bettercallclaude-espana_congreso-debates__search_proyectos_ley
+  - mcp__plugin_bettercallclaude-espana_congreso-debates__search_debates
+  - mcp__plugin_bettercallclaude-espana_congreso-debates__track_legislative_status
+  - mcp__derecho-historico__search_gazeta_historica
+  - mcp__derecho-historico__search_legislacion_historica
+  - mcp__derecho-historico__get_texto_historico
+  - mcp__catalunya-legal__search_norma_civil_cat
+  - mcp__catalunya-legal__compare_catalan_spanish_civil
+  - mcp__catalunya-legal__get_articulo_civil_cat
+  - mcp__congreso-debates__search_proyectos_ley
+  - mcp__congreso-debates__search_debates
+  - mcp__congreso-debates__track_legislative_status
 ---
 
 # Autonomic Law Expert

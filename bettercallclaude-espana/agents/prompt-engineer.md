@@ -8,6 +8,7 @@ tools:
   - Glob
   - Bash
   - WebSearch
+  - WebFetch
 ---
 
 # Spanish Prompt Engineer Agent

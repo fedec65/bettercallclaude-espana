@@ -11,6 +11,32 @@ tools:
   - Bash
   - WebSearch
   - WebFetch
+  - mcp__plugin_bettercallclaude-espana_cendoj-jurisprudencia__search_jurisprudencia
+  - mcp__plugin_bettercallclaude-espana_cendoj-jurisprudencia__get_sentencia_by_ecli
+  - mcp__plugin_bettercallclaude-espana_cendoj-jurisprudencia__search_by_tribunal
+  - mcp__plugin_bettercallclaude-espana_tribunal-constitucional__search_sentencias_tc
+  - mcp__plugin_bettercallclaude-espana_tribunal-constitucional__get_sentencia_tc
+  - mcp__plugin_bettercallclaude-espana_tribunal-constitucional__search_by_tema
+  - mcp__plugin_bettercallclaude-espana_doctrina-academica__search_doctrina
+  - mcp__plugin_bettercallclaude-espana_doctrina-academica__search_by_autor
+  - mcp__plugin_bettercallclaude-espana_legal-persona-esp__draft_documento
+  - mcp__plugin_bettercallclaude-espana_legal-persona-esp__analizar_caso
+  - mcp__plugin_bettercallclaude-espana_legal-persona-esp__estrategia_procesal
+  - mcp__plugin_bettercallclaude-espana_legal-persona-esp__redactar_informe
+  - mcp__plugin_bettercallclaude-espana_legal-persona-esp__responder_consulta
+  - mcp__cendoj-jurisprudencia__search_jurisprudencia
+  - mcp__cendoj-jurisprudencia__get_sentencia_by_ecli
+  - mcp__cendoj-jurisprudencia__search_by_tribunal
+  - mcp__tribunal-constitucional__search_sentencias_tc
+  - mcp__tribunal-constitucional__get_sentencia_tc
+  - mcp__tribunal-constitucional__search_by_tema
+  - mcp__doctrina-academica__search_doctrina
+  - mcp__doctrina-academica__search_by_autor
+  - mcp__legal-persona-esp__draft_documento
+  - mcp__legal-persona-esp__analizar_caso
+  - mcp__legal-persona-esp__estrategia_procesal
+  - mcp__legal-persona-esp__redactar_informe
+  - mcp__legal-persona-esp__responder_consulta
 ---
 
 # Spanish Advocate

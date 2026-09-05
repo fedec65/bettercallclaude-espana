@@ -10,6 +10,13 @@
  * A missing twin silently strips the tool from the agent's allowlist on the host that
  * uses the other convention — the "No such tool available" regression (Swiss v4.11.5).
  *
+ * SCOPE NOTE: questo script verifica solo il pairing di naming convention. NON
+ * garantisce da solo che (a) gli agent specialist ricevano i tool MCP coerenti
+ * coi loro compiti (vedi `AGENT_SERVER_MAP` in scripts/generate-tool-frontmatter.js)
+ * né che (b) i workflow multi-agent abbiano `Task` nel loro `tools:` (vedi
+ * `MULTI_AGENT_COMMANDS` nello stesso script). Entrambe le garanzie sono prodotte
+ * dal generatore, non da questo checker.
+ *
  * Usage:
  *   node scripts/check-tool-names.js            # check (exit 1 on violation)
  *

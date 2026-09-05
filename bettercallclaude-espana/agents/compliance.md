@@ -11,6 +11,22 @@ tools:
   - Bash
   - WebSearch
   - WebFetch
+  - mcp__plugin_bettercallclaude-espana_busqueda-general__search_portico
+  - mcp__plugin_bettercallclaude-espana_busqueda-general__search_findiur
+  - mcp__plugin_bettercallclaude-espana_busqueda-general__search_multi_source
+  - mcp__plugin_bettercallclaude-espana_legal-persona-esp__draft_documento
+  - mcp__plugin_bettercallclaude-espana_legal-persona-esp__analizar_caso
+  - mcp__plugin_bettercallclaude-espana_legal-persona-esp__estrategia_procesal
+  - mcp__plugin_bettercallclaude-espana_legal-persona-esp__redactar_informe
+  - mcp__plugin_bettercallclaude-espana_legal-persona-esp__responder_consulta
+  - mcp__busqueda-general__search_portico
+  - mcp__busqueda-general__search_findiur
+  - mcp__busqueda-general__search_multi_source
+  - mcp__legal-persona-esp__draft_documento
+  - mcp__legal-persona-esp__analizar_caso
+  - mcp__legal-persona-esp__estrategia_procesal
+  - mcp__legal-persona-esp__redactar_informe
+  - mcp__legal-persona-esp__responder_consulta
 ---
 
 # Spanish Compliance Expert

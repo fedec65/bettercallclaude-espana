@@ -65,6 +65,60 @@ const COMMAND_SKILL_MAP = {
   'validate.md': ['spanish-citation-formats'],
 };
 
+// Agent → server MCP map (curated from each agent's description / role).
+// Curator derives here: researcher → jurisprudence, legislation, doctrine, TC.
+// citation → legal-citations-esp. drafter → legal-persona-esp.
+// data-protection → legal-persona-esp + eu-law-esp. autonomico → derecho-historico
+// + catalunya-legal + congreso-debates (CCAA legislative history + Catalonia +
+// parliamentary). compliance → busqueda-general. strategy / risk →
+// legal-persona-esp. judicial / advocate / adversary → legal-persona-esp.
+// procedure → legal-persona-esp. realestate / corporate / fiscal →
+// legal-persona-esp. briefing / chronology-builder → legal-persona-esp.
+// orchestrator → legal-persona-esp. translator / summarizer / prompt-engineer →
+// nessun MCP server (no need for verbatim BOE/CENDOJ tools).
+const AGENT_SERVER_MAP = {
+  'adversary.md': ['legal-persona-esp'],
+  'advocate.md': ['cendoj-jurisprudencia', 'tribunal-constitucional', 'doctrina-academica', 'legal-persona-esp'],
+  'autonomic.md': ['derecho-historico', 'catalunya-legal', 'congreso-debates'],
+  'briefing.md': ['legal-persona-esp'],
+  'chronology-builder.md': ['legal-persona-esp'],
+  'citation.md': ['legal-citations-esp'],
+  'compliance.md': ['busqueda-general', 'legal-persona-esp'],
+  'corporate.md': ['legal-persona-esp'],
+  'data-protection.md': ['legal-persona-esp', 'eu-law-esp'],
+  'drafter.md': ['legal-persona-esp'],
+  'fiscal.md': ['legal-persona-esp'],
+  'judicial.md': ['legal-persona-esp'],
+  'orchestrator.md': ['legal-persona-esp'],
+  'procedure.md': ['legal-persona-esp'],
+  'prompt-engineer.md': [],
+  'realestate.md': ['legal-persona-esp'],
+  'researcher.md': ['cendoj-jurisprudencia', 'boe-legislacion', 'tribunal-constitucional', 'doctrina-academica'],
+  'risk.md': ['legal-persona-esp'],
+  'strategist.md': ['legal-persona-esp'],
+  'summarizer.md': [],
+  'translator.md': [],
+};
+
+// Commands that dispatch sub-agents / orchestrate multi-agent pipelines and
+// therefore require the `Task` tool in their frontmatter. Curated from the
+// prose of each command file (Map B / wayfinder / doctor / briefing / etc.).
+// Skills are reference material and NEVER receive `Task`.
+const MULTI_AGENT_COMMANDS = new Set([
+  'legal.md',
+  'legal-5step.md',
+  'briefing.md',
+  'workflow.md',
+  'mapa-legal.md',
+  'percurso-legal.md',
+  'cronologia-legal.md',
+  'bucle-legal.md',
+  'objetivo-legal.md',
+  'triage-nda.md',
+  'start.md',
+  'doctor.md',
+]);
+
 const GENERIC_TOOLS = ['Read', 'Grep', 'Glob', 'Bash', 'WebSearch', 'WebFetch'];
 
 function readFile(p) {
@@ -183,6 +237,22 @@ function commandTools(cmdFile) {
   const tools = new Set(GENERIC_TOOLS);
   for (const fq of fqForServers(servers)) tools.add(fq);
 
+  // Multi-agent orchestrators dispatch sub-agents via the Task tool. Skills are
+  // reference material — they never get Task.
+  if (MULTI_AGENT_COMMANDS.has(base)) tools.add('Task');
+
+  return [...tools];
+}
+
+// Agent tool list: GENERIC_TOOLS + full per-server sets from AGENT_SERVER_MAP.
+// Curated (not text-analyzed) so the curation logic in `insertToolsIntoFrontmatter`
+// can preserve any pre-existing entries — agents keep their hand-picked allowlist,
+// we only add the canonical MCP entries for the servers they need.
+function agentTools(agentPath) {
+  const base = path.basename(agentPath);
+  const servers = new Set(AGENT_SERVER_MAP[base] || []);
+  const tools = new Set(GENERIC_TOOLS);
+  for (const fq of fqForServers(servers)) tools.add(fq);
   return [...tools];
 }
 
@@ -292,9 +362,12 @@ let fail = 0;
 
 // Agents: whitelists are curated per agent — keep the existing entries and
 // only add the missing naming-convention twins (no text-analysis additions).
+// `agentTools` populates GENERIC_TOOLS + canonical MCP entries for the servers
+// declared in AGENT_SERVER_MAP; the curation logic in `insertToolsIntoFrontmatter`
+// preserves any pre-existing entries not in this list.
 for (const agentFile of fs.readdirSync(agentsDir).filter(f => f.endsWith('.md'))) {
   const agentPath = path.join(agentsDir, agentFile);
-  if (processFile(agentPath, [])) ok++;
+  if (processFile(agentPath, agentTools(agentPath))) ok++;
   else fail++;
 }
 

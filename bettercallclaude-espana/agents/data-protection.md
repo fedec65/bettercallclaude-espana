@@ -11,6 +11,24 @@ tools:
   - Bash
   - WebSearch
   - WebFetch
+  - mcp__plugin_bettercallclaude-espana_legal-persona-esp__draft_documento
+  - mcp__plugin_bettercallclaude-espana_legal-persona-esp__analizar_caso
+  - mcp__plugin_bettercallclaude-espana_legal-persona-esp__estrategia_procesal
+  - mcp__plugin_bettercallclaude-espana_legal-persona-esp__redactar_informe
+  - mcp__plugin_bettercallclaude-espana_legal-persona-esp__responder_consulta
+  - mcp__plugin_bettercallclaude-espana_eu-law-esp__search_eurlex
+  - mcp__plugin_bettercallclaude-espana_eu-law-esp__get_eurlex_document
+  - mcp__plugin_bettercallclaude-espana_eu-law-esp__search_curia
+  - mcp__plugin_bettercallclaude-espana_eu-law-esp__get_eu_treaty
+  - mcp__legal-persona-esp__draft_documento
+  - mcp__legal-persona-esp__analizar_caso
+  - mcp__legal-persona-esp__estrategia_procesal
+  - mcp__legal-persona-esp__redactar_informe
+  - mcp__legal-persona-esp__responder_consulta
+  - mcp__eu-law-esp__search_eurlex
+  - mcp__eu-law-esp__get_eurlex_document
+  - mcp__eu-law-esp__search_curia
+  - mcp__eu-law-esp__get_eu_treaty
 ---
 
 # Spanish Data Protection Expert

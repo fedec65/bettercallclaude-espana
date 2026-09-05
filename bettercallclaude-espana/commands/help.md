@@ -19,43 +19,59 @@ This command operates on the plugin's documentation layer.
 ## Information Displayed
 
 ### Commands
-List all 21 commands with description and example:
-- `legal` — Gateway & intent routing
-- `research` — Precedent and statute research
-- `strategy` — Litigation strategy development
-- `draft` — Legal document drafting
-- `cite` — Citation verification and formatting
+List all 29 commands with description and example:
+- `legal` — Gateway & intent routing (e.g. `/bettercallclaude-espana:legal`)
+- `research` — Search Spanish legal precedents and compile research memoranda (e.g. `/bettercallclaude-espana:research "responsabilidad extracontractual"`)
+- `strategy` — Develop litigation strategy under LEC with risk/cost assessment (e.g. `/bettercallclaude-espana:strategy`)
+- `draft` — Draft Spanish legal documents: contracts, court submissions, opinions (e.g. `/bettercallclaude-espana:draft demanda`)
+- `cite` — Verify and format Spanish legal citations (STS, SAP, STC, BOE)
 - `validate` — Bulk citation validation
-- `precedent` — Precedent search with chain tracking
-- `federal` — State law analysis (Derecho estatal)
-- `autonomic` — Autonomic law analysis (Derecho autonómico)
-- `adversarial` — Three-agent adversarial analysis
-- `briefing` — Pre-execution briefing
-- `workflow` — Multi-agent workflows
-- `translate` — Legal translation ES↔EN
-- `doc-analyze` — Document analysis
-- `summarize` — Output summarization
-- `setup` — MCP server status
-- `version` — Plugin version
-- `legal-5step` — End-to-end 5-step framework
-- `privacy` — Privacy mode management
+- `precedent` — Search and analyze STS/SAP/STC precedents with chain tracking
+- `federal` — Analyze a legal question under Spanish state law (Derecho estatal)
+- `autonomic` — Analyze a legal question under autonomic law for a specific CCAA
+- `adversarial` — Three-agent adversarial analysis: advocate / adversary / judicial
+- `briefing` — Structured pre-execution briefing — assembles specialist panel
+- `workflow` — Multi-agent legal workflows: due diligence, litigation prep, contract lifecycle
+- `translate` — Translate Spanish legal documents between ES and EN
+- `doc-analyze` — Analyze Spanish legal documents — issues, clauses, citations, compliance
+- `summarize` — Consolidate multi-agent pipeline output with length control
+- `setup` — Check MCP server connectivity and display status
+- `version` — Display plugin version and system status
+- `legal-5step` — Execute the 5-step end-to-end framework: intake → research → strategy → adversarial → draft
+- `privacy` — View or change privacy mode (strict/balanced/cloud)
 - `help` — This command
-- `refine` — Query refinement via Socratic dialogue
+- `refine` — Transform vague legal queries through Socratic dialogue
+- `mapa-legal` — Traza un mapa decisional wayfinder de una práctica legal grande
+- `percurso-legal` — Trabaja un ticket de un mapa decisional legal-wayfinder
+- `cronologia-legal` — Construye una cronología legal documentada con fuente obligatoria
+- `bucle-legal` — Ejecuta un ciclo worker-evaluador contra un Goal Record
+- `objetivo-legal` — Define una condición de éxito legal verificable (Goal Record)
+- `doctor` — Diagnóstico de servidores MCP, estado e impacto
+- `start` — Bienvenida y onboarding — verifica MCP, guía playbook local
+- `triage-nda` — Triage de NDA según el derecho español (GREEN/YELLOW/RED)
 
 ### Agents
-- @spanish-legal-researcher
-- @spanish-legal-drafter
-- @spanish-litigation-strategist
+- @spanish-adversary
+- @spanish-advocate
+- @autonomic-law-expert
+- @spanish-briefing-coordinator
+- @chronology-builder
 - @spanish-citation-expert
 - @spanish-compliance-expert
-- @spanish-risk-analyst
-- @spanish-procedure-expert
-- @spanish-legal-translator
-- @spanish-fiscal-expert
 - @spanish-corporate-expert
-- @autonomic-law-expert
-- @spanish-realestate-expert
 - @spanish-data-protection-expert
+- @spanish-legal-drafter
+- @spanish-fiscal-expert
+- @spanish-judicial-analyst
+- @spanish-orchestrator
+- @spanish-procedure-expert
+- @spanish-prompt-engineer
+- @spanish-realestate-expert
+- @spanish-legal-researcher
+- @spanish-risk-analyst
+- @spanish-litigation-strategist
+- @spanish-summarizer
+- @spanish-legal-translator
 
 ### Skills
 - spanish-legal-research
@@ -73,6 +89,12 @@ List all 21 commands with description and example:
 - data-protection-law
 - privacy-routing
 - legal-5step-framework
+- legal-chronology
+- legal-wayfinder
+- legal-intake
+- legal-evaluator
+- citation-content-verify
+- shared
 
 ### MCP Servers
 List of configured MCP servers with status.
