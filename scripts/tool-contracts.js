@@ -19,7 +19,7 @@
  */
 
 // Server → list of tools (canonical contract: docs/MCP_TOOLS.md lines 79-94).
-// 11 remote servers (42 tools) + 1 local stdio (ollama, 5 tools) = 12 servers, 47 tools.
+// 12 remote servers (51 tools) + 1 local stdio (ollama, 5 tools) = 13 servers, 56 tools.
 const SERVER_TOOLS = {
   'boe-legislacion': ['search_boe', 'get_legislacion', 'get_metadatos', 'get_texto_consolidado', 'get_indice', 'get_bloque', 'get_analisis'],
   'busqueda-general': ['search_portico', 'search_findiur', 'search_multi_source'],
@@ -32,6 +32,7 @@ const SERVER_TOOLS = {
   'legal-citations-esp': ['validate_citation', 'parse_citation', 'format_citation', 'convert_to_ecli', 'convert_to_boe_id', 'extract_citations'],
   'legal-persona-esp': ['draft_documento', 'analizar_caso', 'estrategia_procesal', 'redactar_informe', 'responder_consulta'],
   'tribunal-constitucional': ['search_sentencias_tc', 'get_sentencia_tc', 'search_by_tema'],
+  'workflows-esp': ['claim_user_id', 'list_agents', 'validate_pipeline', 'save_workflow', 'list_workflows', 'get_workflow', 'delete_workflow', 'delete_user', 'log_run'],
   ollama: ['ollama_check_status', 'ollama_generate', 'ollama_chat', 'ollama_classify_privacy', 'ollama_list_models'],
 };
 
@@ -113,6 +114,7 @@ const MULTI_AGENT_COMMANDS = new Set([
   'triage-nda.md',
   'start.md',
   'doctor.md',
+  'create-workflow.md',
 ]);
 
 const GENERIC_TOOLS = ['Read', 'Grep', 'Glob', 'Bash', 'WebSearch', 'WebFetch'];

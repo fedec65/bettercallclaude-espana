@@ -1,8 +1,8 @@
 # Integración de servidores MCP — CONNECTORS
 
-BetterCallClaude España se integra con **12 servidores MCP**: 11 remotos a través del gateway `https://mcp.bettercallclaude.es` (transporte HTTP) y 1 local `ollama` (stdio, privacidad on-machine). Los servidores remotos exponen acceso directo a bases de datos jurídicas españolas: legislación estatal (BOE), jurisprudencia (CENDOJ, Tribunal Constitucional), derecho histórico, doctrina académica, derecho civil catalán, búsquedas agregadas y derecho UE aplicable en España; el servidor local realiza clasificación de privacidad y procesamiento LLM en la propia máquina para contenido privilegiado (Art. 24 LOPJ / Art. 542 CP).
+BetterCallClaude España se integra con **13 servidores MCP**: 12 remotos a través del gateway `https://mcp.bettercallclaude.es` (transporte HTTP) y 1 local `ollama` (stdio, privacidad on-machine). Los servidores remotos exponen acceso directo a bases de datos jurídicas españolas: legislación estatal (BOE), jurisprudencia (CENDOJ, Tribunal Constitucional), derecho histórico, doctrina académica, derecho civil catalán, búsquedas agregadas, derecho UE aplicable en España y flujos multi-agente persistentes; el servidor local realiza clasificación de privacidad y procesamiento LLM en la propia máquina para contenido privilegiado (Art. 24 LOPJ / Art. 542 CP).
 
-Total: **11 servidores remotos (42 tools) + 1 local (`ollama`, 5 tools) = 12 servidores, 47 tools.**
+Total: **12 servidores remotos (51 tools) + 1 local (`ollama`, 5 tools) = 13 servidores, 56 tools.**
 
 ## Panoramica
 
@@ -19,13 +19,14 @@ Total: **11 servidores remotos (42 tools) + 1 local (`ollama`, 5 tools) = 12 ser
 | `legal-citations-esp` | Validación, parseo, formateo, conversión y extracción de citas jurídicas españolas (lógica local, sin fuente externa) | HTTP |
 | `legal-persona-esp` | Inteligencia jurídica para el ordenamiento español: redacción de documentos (demanda, recurso, contrato, informe…), análisis de casos, estrategia procesal e informes | HTTP |
 | `tribunal-constitucional` | Sentencias del Tribunal Constitucional (STC, ATC, DTC) y búsqueda temática | HTTP |
+| `workflows-esp` | Flujos multi-agente persistentes y reutilizables del plugin: claim de `user_id`, manifest de agentes, validación de pipelines, guardar/listar/mostrar/eliminar workflows y auditoría de ejecuciones | HTTP |
 | `ollama` | Procesamiento local de contenido privilegiado: clasificación de privacidad offline y LLM on-machine (generate/chat); **el contenido nunca sale de la máquina** | Local (stdio) |
 
 ### Configuracion
 
-Los 11 servidores remotos se conectan automáticamente vía HTTP al gateway `https://mcp.bettercallclaude.es`. El archivo `.mcp.json` del plugin los declara todos y los registra al instalar desde el marketplace. **No requieren instalación local, Node.js ni claves API del usuario** para los servidores remotos. El servidor local `ollama` se lanza por stdio contra `${CLAUDE_PLUGIN_ROOT}/mcp-servers/ollama/dist/index.js`.
+Los 12 servidores remotos se conectan automáticamente vía HTTP al gateway `https://mcp.bettercallclaude.es`. El archivo `.mcp.json` del plugin los declara todos y los registra al instalar desde el marketplace. **No requieren instalación local, Node.js ni claves API del usuario** para los servidores remotos. El servidor local `ollama` se lanza por stdio contra `${CLAUDE_PLUGIN_ROOT}/mcp-servers/ollama/dist/index.js`.
 
-Tras instalar el plugin, ejecuta `/mcp` para verificar que los 12 servidores aparecen registrados. Si falta alguno, reinicia Claude Code o Cowork.
+Tras instalar el plugin, ejecuta `/mcp` para verificar que los 13 servidores aparecen registrados. Si falta alguno, reinicia Claude Code o Cowork.
 
 ### Sin servidores MCP (modo reducido)
 
@@ -154,6 +155,24 @@ Sentencias del **Tribunal Constitucional**: tipos `STC` (sentencia), `ATC` (auto
 | `get_sentencia_tc` | Recupera una decisión del TC por número y año. Parámetros: `numero` (string, **requerido**), `anyo` (string, **requerido**) |
 | `search_by_tema` | Búsqueda por materia/tema. Parámetros: `tema` (string, **requerido**), `limit` (number, default `10`) |
 
+## workflows-esp
+
+Flujos multi-agente **persistentes y reutilizables** del plugin España (paridad con `workflows-ita` de IT): cada usuario opera bajo un `user_id` reclamado; los flujos guardados sobreviven a las sesiones y se ejecutan con `/bettercallclaude-espana:workflow <slug>`, se diseñan con `/bettercallclaude-espana:create-workflow`.
+
+> **Estado**: `claim_user_id`, `list_agents` y `validate_pipeline` están implementados en el scaffold del servidor; `save_workflow`, `list_workflows`, `get_workflow`, `delete_workflow`, `log_run` y `delete_user` son stubs registrados que devuelven `not_implemented` hasta la release de integración completa. El despliegue de `/workflows-esp/mcp` en el gateway está pendiente — los comandos del plugin degradan con elegancia.
+
+| Tool | Descripción |
+|------|-------------|
+| `claim_user_id` | Reclama/registra un `user_id` personal ante el servidor de flujos. Parámetros: `user_id` (string, **requerido**, 1–128, `^[A-Za-z0-9._@-]+$`) — devuelve `claimed: true` si es nuevo, `false` si ya existe. Los comandos generan IDs aleatorios `bcc-<hex>` |
+| `list_agents` | Manifest de los agentes encadenables del plugin: `agent_id`, nombre mostrado y tipos de entrada/salida. Parámetros: ninguno |
+| `validate_pipeline` | Valida una pipeline de agentes contra el manifest: agentes conocidos, encadenamiento compatible por tipos y numeración secuencial. Parámetros: `pipeline` (array de pasos: `step` int > 0, `agent_id`, `purpose` 1–500, `checkpoint` bool opcional) |
+| `save_workflow` | Guarda un flujo reutilizable del usuario. Parámetros: `user_id`, `slug` (kebab-case, 1–64; **requeridos**), `name` (1–200), `description` (1–2000), `pipeline`, `output_spec` (1–2000), `visibility` (`private`/`team`/`public`; default `private`) |
+| `list_workflows` | Lista los flujos del usuario y, opcionalmente, `team`/`public`. Parámetros: `user_id` (**requerido**), `include_team` (bool), `include_public` (bool) |
+| `get_workflow` | Detalle completo de un flujo por slug. Parámetros: `user_id`, `slug` (**requeridos**) |
+| `delete_workflow` | Elimina un flujo propio (owner-only). Destructivo e irreversible. Parámetros: `user_id`, `slug` (**requeridos**) |
+| `log_run` | Añade una fila de auditoría de ejecución a `workflow_runs` (`completed_at` automático salvo `status="running"`). Parámetros: `workflow_id` (uuid), `user_id`, `status` (`running`/`completed`/`failed`/`abandoned`), `output_summary` |
+| `delete_user` | Borrado en cascada LOPDGDD §17: usuario, flujos y `claimed_id`; las ejecuciones previas se marcan `abandoned`. Parámetros: `user_id` (**requerido**) |
+
 ## ollama
 
 Procesamiento local de contenido jurídico español: **clasificación de privacidad offline** y **LLM on-machine** para contenido privilegiado. El contenido **nunca sale de la máquina**: este servidor corre en `stdio` contra `${CLAUDE_PLUGIN_ROOT}/mcp-servers/ollama/dist/index.js` y aplica las garantías de los Art. 24 LOPJ y Art. 542 CP (secreto profesional). Todos los tools llevan el prefijo `ollama_`.
@@ -168,4 +187,4 @@ Procesamiento local de contenido jurídico español: **clasificación de privaci
 
 ---
 
-*Servidores remotos verificados contra la superficie desplegada vía handshakes MCP `tools/list` (2026-09-04); el servidor local `ollama` verificado contra el código incluido en el plugin (`mcp-servers/ollama`, `src` y `dist`). El inventario machine-readable de tools vive en `docs/MCP_TOOLS.md` del repositorio y es la fuente de verdad para los scripts `scripts/generate-tool-frontmatter.js` y `scripts/check-tool-names.js`.*
+*Servidores remotos verificados contra la superficie desplegada vía handshakes MCP `tools/list` (2026-09-04); el servidor local `ollama` verificado contra el código incluido en el plugin (`mcp-servers/ollama`, `src` y `dist`). `workflows-esp` (2026-09-05, Map D) derivado de la implementación en el repo MCP (`mcp-servers/workflows/src/server.ts`) — despliegue en el gateway pendiente. El inventario machine-readable de tools vive en `docs/MCP_TOOLS.md` del repositorio y es la fuente de verdad para los scripts `scripts/generate-tool-frontmatter.js` y `scripts/check-tool-names.js`.*
