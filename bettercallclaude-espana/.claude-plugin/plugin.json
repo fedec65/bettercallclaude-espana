@@ -31,6 +31,13 @@
       "description": "Privacy routing mode: strict (same pattern matching as balanced but blocks instead of prompting -- non-privileged content passes through, only Ollama exempt from all checks), balanced (prompt on privilege markers), or cloud (prompt on strong markers only, weak signals pass through).",
       "default": "balanced",
       "sensitive": false
+    },
+    "user_id": {
+      "type": "string",
+      "title": "User ID for custom workflows",
+      "description": "Personal User ID for persistent multi-agent workflows on the workflows-esp MCP server. Leave blank to auto-generate one on first use (stored in ~/.betterask/config.yaml).",
+      "default": "",
+      "sensitive": false
     }
   }
 }

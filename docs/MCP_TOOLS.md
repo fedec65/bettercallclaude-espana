@@ -4,9 +4,11 @@
 
 **UPDATED 2026-09-04 (t16)** — the `ollama` entry in the first correction was itself wrong: it was derived from the old CONNECTORS.md, and the live probes covered only the remote gateway servers. The plugin bundles ollama at `bettercallclaude-espana/mcp-servers/ollama` (verified against both `src/index.ts` and `dist/index.js`): it exposes **5 tools, all prefixed `ollama_`**. The unprefixed `translate`/`summarize` tools do not exist.
 
+**UPDATED 2026-09-05 (Map D / t32)** — added the `workflows-esp` server (persistent multi-agent workflows; IT `workflows-ita` parity). Inventory derived from the implementation in [`fedec65/BetterCallClaudeMCP_Espana`](https://github.com/fedec65/BetterCallClaudeMCP_Espana) (`mcp-servers/workflows/src/server.ts`): **9 tools**. `claim_user_id`, `list_agents` and `validate_pipeline` are live; the other six (`save_workflow`, `list_workflows`, `get_workflow`, `delete_workflow`, `log_run`, `delete_user`) are registered stubs returning `not_implemented` until the full integration release. Deployment of `/workflows-esp/mcp` on the gateway is pending.
+
 Consumed by `scripts/generate-tool-frontmatter.js` (parity floor script) and `scripts/check-tool-names.js` (parity guard). Do not edit the `SERVER_TOOLS` map by hand — re-derive from this file when tools change.
 
-Total: **11 remote servers (42 tools) + 1 local (`ollama`, 5 tools) = 12 servers, 47 tools.**
+Total: **12 remote servers (51 tools) + 1 local (`ollama`, 5 tools) = 13 servers, 56 tools.**
 
 ## Tool map
 
@@ -54,6 +56,15 @@ Total: **11 remote servers (42 tools) + 1 local (`ollama`, 5 tools) = 12 servers
 | `tribunal-constitucional` | `search_sentencias_tc` | `mcp__plugin_bettercallclaude-espana_tribunal-constitucional__search_sentencias_tc` | `mcp__tribunal-constitucional__search_sentencias_tc` |
 | `tribunal-constitucional` | `get_sentencia_tc` | `mcp__plugin_bettercallclaude-espana_tribunal-constitucional__get_sentencia_tc` | `mcp__tribunal-constitucional__get_sentencia_tc` |
 | `tribunal-constitucional` | `search_by_tema` | `mcp__plugin_bettercallclaude-espana_tribunal-constitucional__search_by_tema` | `mcp__tribunal-constitucional__search_by_tema` |
+| `workflows-esp` | `claim_user_id` | `mcp__plugin_bettercallclaude-espana_workflows-esp__claim_user_id` | `mcp__workflows-esp__claim_user_id` |
+| `workflows-esp` | `list_agents` | `mcp__plugin_bettercallclaude-espana_workflows-esp__list_agents` | `mcp__workflows-esp__list_agents` |
+| `workflows-esp` | `validate_pipeline` | `mcp__plugin_bettercallclaude-espana_workflows-esp__validate_pipeline` | `mcp__workflows-esp__validate_pipeline` |
+| `workflows-esp` | `save_workflow` | `mcp__plugin_bettercallclaude-espana_workflows-esp__save_workflow` | `mcp__workflows-esp__save_workflow` |
+| `workflows-esp` | `list_workflows` | `mcp__plugin_bettercallclaude-espana_workflows-esp__list_workflows` | `mcp__workflows-esp__list_workflows` |
+| `workflows-esp` | `get_workflow` | `mcp__plugin_bettercallclaude-espana_workflows-esp__get_workflow` | `mcp__workflows-esp__get_workflow` |
+| `workflows-esp` | `delete_workflow` | `mcp__plugin_bettercallclaude-espana_workflows-esp__delete_workflow` | `mcp__workflows-esp__delete_workflow` |
+| `workflows-esp` | `delete_user` | `mcp__plugin_bettercallclaude-espana_workflows-esp__delete_user` | `mcp__workflows-esp__delete_user` |
+| `workflows-esp` | `log_run` | `mcp__plugin_bettercallclaude-espana_workflows-esp__log_run` | `mcp__workflows-esp__log_run` |
 | `ollama` *(local stdio)* | `ollama_check_status` | `mcp__plugin_bettercallclaude-espana_ollama__ollama_check_status` | `mcp__ollama__ollama_check_status` |
 | `ollama` | `ollama_generate` | `mcp__plugin_bettercallclaude-espana_ollama__ollama_generate` | `mcp__ollama__ollama_generate` |
 | `ollama` | `ollama_chat` | `mcp__plugin_bettercallclaude-espana_ollama__ollama_chat` | `mcp__ollama__ollama_chat` |
@@ -75,8 +86,9 @@ Total: **11 remote servers (42 tools) + 1 local (`ollama`, 5 tools) = 12 servers
 | `legal-citations-esp` | 6 |
 | `legal-persona-esp` | 5 |
 | `tribunal-constitucional` | 3 |
+| `workflows-esp` | 9 |
 | `ollama` *(local)* | 5 |
-| **Total** | **47** |
+| **Total** | **56** |
 
 ## Server → tool list (compact form for `SERVER_TOOLS` in `scripts/generate-tool-frontmatter.js`)
 
@@ -93,6 +105,7 @@ const SERVER_TOOLS = {
   'legal-citations-esp': ['validate_citation', 'parse_citation', 'format_citation', 'convert_to_ecli', 'convert_to_boe_id', 'extract_citations'],
   'legal-persona-esp': ['draft_documento', 'analizar_caso', 'estrategia_procesal', 'redactar_informe', 'responder_consulta'],
   'tribunal-constitucional': ['search_sentencias_tc', 'get_sentencia_tc', 'search_by_tema'],
+  'workflows-esp': ['claim_user_id', 'list_agents', 'validate_pipeline', 'save_workflow', 'list_workflows', 'get_workflow', 'delete_workflow', 'delete_user', 'log_run'],
   'ollama': ['ollama_check_status', 'ollama_generate', 'ollama_chat', 'ollama_classify_privacy', 'ollama_list_models'],
 };
 ```
@@ -146,6 +159,6 @@ A missing twin silently strips the tool from the agent's allowlist on the host t
 ## Gaps vs IT (confirmed against the actual implementation)
 
 1. **No `compute_deadlines` tool** — IT's `legal-persona-ita` has `legal-persona-ita_compute_deadlines`; ESP's `legal-persona-esp` (draft_documento, analizar_caso, estrategia_procesal, redactar_informe, responder_consulta) has no equivalent. Procedural plazos fall back to the table in `legal-chronology/references/deadline-mapping.md`, every plazo labeled indicative. (Ticket t14.)
-2. **No `workflows` server.** IT's `workflows-ita` exposes `list_workflows`; neither the MCP repo nor `.mcp.json` has an ESP equivalent. `/legale-bucle` and `/legale-objetivo` need a local Goal-Record design. (Ticket t15.)
+2. **~~No `workflows` server.~~ RESOLVED 2026-09-05 (Map D / t32).** ESP now ships `workflows-esp` (`.mcp.json` + this inventory + `create-workflow`/`workflow` commands). Parity with IT's `workflows-ita`: `claim_user_id`, `list_agents`, `validate_pipeline` are live; `save_workflow`, `list_workflows`, `get_workflow`, `delete_workflow`, `log_run`, `delete_user` are registered stubs returning `not_implemented` until the full server integration is deployed. (Originally ticket t15.)
 3. **No `citation-verify` server.** IT's `citation-verify-ita_check_existence` maps to ESP's `legal-citations-esp__validate_citation`; the `citation-content-verify` skill can also use `extract_citations` (batch extraction from text) — a capability IT lacks. (Ticket t11.)
 4. **`ollama` is local stdio** — parity script emits both naming forms; confirm Cowork behavior after `npm run package`.
