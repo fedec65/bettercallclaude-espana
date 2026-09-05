@@ -23,6 +23,9 @@ jobs:
       - name: Validate privacy hook
         run: node bettercallclaude-espana/scripts/privacy-check.test.js
 
+      - name: Timeline render selfcheck
+        run: node bettercallclaude-espana/scripts/timeline-render.mjs selfcheck
+
       - name: Check MCP tool-name parity
         run: node scripts/check-tool-names.js
 
@@ -39,6 +42,3 @@ jobs:
             exit 1
           fi
           echo "✅ All versions aligned: $PACKAGE_VERSION"
-
-      - name: Timeline render selfcheck
-        run: node bettercallclaude-espana/scripts/timeline-render.mjs selfcheck
