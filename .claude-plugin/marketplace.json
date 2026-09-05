@@ -8,7 +8,7 @@
     {
       "name": "bettercallclaude-espana",
       "description": "Spain Legal Intelligence -- TS/AP/STS/STC precedent research, case strategy, legal drafting, and citation verification across all 17 Autonomous Communities with secreto profesional privacy protection.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "source": "./bettercallclaude-espana",
       "author": {
         "name": "Federico Cesconi"
