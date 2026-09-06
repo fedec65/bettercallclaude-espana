@@ -39,6 +39,7 @@ Plugin completamente en español, paridad funcional con BetterCallClaude Italia 
 - **Breaking change**: chiunque importi slug di comandi nei propri workflow deve aggiornare a v2.0.0.
 - Alias retro-compat attivi per 2 release (rimossi in v2.1.0).
 - Map C: #40.
+- **Pre-flight `assertPluginWiring()`** in `scripts/test-flusso-nda-e2e.mjs` (PR #72): el test E2E falla rápido (exit 3) si el manifiesto del plugin omite el servidor `workflows-esp` en `.mcp.json`, las 9 tools declaradas en `scripts/tool-contracts.js`, o los comandos `workflow.md` / `create-workflow.md`. Refuerza el análisis Devin sobre PR #38: el test verifica el contrato del server en runtime, pero la integración del plugin es lo que el usuario final ve.
 
 ## [1.1.1] - 2026-09-05 — Add workflows-esp consumer commands
 
