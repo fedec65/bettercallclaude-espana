@@ -4,7 +4,7 @@ Legal-AI plugin for Spanish law. Canonical language: Spanish (policy locked in t
 
 ## Lingua e convenzioni di stile
 
-- **Spagnolo (es-ES)** per gli artefatti del plugin: body skill, comandi, agent, output MCP, `description:` dei frontmatter.
+- **Spagnolo (es-ES)** per gli artefatti del plugin: body skill, comandi, agent, output MCP, `description:` dei frontmatter. Eccezione documentata: i system prompt degli agent restano in inglese come lingua di lavoro del modello finché #45 non decide (cfr. decisione pending).
 - **Italiano** solo per la meta-documentazione interna (`CONTEXT.md`, `AGENTS.md`, issue di processo) — mai nei body delle skill.
 - **Slug senza accenti** (directory, file, comandi, chiavi frontmatter); **prosa con accenti**.
 - Zero emoji, zero cirillico. Latinismi e anglicismi tecnici mantenuti verbatim dove indicato (`ratio decidendi`, `dies a quo`, `BATNA/WATNA`, `playbook`, `intake`).
@@ -52,7 +52,7 @@ Parere su diritto autonomico CCAA. File `dictamen-autonomico-<ccaa>.md`.
 _Avoid_: parere (generico), dictamen (senza specificare CCAA)
 
 **patrón de comandos nuevos**:
-Sostantivo spagnolo + `-legal` (`mapa-legal`, `percurso-legal`, `cronologia-legal`, `bucle-legal`, `objetivo-legal`). I 21 nomi inglesi esistenti restano fino a #44.
+Sostantivo spagnolo + `-legal` (`mapa-legal`, `percurso-legal`, `cronologia-legal`, `bucle-legal`, `objetivo-legal`). I 21 nomi inglesi esistenti: 15 rinominati in #44 (alias retro-compat), 6 invariati (`briefing`, `federal`, `legal`, `legal-5step`, `version`, `workflow`).
 _Avoid_: prefisso `legale-` (italiano), nomi inglesi per comandi nuovi
 
 ### Skill ES-native (Map A)
@@ -88,7 +88,7 @@ _Avoid_: includerla nei conteggi delle skill tradotte
 Termini emersi dalla traduzione delle 15 skill legacy: il termine spagnolo è canonico, l'equivalente italiano/inglese tra parentesi è il calco da evitare.
 
 **secreto profesional**:
-Riservatezza del letrado su fatti e documenti del cliente (art. 24 LOPJ, art. 21 Estatuto General de la Abogacía).
+Riservatezza del letrado su fatti e documenti del cliente (art. 542.3 LOPJ, art. 21 Estatuto General de la Abogacía).
 _Avoid_: segreto professionale
 
 **actividad defensiva / defensa letrada**:
@@ -100,7 +100,7 @@ Sentenza del TS che unifica dottrina (ricorso in cassazione).
 _Avoid_: sentenza di legittimità
 
 **jurisprudencia de casación**:
-Giurisprudenza del TS in cassazione, vincolante per i tribunali inferiori.
+Giurisprudenza del TS in cassazione, che integra l'ordinamento giuridico quando costituisce dottrina reiterata (art. 1.6 CC).
 _Avoid_: giurisprudenza di legittimità
 
 **jurisprudencia consolidada**:
@@ -170,7 +170,7 @@ _Avoid_: playbook contrattuale, contract playbook
 ## Stato Map C (aggiornato a #43)
 
 **Fatto:**
-- #41 research spec traduzione 15 skill → `research/v2-skill-translation-spec.md`
+- #41 research spec traduzione 15 skill (spec t36) → guida di #42/#43
 - #42 traduzione 15 skill legacy EN→ES — PR #57 (legal, 7) + #58 (method, 8), merged su `dev`
 - #59/#60 fix review Devin residui (5 bug + 3 analisi + 6 thread re-review), merged su `dev` `b1f8aad`
 - #43 questo file (glossary + convenzioni di stile)
