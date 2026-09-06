@@ -1,17 +1,19 @@
 # Instalación — BetterCallClaude España
 
-Plugin de inteligencia legal española para Claude (Code CLI y Cowork Desktop). Esta guía describe la **instalación** del plugin y los **flujos persistentes** (Map D) disponibles desde v1.1.0.
+Plugin de inteligencia legal española para Claude (Code CLI y Cowork Desktop). Esta guía describe la **instalación** del plugin, la **plantilla local** para personalizarlo por despacho, los **flujos persistentes** y el **renombrado de comandos** de v1.x a v2.0.
 
 ## 1. Instalación del plugin
 
 Sigue las instrucciones estándar de Claude Code CLI / Cowork Desktop para cargar el marketplace `bettercallclaude-espana` y activar el plugin. Una vez activado, el plugin expone:
 
 - **21 agentes** especializados en derecho español (ver `agents/`).
-- **30 comandos** (ver `commands/`), entre ellos `legal`, `research`, `strategy`, `draft`, `workflow`.
+- **29 comandos activos + 15 alias deprecados v1.x** (ver `commands/`; nomenclatura v2.0), entre ellos `legal`, `investigacion`, `estrategia`, `borrador` y `workflow`. Los nombres v1.x (`research`, `strategy`, `draft`, …) siguen funcionando como alias hasta v2.1.0 — ver sección 4.
 - **15 skills** (ver `skills/`) con vocabulario, marcos y plantillas españolas.
 - **13 servidores MCP** que dan acceso a BOE, CENDOJ, TC, EUR-Lex, Congreso, citas, persona, doctrina, derecho histórico, Catalunya, búsqueda general, ollama local y **`workflows-esp`** (este último para flujos persistentes).
 
-## 2. Workflows persistentes (Map D — desde v1.1.0)
+## 2. Workflows persistentes (v2.0.0)
+
+Los flujos persistentes se introdujeron en v1.1.0 (Map D) y se mantienen en v2.0.0 sin cambios de uso: el orden de agentes, los checkpoints y el formato del output siguen siendo configurables por workflow.
 
 Un *workflow* es una cadena multi-agente reutilizable: defines el orden de los agentes, los puntos de control y el formato del output final, y el plugin lo ejecuta y persiste el progreso entre invocaciones. Mientras el sandbox de Cowork Desktop se borra al reiniciar, el **estado del workflow se conserva** en el servidor MCP `workflows-esp` (Postgres en producción, SQLite para desarrollo) más el directorio local `bcc-output/workflow/<user_id>/<slug>/` que guarda los outputs por etapa.
 
@@ -41,6 +43,8 @@ bcc-output/workflow/<user_id>/<slug>/<run-id>/
 ├── borrador.md        # Etapa 3 — legal drafter
 └── progress.json      # Estado por etapa (completed / pending)
 ```
+
+> La carpeta de salida por defecto `bcc-output/` se puede cambiar por despacho en el playbook local (sección «Estilo y formato» de `bettercallclaude-espana.local.md`) — ver sección 3.
 
 Cada archivo se escribe cuando su etapa termina. `progress.json` es la fuente de verdad para `--resume`: si una etapa está marcada `completed` **y** su archivo existe, se omite en la reanudación; en caso contrario se vuelve a ejecutar.
 
@@ -74,7 +78,56 @@ El script `scripts/test-flusso-nda-e2e.mjs` arranca el aggregator MCP, guarda el
 - El comando `/workflow delete <slug>` borra un workflow propio (no afecta a los demás). `delete_user` (expuesto en los tools, no como comando) borra en cascada workflows y runs de un `user_id` y se ofrece solo como operación de mantenimiento (LOPDGDD §17).
 - Hook `secreto profesional` del plugin sigue activo: aplica también al contenido de los workflows.
 
-## 3. Solución de problemas
+## 3. Plantilla local (playbook del despacho)
+
+El plugin personaliza su comportamiento con un **playbook local** — `bettercallclaude-espana.local.md` — que recoge la configuración del despacho o departamento legal. Se busca en este orden de precedencia:
+
+1. `.claude/bettercallclaude-espana.local.md` (Claude Code).
+2. `bettercallclaude-espana.local.md` en la carpeta compartida (Cowork Desktop).
+3. `.claude/legal.local.md` (compatibilidad Anthropic).
+4. Ningún archivo → se usan los defaults españoles.
+
+Para crearlo, copia la plantilla de ejemplo a la ubicación deseada y personalízala con los datos del estudio:
+
+```bash
+cp templates/bettercallclaude-espana.local.md.example.es .claude/bettercallclaude-espana.local.md
+```
+
+La plantilla (`templates/bettercallclaude-espana.local.md.example.es`) incluye los campos habituales del playbook:
+
+- **Despacho**: nombre y sede; tipo (bufete, departamento in-house, asesoría fiscal/contable).
+- **Lenguas de trabajo** (ES/EN/CA/EU/GL).
+- **Ley aplicable** y **foro** preferidos por defecto.
+- **Umbrales de confidencialidad** (p. ej. duración máxima aceptable de un NDA).
+- **Estilo y formato**: carpeta de salida (`bcc-output` por defecto), idioma de los documentos.
+
+Si no existe playbook, los comandos que lo usan (`/start`, `/triage-nda`, …) ofrecen una entrevista guiada de 5-6 preguntas que genera el archivo automáticamente.
+
+## 4. Renombrado de comandos v1.x → v2.0
+
+En v2.0 los comandos del plugin pasan a nombres en español. Los nombres v1.x se mantienen como **alias deprecados** (al invocarlos el plugin avisa «DEPRECADO — usa `/…` en su lugar») y se eliminarán en v2.1.0:
+
+| Comando v1.x (deprecado) | Nombre v2.0      |
+|--------------------------|------------------|
+| `adversarial`            | `analisis-adversarial` |
+| `autonomic`              | `autonomico`     |
+| `cite`                   | `cita`           |
+| `doc-analyze`            | `analizar-doc`   |
+| `draft`                  | `borrador`       |
+| `help`                   | `ayuda`          |
+| `precedent`              | `precedente`     |
+| `privacy`                | `privacidad`     |
+| `refine`                 | `refinar`        |
+| `research`               | `investigacion`  |
+| `setup`                  | `configurar`     |
+| `strategy`               | `estrategia`     |
+| `summarize`              | `resumir`        |
+| `translate`              | `traducir`       |
+| `validate`               | `validar`        |
+
+La referencia completa de comandos y su sintaxis está en `docs/command-reference.md`.
+
+## 5. Solución de problemas
 
 - **`Tool not implemented`** — el servidor `workflows-esp` no está integrado o no se ha hecho `npm run build` en el repo MCP. Ver `docs/workflows-esp.md` (en el repo MCP) para el estado de implementación.
 - **`user_id not claimed`** — el plugin no pudo leer/escribir `~/.betterask/config.yaml`. Establece el ID manualmente en custom instructions o plugin setting.

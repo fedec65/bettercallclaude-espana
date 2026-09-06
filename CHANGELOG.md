@@ -9,7 +9,7 @@
 - **Comando `/bettercallclaude-espana:create-workflow`** — entrevista guiada para diseñar un workflow, validarlo contra el manifest y guardarlo en el servidor.
 - **Comando `/bettercallclaude-espana:workflow`** (reescrito como hub) — plantillas fijas (litigation-prep, due-diligence, contract-lifecycle, realestate-closing) + flujos guardados, con `--resume` desde el último paso completado.
 - **Setting `user_id`** en `plugin.json` (CLI) más cadena de resolución 4-fallback (plugin setting → custom instructions Cowork → `~/.betterask/config.yaml` → generado y reclamado).
-- **Sección «Workflows persistentes»** en `INSTALL_ES.md` con ejemplo `flusso-nda` (NDA review chain) y notas de privacidad.
+- **Sección «Workflows persistentes»** en `INSTALACION.md` con ejemplo `flusso-nda` (NDA review chain) y notas de privacidad.
 - **Doc `docs/workflows-esp.md`** en el repo MCP con arquitectura, schema DB y ejemplos.
 - **Test E2E** `scripts/test-flusso-nda-e2e.mjs` que arranca el aggregator MCP, guarda `flusso-nda`, simula reinicio de Cowork (subprocess kill/relaunch) y verifica la persistencia + `--resume`. Invocable con `npm run test:flusso-nda`.
 - **PR bifase**: plugin-side (este PR) + MCP-side (#3 en `BetterCallClaudeMCP_Espana`); merge coordinado.
