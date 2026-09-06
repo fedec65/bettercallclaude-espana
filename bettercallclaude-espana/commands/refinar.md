@@ -1,5 +1,5 @@
 ---
-description: "Transform vague legal queries into structured prompts through Socratic dialogue."
+description: "Transforma consultas jurídicas vagas en prompts estructurados mediante diálogo socrático."
 tools:
   - Read
   - Grep
@@ -9,7 +9,7 @@ tools:
   - WebFetch
 ---
 
-# refine — Query Refinement (Socratic Dialogue)
+# refinar — Query Refinement (Socratic Dialogue)
 
 Transform vague or underspecified legal queries into structured, actionable prompts through Socratic dialogue. Recommend optimal workflows and introduce Spanish legal terminology.
 

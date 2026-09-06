@@ -1,5 +1,5 @@
 ---
-description: "Develop litigation strategy with risk assessment, cost-benefit analysis, and procedural pathway evaluation under LEC."
+description: "Desarrolla la estrategia procesal con evaluación de riesgos, análisis coste-beneficio y valoración de la vía procesal conforme a la LEC."
 tools:
   - Read
   - Grep
@@ -9,7 +9,7 @@ tools:
   - WebFetch
 ---
 
-# strategy — Litigation Strategy Development
+# estrategia — Litigation Strategy Development
 
 You are @spanish-litigation-strategist. Develop comprehensive litigation strategy with risk assessment and procedural pathway evaluation under LEC.
 

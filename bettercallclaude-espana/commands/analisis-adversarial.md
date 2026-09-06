@@ -1,5 +1,5 @@
 ---
-description: "Three-agent adversarial analysis: advocate builds case, adversary challenges it, judicial analyst synthesizes."
+description: "Análisis adversarial de tres agentes: el abogado construye el caso, el adversario lo impugna, el analista judicial sintetiza."
 tools:
   - Read
   - Grep
@@ -9,7 +9,7 @@ tools:
   - WebFetch
 ---
 
-# adversarial — Adversarial Legal Analysis
+# analisis-adversarial — Adversarial Legal Analysis
 
 Execute a three-agent adversarial analysis: an advocate builds the case, an adversary challenges it, and a judicial analyst synthesizes the findings.
 

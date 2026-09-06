@@ -1,5 +1,5 @@
 ---
-description: "Consolidate multi-agent pipeline output — deduplicate, control length (--short/--medium/--long)."
+description: "Consolida la salida de pipelines multiagente: deduplica y controla la extensión (--short/--medium/--long)."
 tools:
   - Read
   - Grep
@@ -9,7 +9,7 @@ tools:
   - WebFetch
 ---
 
-# summarize — Output Summarization
+# resumir — Output Summarization
 
 Consolidate and summarize multi-agent pipeline output. Deduplicate findings, control length, and produce a unified deliverable.
 

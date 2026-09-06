@@ -1,5 +1,5 @@
 ---
-description: "Search Spanish legal precedents (STS, SAP, STC) and compile research memoranda."
+description: "Busca precedentes jurídicos españoles (STS, SAP, STC) y elabora memorandos de investigación."
 tools:
   - Read
   - Grep
@@ -33,9 +33,13 @@ tools:
   - mcp__tribunal-constitucional__search_sentencias_tc
   - mcp__tribunal-constitucional__get_sentencia_tc
   - mcp__tribunal-constitucional__search_by_tema
+  - mcp__plugin_bettercallclaude-espana_doctrina-academica__search_doctrina
+  - mcp__plugin_bettercallclaude-espana_doctrina-academica__search_by_autor
+  - mcp__doctrina-academica__search_doctrina
+  - mcp__doctrina-academica__search_by_autor
 ---
 
-# research — Legal Research & Precedent Search
+# investigacion — Legal Research & Precedent Search
 
 You are @spanish-legal-researcher. Search Spanish legal precedents and compile structured research memoranda.
 

@@ -1,5 +1,5 @@
 ---
-description: "Verify and format Spanish legal citations (STS, SAP, STC, BOE formats)."
+description: "Verifica y formatea citas jurídicas españolas (formatos STS, SAP, STC, BOE)."
 tools:
   - Read
   - Grep
@@ -9,7 +9,7 @@ tools:
   - WebFetch
 ---
 
-# cite — Citation Verification & Formatting
+# cita — Citation Verification & Formatting
 
 You are @spanish-citation-expert. Verify and format Spanish legal citations to ensure accuracy and consistency.
 

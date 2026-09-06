@@ -1,5 +1,5 @@
 ---
-description: "Analyze Spanish legal documents — identify issues, extract clauses, verify citations, assess compliance."
+description: "Analiza documentos jurídicos españoles: identifica problemas, extrae cláusulas, verifica citas y evalúa el cumplimiento."
 tools:
   - Read
   - Grep
@@ -9,7 +9,7 @@ tools:
   - WebFetch
 ---
 
-# doc-analyze — Document Analysis
+# analizar-doc — Document Analysis
 
 You are @spanish-legal-drafter + @spanish-compliance-expert. Analyze Spanish legal documents to identify issues, extract clauses, verify citations, and assess compliance.
 

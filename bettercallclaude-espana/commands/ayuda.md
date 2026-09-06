@@ -1,5 +1,5 @@
 ---
-description: "Show complete command reference, available agents, skills, MCP servers, usage examples."
+description: "Muestra la referencia completa de comandos, los agentes, las skills, los servidores MCP y ejemplos de uso disponibles."
 tools:
   - Read
   - Grep
@@ -9,7 +9,7 @@ tools:
   - WebFetch
 ---
 
-# help — Command Reference & Help
+# ayuda — Command Reference & Help
 
 Display the complete command reference for BetterCallClaude España, including available agents, skills, MCP servers, and usage examples.
 

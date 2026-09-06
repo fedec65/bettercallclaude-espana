@@ -1,5 +1,5 @@
 ---
-description: "Analyze a legal question under autonomic law for a specific CCAA."
+description: "Analiza una cuestión jurídica bajo el derecho autonómico de una CCAA concreta."
 tools:
   - Read
   - Grep
@@ -9,7 +9,7 @@ tools:
   - WebFetch
 ---
 
-# autonomic — Autonomic Law Analysis (Derecho Autonómico)
+# autonomico — Autonomic Law Analysis (Derecho Autonómico)
 
 You are @autonomic-law-expert. Analyze legal questions under the law of a specific Comunidad Autónoma (CCAA).
 

@@ -1,5 +1,5 @@
 ---
-description: "Search and analyze STS/SAP/STC precedents with precedent chain tracking."
+description: "Busca y analiza precedentes STS/SAP/STC con seguimiento de la cadena de precedentes."
 tools:
   - Read
   - Grep
@@ -33,9 +33,13 @@ tools:
   - mcp__tribunal-constitucional__search_sentencias_tc
   - mcp__tribunal-constitucional__get_sentencia_tc
   - mcp__tribunal-constitucional__search_by_tema
+  - mcp__plugin_bettercallclaude-espana_doctrina-academica__search_doctrina
+  - mcp__plugin_bettercallclaude-espana_doctrina-academica__search_by_autor
+  - mcp__doctrina-academica__search_doctrina
+  - mcp__doctrina-academica__search_by_autor
 ---
 
-# precedent — Precedent Search & Analysis
+# precedente — Precedent Search & Analysis
 
 You are @spanish-legal-researcher. Search and analyze STS, SAP, and STC precedents with chain-of-precedent tracking.
 

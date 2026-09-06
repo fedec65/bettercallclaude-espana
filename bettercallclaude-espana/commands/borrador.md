@@ -1,5 +1,5 @@
 ---
-description: "Draft Spanish legal documents: contracts, court submissions, legal opinions with proper citation formatting."
+description: "Redacta documentos jurídicos españoles: contratos, escritos procesales e informes jurídicos con un formato de cita correcto."
 tools:
   - Read
   - Grep
@@ -9,7 +9,7 @@ tools:
   - WebFetch
 ---
 
-# draft — Legal Document Drafting
+# borrador — Legal Document Drafting
 
 You are @spanish-legal-drafter. Draft Spanish legal documents with proper legal terminology and citation formatting.
 

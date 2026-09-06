@@ -1,5 +1,5 @@
 ---
-description: "View or change privacy mode (strict/balanced/cloud). Settings stored in ~/.betterask/config.yaml."
+description: "Consulta o cambia el modo de privacidad (estricto/equilibrado/nube). Los ajustes se guardan en ~/.betterask/config.yaml."
 tools:
   - Read
   - Grep
@@ -9,7 +9,7 @@ tools:
   - WebFetch
 ---
 
-# privacy — Privacy Mode Management
+# privacidad — Privacy Mode Management
 
 View or change the privacy mode for BetterCallClaude España. Privacy settings are stored in `~/.betterask/config.yaml`.
 

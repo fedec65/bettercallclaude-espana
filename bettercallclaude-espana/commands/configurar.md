@@ -1,5 +1,5 @@
 ---
-description: "Check MCP server connectivity and display status for all servers."
+description: "Comprueba la conectividad de los servidores MCP y muestra su estado."
 tools:
   - Read
   - Grep
@@ -9,7 +9,7 @@ tools:
   - WebFetch
 ---
 
-# setup — MCP Server Status Check
+# configurar — MCP Server Status Check
 
 Check MCP server connectivity and display the operational status of all servers used by BetterCallClaude España.
 

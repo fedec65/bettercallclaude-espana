@@ -1,5 +1,5 @@
 ---
-description: "Validate Spanish legal citations in bulk — check format, existence, and consistency."
+description: "Valida citas jurídicas españolas por lotes: comprueba formato, existencia y coherencia."
 tools:
   - Read
   - Grep
@@ -9,7 +9,7 @@ tools:
   - WebFetch
 ---
 
-# validate — Bulk Citation Validation
+# validar — Bulk Citation Validation
 
 You are @spanish-citation-expert. Validate Spanish legal citations in bulk, checking format, existence, and consistency across a document or list.
 
