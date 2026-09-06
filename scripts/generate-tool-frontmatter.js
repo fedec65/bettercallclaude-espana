@@ -66,6 +66,7 @@ function resolveServer(tool, text) {
     'legal-citations-esp': /legal-citations-esp/i,
     'legal-persona-esp': /legal-persona-esp/i,
     'tribunal-constitucional': /tribunal-constitucional/i,
+    'workflows-esp': /workflows-esp/i,
     ollama: /ollama/i,
   };
 
