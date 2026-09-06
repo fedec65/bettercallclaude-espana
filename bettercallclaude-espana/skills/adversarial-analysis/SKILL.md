@@ -1,6 +1,6 @@
 ---
 name: adversarial-analysis
-description: "Metodología adversarial de tres agentes para someter a prueba (stress-test) posiciones jurídicas conforme al derecho español. Se activa al evaluar la solidez de un argumento jurídico, preparar un litigio o valorar riesgos. Usa los roles abogado demandante → abogado demandado → analista judicial con puntuación de probabilidad para cada argumento. Produce fortalezas, debilidades y una síntesis judicial compatible YAML."
+description: "Metodología adversarial de tres agentes para someter a prueba posiciones jurídicas conforme al derecho español. Se activa al evaluar la solidez de un argumento jurídico, preparar un litigio o valorar riesgos. Usa los roles abogado demandante → abogado demandado → analista judicial con puntuación de probabilidad para cada argumento. Produce fortalezas, debilidades y una síntesis judicial compatible YAML."
 tools:
   - Read
   - Grep
@@ -19,7 +19,7 @@ Someter a prueba cualquier posición jurídica conforme al derecho español medi
 
 ## Metodología de Tres Agentes
 
-### Agente 1: Abogado Demandante (Advocate)
+### Agente 1: Abogado Demandante
 **Rol:** Presentar el caso más sólido posible a favor de la posición jurídica del usuario.
 **Tareas:**
 - Identificar todas las normas favorables (CC, CP, LEC, etc.)
@@ -29,7 +29,7 @@ Someter a prueba cualquier posición jurídica conforme al derecho español medi
 - Presentar los hechos bajo la luz más favorable
 - Defender la aplicación más amplia de los precedentes favorables
 
-### Agente 2: Abogado Demandado (Adversary)
+### Agente 2: Abogado Demandado
 **Rol:** Atacar la posición jurídica del usuario con la máxima fuerza.
 **Tareas:**
 - Identificar todas las debilidades del argumento jurídico
@@ -40,7 +40,7 @@ Someter a prueba cualquier posición jurídica conforme al derecho español medi
 - Plantear objeciones procesales (competencia, prescripción, caducidad)
 - Impugnar la suficiencia probatoria conforme a los estándares de la LEC
 
-### Agente 3: Analista Judicial (Judicial Analyst)
+### Agente 3: Analista Judicial
 **Rol:** Adoptar la perspectiva de un juez español (TS o AP).
 **Tareas:**
 - Evaluar los argumentos conforme al razonamiento judicial español
@@ -97,14 +97,14 @@ sintesis:
     - [Áreas de desacuerdo]
 
 evaluacion_riesgo:
-  probabilidad_favorable: 0,65
-  probabilidad_desfavorable: 0,35
-  nivel_confianza: 0,80
+  probabilidad_favorable: 0.65
+  probabilidad_desfavorable: 0.35
+  nivel_confianza: 0.80
   por_cuestion:
     - cuestion: "Responsabilidad contractual conforme al art. 1101 CC"
-      favorable: 0,70
-      desfavorable: 0,30
-      confianza: 0,85
+      favorable: 0.70
+      desfavorable: 0.30
+      confianza: 0.85
       precedente_dirimente: "STS, Sala Primera, núm. 123/2023"
 
 conclusion_juridica:

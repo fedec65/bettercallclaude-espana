@@ -34,9 +34,9 @@ Estructura estándar:
 
 **Cumplimiento del derecho imperativo:**
 - Art. 6 CC: Los contratos deben ajustarse a las normas imperativas.
-- Art. 1255 CC: Autonomía de la voluntad dentro de los límites legales.
+- Art. 1255 CC: Autonomía de la voluntad dentro de los límites legales (las cláusulas limitativas de responsabilidad son válidas en la medida en que no contradigan el orden público, la buena fe contractual, ni suplan o enerven la responsabilidad por dolo — doctrina del TS consolidada en SSTS de la Sala Primera).
 - Art. 1101 CC: Responsabilidad contractual por incumplimiento.
-- Art. 1895 CC: Las cláusulas de limitación de responsabilidad están sujetas a la buena fe.
+- Art. 1102 CC: La responsabilidad por dolo es ineludible; cualquier pacto en contrario es nulo.
 
 ### 2. Escritos Procesales (Escritos / Demandas)
 Estructura estándar (LEC):
