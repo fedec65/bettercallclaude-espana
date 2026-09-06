@@ -19,7 +19,7 @@ This command operates on the plugin's documentation layer.
 ## Information Displayed
 
 ### Commands
-List all 29 commands with description and example:
+List all 30 commands with description and example:
 - `legal` — Gateway & intent routing (e.g. `/bettercallclaude-espana:legal`)
 - `research` — Search Spanish legal precedents and compile research memoranda (e.g. `/bettercallclaude-espana:research "responsabilidad extracontractual"`)
 - `strategy` — Develop litigation strategy under LEC with risk/cost assessment (e.g. `/bettercallclaude-espana:strategy`)
@@ -31,7 +31,8 @@ List all 29 commands with description and example:
 - `autonomic` — Analyze a legal question under autonomic law for a specific CCAA
 - `adversarial` — Three-agent adversarial analysis: advocate / adversary / judicial
 - `briefing` — Structured pre-execution briefing — assembles specialist panel
-- `workflow` — Multi-agent legal workflows: due diligence, litigation prep, contract lifecycle
+- `workflow` — Multi-agent legal workflows: due diligence, litigation prep, contract lifecycle, custom saved flows
+- `create-workflow` — Diseña y guarda un flujo multi-agente reutilizable (persistente en el servidor workflows-esp)
 - `translate` — Translate Spanish legal documents between ES and EN
 - `doc-analyze` — Analyze Spanish legal documents — issues, clauses, citations, compliance
 - `summarize` — Consolidate multi-agent pipeline output with length control

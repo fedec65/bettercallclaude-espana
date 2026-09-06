@@ -30,6 +30,17 @@
  *     must exist; if not, the script prints the build command and exits 2.
  *   - `better-sqlite3` available (installed by default as optionalDependency).
  *
+ * Plugin-wiring validation:
+ *   This test spawns the workflows server in **dev-only sqlite stdio mode**
+ *   and therefore cannot exercise the runtime endpoint advertised by the
+ *   published plugin. To compensate, the script runs a pre-flight
+ *   `assertPluginWiring()` that fails fast if `bettercallclaude-espana/.mcp.json`
+ *   omits the `workflows-esp` server, if `scripts/tool-contracts.js` does not
+ *   declare its nine tools, or if `commands/workflow.md` /
+ *   `commands/create-workflow.md` are missing. The plugin manifest wiring is
+ *   what end users rely on; the runtime server contract is what this test
+ *   verifies. Both must hold for v1.1.0+ acceptance.
+ *
  * Usage:
  *   node scripts/test-flusso-nda-e2e.mjs
  */
@@ -46,6 +57,59 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = join(__dirname, '..');
 const MCP_REPO = process.env.MCP_ESP_ROOT || '/tmp/mcp-esp';
 const STDIO_ENTRY = join(MCP_REPO, 'mcp-servers/workflows/dist/stdio.js');
+const PLUGIN_DIR = join(REPO_ROOT, 'bettercallclaude-espana');
+const WORKFLOWS_TOOLS = [
+  'claim_user_id', 'list_agents', 'validate_pipeline', 'save_workflow',
+  'list_workflows', 'get_workflow', 'delete_workflow', 'delete_user', 'log_run',
+];
+
+// Plugin-wiring pre-flight: this test spawns the server in dev-only sqlite
+// stdio mode, so it cannot observe the runtime endpoint the published plugin
+// exposes. Make the test FAIL (not silently pass) when the plugin manifest
+// would ship a broken workflow integration, mirroring what Devin flagged on
+// PR #38 (analysis: "Acceptance test bypasses plugin behavior").
+function assertPluginWiring() {
+  const failures = [];
+  const mcpJsonPath = join(PLUGIN_DIR, '.mcp.json');
+  let mcpServers = {};
+  if (!existsSync(mcpJsonPath)) {
+    failures.push(`missing ${mcpJsonPath}`);
+  } else {
+    try {
+      mcpServers = JSON.parse(readFileSync(mcpJsonPath, 'utf8')).mcpServers || {};
+    } catch (e) {
+      failures.push(`invalid JSON in ${mcpJsonPath}: ${e.message}`);
+    }
+    if (!mcpServers['workflows-esp']) {
+      failures.push(`${mcpJsonPath} does not declare "workflows-esp" server`);
+    }
+  }
+  const tcPath = join(REPO_ROOT, 'scripts', 'tool-contracts.js');
+  if (!existsSync(tcPath)) {
+    failures.push(`missing ${tcPath}`);
+  } else {
+    const tc = readFileSync(tcPath, 'utf8');
+    const m = tc.match(/'workflows-esp'\s*:\s*\[([^\]]*)\]/);
+    const declared = m ? m[1].split(',').map((s) => s.trim().replace(/^['"]|['"]$/g, '')).filter(Boolean) : [];
+    const missing = WORKFLOWS_TOOLS.filter((t) => !declared.includes(t));
+    if (missing.length) {
+      failures.push(`${tcPath} declares workflows-esp tools [${declared.join(', ')}] but is missing: ${missing.join(', ')}`);
+    }
+  }
+  for (const f of ['commands/workflow.md', 'commands/create-workflow.md']) {
+    const p = join(PLUGIN_DIR, f);
+    if (!existsSync(p)) failures.push(`missing ${p}`);
+  }
+  if (failures.length) {
+    console.error('[fatal] Plugin wiring for workflows-esp is incomplete:');
+    for (const f of failures) console.error(`   - ${f}`);
+    console.error('        This acceptance test requires the plugin manifest');
+    console.error('        to advertise the workflows MCP server before it can');
+    console.error('        claim Map D #32 acceptance. Restore the wiring then rerun.');
+    process.exit(3);
+  }
+}
+assertPluginWiring();
 
 const tmpRoot = mkdtempSync(join(tmpdir(), 'bcc-flusso-nda-'));
 const dbPath = join(tmpRoot, 'workflows.db');
