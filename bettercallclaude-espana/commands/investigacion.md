@@ -75,8 +75,8 @@ Use standard Spanish citation formats:
 - spanish-jurisdictions
 
 ## Examples
-- `/bettercallclaude-espana:research "Jurisprudencia del TS sobre interpretación del Art. 1255 CC en contratos de arrendamiento urbano"`
-- `/bettercallclaude-espana:research "STS sobre responsabilidad civil extracontractual, Art. 1902 CC, últimos 5 años"`
-- `/bettercallclaude-espana:research "STC sobre derecho al honor y libertad de expresión, Art. 18 CE"`
+- `/bettercallclaude-espana:investigacion "Jurisprudencia del TS sobre interpretación del Art. 1255 CC en contratos de arrendamiento urbano"`
+- `/bettercallclaude-espana:investigacion "STS sobre responsabilidad civil extracontractual, Art. 1902 CC, últimos 5 años"`
+- `/bettercallclaude-espana:investigacion "STC sobre derecho al honor y libertad de expresión, Art. 18 CE"`
 
 $ARGUMENTS

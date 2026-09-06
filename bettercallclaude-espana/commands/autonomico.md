@@ -39,8 +39,8 @@ All 17 CCAA plus 2 ciudades autónomas: AN, AR, AS, IB, CN, CB, CM, CL, CT, CE, 
 - spanish-citation-formats
 
 ## Examples
-- `/bettercallclaude-espana:autonomic "Régimen de vivienda protegida en Cataluña según la Ley 18/2007 y jurisprudencia del TSJC"`
-- `/bettercallclaude-espana:autonomic "Derecho civil foral navarro en materia sucesoria, Art. 18 del Fuero Nuevo"`
-- `/bettercallclaude-espana:autonomic "Competencias de la Comunidad de Madrid en materia de urbanismo, Ley 9/2001 del Suelo de Madrid"`
+- `/bettercallclaude-espana:autonomico "Régimen de vivienda protegida en Cataluña según la Ley 18/2007 y jurisprudencia del TSJC"`
+- `/bettercallclaude-espana:autonomico "Derecho civil foral navarro en materia sucesoria, Art. 18 del Fuero Nuevo"`
+- `/bettercallclaude-espana:autonomico "Competencias de la Comunidad de Madrid en materia de urbanismo, Ley 9/2001 del Suelo de Madrid"`
 
 $ARGUMENTS

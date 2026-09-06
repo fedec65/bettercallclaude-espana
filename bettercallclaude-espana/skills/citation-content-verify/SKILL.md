@@ -85,7 +85,7 @@ La corrección formal NO es tarea tuya — esa es de `spanish-citation-formats`.
 
 ### Paso 0: Pre-Check Privacidad
 
-Determina el modo de privacidad activo (archivo `.privacy-mode` o estado de sesión; por defecto `balanced`, ver `/bettercallclaude-espana:privacy`). Las llamadas MCP alcanzan servidores cloud remotos:
+Determina el modo de privacidad activo (archivo `.privacy-mode` o estado de sesión; por defecto `balanced`, ver `/bettercallclaude-espana:privacidad`). Las llamadas MCP alcanzan servidores cloud remotos:
 
 - **Modo `strict`**: las frases de afirmación (claim) NUNCA deben enviarse a content-check cloud. Ejecuta solo verificaciones de existencia con consultas mínimas (número de sentencia, artículo), nunca el texto del borrador; marca el estado de contenido como `UNVERIFIED` con nota `(privacy-gated: existencia confirmada, contenido no verificado en modo strict)`. Las llamadas de recuperación envían solo la cadena de la cita: son compatibles con el modo `strict`.
 - **Modo `balanced`**: los pasajes privilegiados se retienen; solo las frases de afirmación no privilegiadas pueden alimentar las consultas.
@@ -201,7 +201,7 @@ Si los servidores MCP requeridos son inalcanzables: marca cada cita `UNVERIFIED 
 
 ## Integración
 
-- Invocada por `legal-evaluator` (gate pre-score), `/bucle-legal` (paso veredicto), el orquestador (quality gate pre-entrega), el agente especialista de citas y `/validate` (modo sustancial).
+- Invocada por `legal-evaluator` (gate pre-score), `/bucle-legal` (paso veredicto), el orquestador (quality gate pre-entrega), el agente especialista de citas y `/validar` (modo sustancial).
 - Recibe: el texto del borrador (y eventualmente el modo de privacidad activo).
 - Devuelve: el informe estructurado por cita + el flag `delivery_blocked`.
 - Nunca modifica el borrador — las modificaciones ocurren vía las opciones del gate elegidas por el usuario o el pipeline.

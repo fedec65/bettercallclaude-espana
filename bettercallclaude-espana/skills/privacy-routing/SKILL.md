@@ -116,7 +116,7 @@ Si una ruta referenciada contiene un segmento discriminador, se activa la misma 
 ## Configuración de Usuario
 
 El modo de privacidad se configura mediante:
-1. El comando `/bettercallclaude-espana:privacy`
+1. El comando `/bettercallclaude-espana:privacidad`
 2. El archivo `~/.betterask/config.yaml`
 3. userConfig de Cowork Desktop (ajuste `privacy_mode`)
 

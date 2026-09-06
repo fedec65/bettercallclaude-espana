@@ -29,7 +29,7 @@ Tras instalar el plugin, ejecuta `/mcp` para verificar que los 12 servidores apa
 
 ### Sin servidores MCP (modo reducido)
 
-Si los servidores remotos están inaccesibles, el plugin degrada a **modo reducido**: las skills y comandos siguen funcionando con el conocimiento jurídico español integrado en el modelo, pero no pueden buscar en bases de datos en vivo, verificar la existencia de citas ni acceder a la legislación vigente. Las tareas sensibles a exactitud de fuente deben marcar sus citas como **no verificadas**. Ejecuta `/bettercallclaude-espana:setup` para diagnosticar la conectividad y el estado de cada servidor.
+Si los servidores remotos están inaccesibles, el plugin degrada a **modo reducido**: las skills y comandos siguen funcionando con el conocimiento jurídico español integrado en el modelo, pero no pueden buscar en bases de datos en vivo, verificar la existencia de citas ni acceder a la legislación vigente. Las tareas sensibles a exactitud de fuente deben marcar sus citas como **no verificadas**. Ejecuta `/bettercallclaude-espana:configurar` para diagnosticar la conectividad y el estado de cada servidor.
 
 > Los servidores remotos usan `StreamableHTTPServerTransport` (HTTP con handshake `tools/list`). Confirma que tu backend soporta este protocolo.
 

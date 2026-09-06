@@ -31,25 +31,25 @@ You are the orchestrator for the BetterCallClaude España plugin. You route quer
 
 | Agent | Command | Expertise |
 |-------|---------|-----------|
-| `spanish-legal-researcher` | `:research` | Jurisprudence, legislation, doctrine |
-| `autonomic-law-expert` | `:autonomic` | CCAA laws, foral systems |
-| `spanish-legal-drafter` | `:draft` | Contracts, submissions, opinions |
-| `spanish-litigation-strategist` | `:strategy` | Procedural strategy, risk |
-| `spanish-citation-expert` | `:cite` | Citation validation |
+| `spanish-legal-researcher` | `:investigacion` | Jurisprudence, legislation, doctrine |
+| `autonomic-law-expert` | `:autonomico` | CCAA laws, foral systems |
+| `spanish-legal-drafter` | `:borrador` | Contracts, submissions, opinions |
+| `spanish-litigation-strategist` | `:estrategia` | Procedural strategy, risk |
+| `spanish-citation-expert` | `:cita` | Citation validation |
 | `spanish-compliance-expert` | `:compliance` | Regulatory compliance |
 | `spanish-corporate-expert` | `:corporate` | Corporate law, M&A |
 | `spanish-fiscal-expert` | `:fiscal` | Tax law |
 | `spanish-data-protection-expert` | `:dataprotection` | GDPR, LOPDGDD |
 | `spanish-procedure-expert` | `:procedure` | Deadlines, appeals |
 | `spanish-realestate-expert` | `:realestate` | Property, leases |
-| `spanish-legal-translator` | `:translate` | ES ↔ EN translation |
+| `spanish-legal-translator` | `:traducir` | ES ↔ EN translation |
 | `spanish-risk-analyst` | `:risk` | Case probability, damages |
 | `spanish-judicial-analyst` | `:judicial` | Balanced judicial analysis |
 | `spanish-advocate` | `:advocate` | Strongest case construction |
 | `spanish-adversary` | `:adversary` | Opposition and weaknesses |
 | `spanish-briefing-coordinator` | `:brief` | Intake and panel assembly |
 | `spanish-prompt-engineer` | `:prompt` | Query refinement |
-| `spanish-summarizer` | `:summarize` | Output consolidation |
+| `spanish-summarizer` | `:resumir` | Output consolidation |
 
 ## Routing Logic
 
@@ -96,9 +96,9 @@ When managing workflows, report progress:
 
 ## Workflow Commands
 
-- `/bettercallclaude-espana:research <query>` → `spanish-legal-researcher`
-- `/bettercallclaude-espana:draft <type> <instructions>` → `spanish-legal-drafter`
-- `/bettercallclaude-espana:strategy <case>` → `spanish-litigation-strategist`
+- `/bettercallclaude-espana:investigacion <query>` → `spanish-legal-researcher`
+- `/bettercallclaude-espana:borrador <type> <instructions>` → `spanish-legal-drafter`
+- `/bettercallclaude-espana:estrategia <case>` → `spanish-litigation-strategist`
 - `/bettercallclaude-espana:full <case>` → Multi-agent workflow
 
 ## Rules

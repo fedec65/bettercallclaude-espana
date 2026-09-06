@@ -19,35 +19,51 @@ This command operates on the plugin's documentation layer.
 ## Information Displayed
 
 ### Commands
-List all 29 commands with description and example:
+List all 29 commands with description and example, grouped by category:
+
+**Portal & onboarding**
 - `legal` — Gateway & intent routing (e.g. `/bettercallclaude-espana:legal`)
-- `research` — Search Spanish legal precedents and compile research memoranda (e.g. `/bettercallclaude-espana:research "responsabilidad extracontractual"`)
-- `strategy` — Develop litigation strategy under LEC with risk/cost assessment (e.g. `/bettercallclaude-espana:strategy`)
-- `draft` — Draft Spanish legal documents: contracts, court submissions, opinions (e.g. `/bettercallclaude-espana:draft demanda`)
-- `cite` — Verify and format Spanish legal citations (STS, SAP, STC, BOE)
-- `validate` — Bulk citation validation
-- `precedent` — Search and analyze STS/SAP/STC precedents with chain tracking
+- `ayuda` — This command
+- `start` — Bienvenida y onboarding — verifica MCP, guía playbook local
+- `doctor` — Diagnóstico de servidores MCP, estado e impacto
+
+**Investigación & análisis**
+- `investigacion` — Search Spanish legal precedents and compile research memoranda (e.g. `/bettercallclaude-espana:investigacion "responsabilidad extracontractual"`)
+- `precedente` — Search and analyze STS/SAP/STC precedents with chain tracking
 - `federal` — Analyze a legal question under Spanish state law (Derecho estatal)
-- `autonomic` — Analyze a legal question under autonomic law for a specific CCAA
-- `adversarial` — Three-agent adversarial analysis: advocate / adversary / judicial
+- `autonomico` — Analyze a legal question under autonomic law for a specific CCAA
+- `analizar-doc` — Analyze Spanish legal documents — issues, clauses, citations, compliance
+
+**Estrategia & contradictorio**
+- `estrategia` — Develop litigation strategy under LEC with risk/cost assessment (e.g. `/bettercallclaude-espana:estrategia`)
+- `analisis-adversarial` — Three-agent adversarial analysis: advocate / adversary / judicial
+- `refinar` — Transform vague legal queries through Socratic dialogue
 - `briefing` — Structured pre-execution briefing — assembles specialist panel
-- `workflow` — Multi-agent legal workflows: due diligence, litigation prep, contract lifecycle
-- `translate` — Translate Spanish legal documents between ES and EN
-- `doc-analyze` — Analyze Spanish legal documents — issues, clauses, citations, compliance
-- `summarize` — Consolidate multi-agent pipeline output with length control
-- `setup` — Check MCP server connectivity and display status
-- `version` — Display plugin version and system status
+
+**Redacción & traducción**
+- `borrador` — Draft Spanish legal documents: contracts, court submissions, opinions (e.g. `/bettercallclaude-espana:borrador demanda`)
+- `traducir` — Translate Spanish legal documents between ES and EN
+
+**Verificación de citas**
+- `cita` — Verify and format Spanish legal citations (STS, SAP, STC, BOE)
+- `validar` — Bulk citation validation
+
+**Workflows multi-agente**
 - `legal-5step` — Execute the 5-step end-to-end framework: intake → research → strategy → adversarial → draft
-- `privacy` — View or change privacy mode (strict/balanced/cloud)
-- `help` — This command
-- `refine` — Transform vague legal queries through Socratic dialogue
+- `workflow` — Multi-agent legal workflows: due diligence, litigation prep, contract lifecycle
+- `bucle-legal` — Ejecuta un ciclo worker-evaluador contra un Goal Record
+
+**Wayfinder**
 - `mapa-legal` — Traza un mapa decisional wayfinder de una práctica legal grande
 - `percurso-legal` — Trabaja un ticket de un mapa decisional legal-wayfinder
-- `cronologia-legal` — Construye una cronología legal documentada con fuente obligatoria
-- `bucle-legal` — Ejecuta un ciclo worker-evaluador contra un Goal Record
 - `objetivo-legal` — Define una condición de éxito legal verificable (Goal Record)
-- `doctor` — Diagnóstico de servidores MCP, estado e impacto
-- `start` — Bienvenida y onboarding — verifica MCP, guía playbook local
+- `cronologia-legal` — Construye una cronología legal documentada con fuente obligatoria
+
+**Utilidades**
+- `resumir` — Consolidate multi-agent pipeline output with length control
+- `configurar` — Check MCP server connectivity and display status
+- `version` — Display plugin version and system status
+- `privacidad` — View or change privacy mode (strict/balanced/cloud)
 - `triage-nda` — Triage de NDA según el derecho español (GREEN/YELLOW/RED)
 
 ### Agents
@@ -103,9 +119,9 @@ List of configured MCP servers with status.
 Provide 5-7 representative examples covering different command types.
 
 ## Examples
-- `/bettercallclaude-espana:help`
-- `/bettercallclaude-espana:help --commands`
-- `/bettercallclaude-espana:help --agents`
-- `/bettercallclaude-espana:help --skills`
+- `/bettercallclaude-espana:ayuda`
+- `/bettercallclaude-espana:ayuda --commands`
+- `/bettercallclaude-espana:ayuda --agents`
+- `/bettercallclaude-espana:ayuda --skills`
 
 $ARGUMENTS

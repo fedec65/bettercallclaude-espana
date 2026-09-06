@@ -39,8 +39,8 @@ Use exclusively BetterCallClaude España agents, skills, and MCP servers.
 - spanish-jurisdictions
 
 ## Examples
-- `/bettercallclaude-espana:adversarial "Demanda por despido improcedido: la empresa alega falta de adaptación por causas organizativas, Art. 52.c ET"`
-- `/bettercallclaude-espana:adversarial "Recurso de casación por infracción del Art. 1255 CC en interpretación de contrato de distribución"`
-- `/bettercallclaude-espana:adversarial "Defensa en causa penal por presunto delito de alzamiento de bienes, Art. 257 CP"`
+- `/bettercallclaude-espana:analisis-adversarial "Demanda por despido improcedido: la empresa alega falta de adaptación por causas organizativas, Art. 52.c ET"`
+- `/bettercallclaude-espana:analisis-adversarial "Recurso de casación por infracción del Art. 1255 CC en interpretación de contrato de distribución"`
+- `/bettercallclaude-espana:analisis-adversarial "Defensa en causa penal por presunto delito de alzamiento de bienes, Art. 257 CP"`
 
 $ARGUMENTS

@@ -35,8 +35,8 @@ Use exclusively BetterCallClaude España agents, skills, and MCP servers.
 - spanish-legal-research
 
 ## Examples
-- `/bettercallclaude-espana:strategy "Estrategia para demanda por cláusula suelo contra entidad bancaria en Juzgado de Primera Instancia de Madrid"`
-- `/bettercallclaude-espana:strategy "Análisis de riesgos para recurso de casación por infracción del Art. 238 CP"`
-- `/bettercallclaude-espana:strategy "Procedimiento monitorio vs. juicio verbal para reclamación de 8.000 EUR"`
+- `/bettercallclaude-espana:estrategia "Estrategia para demanda por cláusula suelo contra entidad bancaria en Juzgado de Primera Instancia de Madrid"`
+- `/bettercallclaude-espana:estrategia "Análisis de riesgos para recurso de casación por infracción del Art. 238 CP"`
+- `/bettercallclaude-espana:estrategia "Procedimiento monitorio vs. juicio verbal para reclamación de 8.000 EUR"`
 
 $ARGUMENTS

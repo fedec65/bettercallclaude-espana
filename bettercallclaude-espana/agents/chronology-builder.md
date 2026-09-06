@@ -1,6 +1,6 @@
 ---
 name: chronology-builder
-description: "Worker aislado que lee los documentos del caso de forma iterativa y extrae eventos de cronología con fuente (fecha, hecho neutro, procedencia obligatoria documento+locus, estado no controvertido/alegado/controvertido, atribución a las partes). Deduplica y cruza las referencias entre documentos y lenguas. Emite events.json para la skill legal-chronology — nunca renderiza, nunca juzga. NO activar para: análisis de documento único (/doc-analyze), verificación de citas (agente citation), o rendering/output (paso render de legal-chronology)."
+description: "Worker aislado que lee los documentos del caso de forma iterativa y extrae eventos de cronología con fuente (fecha, hecho neutro, procedencia obligatoria documento+locus, estado no controvertido/alegado/controvertido, atribución a las partes). Deduplica y cruza las referencias entre documentos y lenguas. Emite events.json para la skill legal-chronology — nunca renderiza, nunca juzga. NO activar para: análisis de documento único (/analizar-doc), verificación de citas (agente citation), o rendering/output (paso render de legal-chronology)."
 model: sonnet
 tools:
   - Read
