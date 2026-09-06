@@ -59,14 +59,14 @@ Ver `INSTALACION.md` §3 para la plantilla completa (`templates/bettercallclaude
 - **Triage de NDA**: `/triage-nda` clasifica el documento como GREEN (estándar), YELLOW (revisión) o RED (problemas) usando los umbrales del playbook y criterios del derecho español.
 - **Preparación de litigio**: sobre la investigación previa, `/estrategia` desarrolla la estrategia procesal — riesgos, análisis coste-beneficio y vía procesal conforme a la LEC.
 
-Los mismos escenarios pueden guardarse como **flujos persistentes** con `/workflow` (plantillas fijas `litigation-prep`, `due-diligence`, `contract-lifecycle`, `realestate-closing` y el ejemplo `flusso-nda`); el estado sobrevive entre invocaciones y puede reanudarse con `--resume`.
+Los mismos escenarios se ejecutan como **plantillas fijas de `/workflow`** (`litigation-prep`, `due-diligence`, `contract-lifecycle`, `realestate-closing`). Para los **flujos persistentes** — guardar un flujo propio, gestionarlo (`list`, `show`, `delete`) y reanudarlo con `--resume` — ver `INSTALACION.md` §2.
 
 ## 4. Comandos de orquestación
 
 - **`/legal`** — gateway principal: clasifica la intención, resuelve la jurisdicción y enruta al agente o comando especializado. Es el punto de entrada recomendado para consultas no estructuradas.
 - **`/legal-5step`** — marco completo en 5 pasos: intake → investigación → estrategia → análisis adversarial → borrador. Útil para asuntos complejos que requieren el ciclo entero.
 - **`/briefing`** — briefing estructurado previo a la ejecución: ensambla el panel de especialistas, recoge el contexto del asunto y construye el plan de trabajo.
-- **`/workflow`** — ejecuta flujos multi-agente (plantillas fijas o guardadas por el usuario); soporta `list`, `show <slug>`, `delete <slug>` y `--resume`.
+- **`/workflow`** — ejecuta flujos multi-agente desde plantillas fijas (`litigation-prep`, `due-diligence`, `contract-lifecycle`, `realestate-closing`); para flujos guardados persistentes, ver `INSTALACION.md` §2.
 - **`/start`** — onboarding: verifica la conectividad MCP, guía la creación del playbook local y muestra ejemplos según el perfil del usuario.
 - **`/analizar-doc`** y **`/investigacion`** — acceso directo a tareas concretas (análisis de un documento, investigación) cuando no hace falta pasar por el gateway.
 
@@ -74,24 +74,23 @@ Los mismos escenarios pueden guardarse como **flujos persistentes** con `/workfl
 
 - **Tarea acotada** (verificar una cita, analizar una cláusula, traducir un pasaje): enruta directo al agente con `@spanish-*` (p. ej. `@spanish-citation-expert`, `@spanish-legal-translator`, `@spanish-data-protection-expert`) — ver `docs/AGENT_ARCHITECTURE.md`.
 - **Asunto complejo**: deja que `/legal` clasifique la intención y enrute, o aplica `/legal-5step` para cubrir el ciclo completo (intake → investigación → estrategia → adversarial → borrador) con control de calidad en cada fase.
-- **Proceso repetible**: guarda la cadena como flujo persistente con `/workflow` y reanúdala con `--resume` cuando entre nuevo material del asunto.
+- **Proceso repetible**: si el mismo flujo se repite entre asuntos, consérvalo como flujo persistente y reanúdalo cuando entre material nuevo — gestión de flujos en `INSTALACION.md` §2.
 
 ## 5. Buenas prácticas de privacidad
 
 - El hook **`secreto profesional`** (Art. 24 LOPJ / Art. 542 CP) revisa las llamadas salientes a herramientas en busca de indicios de información privilegiada antes de ejecutarlas. Aplica también al contenido de los workflows.
 - Modos configurables **strict / balanced / cloud**: ajustan la política de privacidad según la sensibilidad del asunto.
-- **Ollama (local)** queda exento de los controles de privacidad: úsalo para los documentos más sensibles en lugar de los servidores en la nube.
+- **Ollama (local)**: en modo strict el hook no bloquea estas llamadas (el contenido no sale de la máquina); úsalo para los documentos más sensibles en lugar de los servidores en la nube.
 - Datos personales: trata conforme a la LOPDGDD (Ley Orgánica 3/2018) y al RGPD (Reglamento UE 2016/679). En los flujos persistentes, el `user_id` es la única clave de acceso — trátalo como credencial (ver `INSTALACION.md` §2.2).
-- El estado de los flujos persistentes se conserva en el servidor MCP `workflows-esp` (Postgres en producción, SQLite en desarrollo) y los outputs de cada etapa se copian en `bcc-output/workflow/<user_id>/<slug>/`. Antes de guardar un asunto sensible como flujo, decide si ese almacenamiento es aceptable para el asunto.
-- Incluye siempre el disclaimer profesional en las salidas; el control de calidad del plugin verifica las referencias TS/STS/AP y nunca fabrica citas.
+- Incluye siempre el disclaimer profesional en las salidas. El control de calidad del plugin (p. ej. `/validar`) comprueba el formato y la existencia de las citas contra las fuentes MCP; la verificación final de una cita antes de presentarla en un escrito sigue siendo responsabilidad del profesional.
 - El playbook **no puede derogar el derecho imperativo**: si una preferencia del despacho choca con una norma, el plugin lo señala y aplica la ley (p. ej. límites de supresión de la LOPDGDD §17).
 
 ## 6. Personalización
 
 Para adaptar el plugin a un despacho concreto:
 
-1. Copia la plantilla: `cp templates/bettercallclaude-espana.local.md.example.es .claude/bettercallclaude-espana.local.md`.
-2. Edítala con el perfil del §2 (o deja que `/start` la genere por entrevista).
+1. Ejecuta `/start` y responde la entrevista (5-6 preguntas): genera `.claude/bettercallclaude-espana.local.md` y verifica la conectividad MCP.
+2. Revisa el archivo generado frente al perfil del §2; la plantilla completa con los campos de estilo se describe en `INSTALACION.md` §3.
 3. Consulta `docs/AGENT_ARCHITECTURE.md` para enrutar directamente a un agente con `@spanish-*`.
 4. Revisa `docs/command-reference.md` para la sintaxis completa de cada comando.
 

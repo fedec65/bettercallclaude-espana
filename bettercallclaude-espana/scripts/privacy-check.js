@@ -326,9 +326,15 @@ function classify(content, pathHint) {
   return null;
 }
 
-/** Check if a tool name refers to the local Ollama MCP server. */
+/**
+ * Check if a tool name refers to the local Ollama MCP server.
+ * Matches both the bare form (`mcp__ollama__*`) and the plugin-scoped form
+ * (`mcp__plugin_bettercallclaude-espana_ollama__*`) used in command frontmatter.
+ */
 function isOllamaTool(toolName) {
-  return typeof toolName === 'string' && toolName.startsWith('mcp__ollama__');
+  if (typeof toolName !== 'string') return false;
+  return toolName.startsWith('mcp__ollama__') ||
+    toolName.startsWith('mcp__plugin_bettercallclaude-espana_ollama__');
 }
 
 /**

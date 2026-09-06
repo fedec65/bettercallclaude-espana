@@ -300,6 +300,42 @@ t('rejects empty string', () => {
   assert.strictEqual(isOllamaTool(''), false);
 });
 
+t('identifies plugin-scoped mcp__plugin_bettercallclaude-espana_ollama__ollama_generate as Ollama', () => {
+  assert.strictEqual(isOllamaTool('mcp__plugin_bettercallclaude-espana_ollama__ollama_generate'), true);
+});
+
+t('identifies plugin-scoped mcp__plugin_bettercallclaude-espana_ollama__ollama_chat as Ollama', () => {
+  assert.strictEqual(isOllamaTool('mcp__plugin_bettercallclaude-espana_ollama__ollama_chat'), true);
+});
+
+t('rejects plugin-scoped non-Ollama server (cendoj)', () => {
+  assert.strictEqual(
+    isOllamaTool('mcp__plugin_bettercallclaude-espana_cendoj-jurisprudencia__search_jurisprudencia'),
+    false
+  );
+});
+
+t('strict: plugin-scoped Ollama tool → null (exempt)', () => {
+  const r = classifyWithMode(
+    'Secreto profesional.',
+    '',
+    'strict',
+    'mcp__plugin_bettercallclaude-espana_ollama__ollama_generate'
+  );
+  assert.strictEqual(r, null);
+});
+
+t('strict: plugin-scoped non-Ollama MCP tool with strong pattern → deny', () => {
+  const r = classifyWithMode(
+    'Secreto profesional.',
+    '',
+    'strict',
+    'mcp__plugin_bettercallclaude-espana_cendoj-jurisprudencia__search_jurisprudencia'
+  );
+  assert.notStrictEqual(r, null);
+  assert.strictEqual(r.decision, 'deny');
+});
+
 // -------------------------------------------------------------------------
 // resolvePrivacyMode()
 // -------------------------------------------------------------------------
