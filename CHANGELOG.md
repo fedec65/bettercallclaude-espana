@@ -1,5 +1,59 @@
 # Changelog
 
+## [2.0.0] - 2026-09-06 — Plugin full-ES parity IT (Map C)
+
+Plugin completamente en español, paridad funcional con BetterCallClaude Italia v2.3.0.
+
+### Major changes
+- **15 comandos renombrados al español** con alias retro-compatibles (2 release):
+  - `research` → `investigacion`
+  - `draft` → `borrador`
+  - `cite` → `cita`
+  - `adversarial` → `analisis-adversarial`
+  - `autonomic` → `autonomico`
+  - `doc-analyze` → `analizar-doc`
+  - `precedent` → `precedente`
+  - `privacy` → `privacidad`
+  - `refine` → `refinar`
+  - `setup` → `configurar`
+  - `strategy` → `estrategia`
+  - `summarize` → `resumir`
+  - `translate` → `traducir`
+  - `validate` → `validar`
+  - `help` → `ayuda`
+- **21 skills en español** (15 tradotte da EN con legal transposition + 6 nuove di Map A: `citation-content-verify`, `legal-chronology`, `legal-evaluator`, `legal-intake`, `legal-wayfinder`, `shared`).
+- **`CONTEXT.md`** — 21 termini legal-method con sinonimi rifiutati.
+- **Docs ES (4)** — `INSTALACION.md` (rename + acento), `PLAYBOOK.md`, `docs/command-reference.md`, `docs/AGENT_ARCHITECTURE.md`.
+- **`evals/`** — 2 set (`citation-verify` 39 voci ES, `legal-timeline` 11 voci LEC procesal plazo).
+- **`testdocs/cronologia/`** — 4 fixture fittizie per `cronologia-legal`.
+- **`templates/`** — `bettercallclaude-espana.local.md.example.es` (per-despatcho playbook).
+
+### Changed
+- `commands/help.md` → `commands/ayuda.md` (con 30 comandi elencati).
+- `INSTALL_ES.md` → `INSTALACION.md` (con acento, alla root).
+- `scripts/tool-contracts.js` — `COMMAND_SKILL_MAP` e `MULTI_AGENT_COMMANDS` aggiornati ai nomi nuovi; nuovo `Set DEPRECATED_COMMANDS` per i 15 alias stub.
+- 15 file stub di deprecamento creati (es. `research.md` → delega a `investigacion.md`).
+- 5 docs ES riscritti: `AGENT_ARCHITECTURE.md` (21 agenti, 21 skill, matrice grounded), `command-reference.md` (29 comandi v2.0), `PLAYBOOK.md` (flussi pratici), `CONTEXT.md` glossario v2, `INSTALACION.md` con accento.
+
+### Notes
+- **Breaking change**: chiunque importi slug di comandi nei propri workflow deve aggiornare a v2.0.0.
+- Alias retro-compat attivi per 2 release (rimossi in v2.1.0).
+- Map C: #40.
+
+## [1.1.1] - 2026-09-05 — Add workflows-esp consumer commands
+
+Delta incrementale sobre v1.1.0: trae a `main` el commit `feat(workflows-esp): plugin commands create-workflow + workflow hub` (#37), que añade el comando consumer `/create-workflow` y convierte `/workflow` en un hub de gestión de flujos. Resuelto el conflicto de rebase en `scripts/generate-tool-frontmatter.js` moviendo `SERVER_TOOLS` / `MULTI_AGENT_COMMANDS` a `scripts/tool-contracts.js` (single source of truth compartida con `check-tool-names.js`).
+
+### Changed
+- `scripts/tool-contracts.js`: añadido `workflows-esp` (9 tool) a `SERVER_TOOLS` y `create-workflow.md` a `MULTI_AGENT_COMMANDS`; comentario de cabecera actualizado a 12 remote + 1 stdio = 13 server / 56 tool.
+- `scripts/generate-tool-frontmatter.js`: importa los contratos desde `./tool-contracts` (sin duplicación local).
+- `check-tool-names.js`: pasa (72 archivos, 876 entradas, 18 agentes mapeados, 13 comandos orquestadores, 21 skills limpias).
+- `validate-plugin.js`: alineado a 1.1.1 en marketplace.json / plugin.json / package.json.
+
+### Notes
+- Rebase del commit único `fe9f0a7` sobre `origin/main` (post v1.1.0), no dev → main, para mantener la historia lineal.
+- Mismo árbol funcional que el PR original #37 contra dev: sin regresión semántica.
+
 ## [1.1.0] - 2026-09-05 — Flujos persistentes (Map D)
 
 **Workflows persistentes** end-to-end en el plugin España, con nuevo servidor MCP `workflows-esp` (ADR 0001) y dos comandos nuevos.
