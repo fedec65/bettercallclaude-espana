@@ -29,7 +29,17 @@ trap "rm -rf $STAGING" EXIT
 
 cp -r "$PLUGIN_DIR" "$STAGING/"
 
-(cd "$STAGING" && zip -r -q "$OUTPUT" bettercallclaude-espana)
+# Include the local playbook template alongside the plugin so installed
+# users can follow the copy-to-.claude workflow described in INSTALACION §3
+# and the template's header. Shipped at <zip-root>/templates/ — a stable path
+# independent of the plugin install location.
+if [ -d "$REPO_ROOT/templates" ]; then
+  cp -r "$REPO_ROOT/templates" "$STAGING/"
+else
+  echo "WARN: $REPO_ROOT/templates not found — packaged release will not include the playbook template."
+fi
+
+(cd "$STAGING" && zip -r -q "$OUTPUT" .)
 
 echo ""
 echo "Package created: $OUTPUT"
