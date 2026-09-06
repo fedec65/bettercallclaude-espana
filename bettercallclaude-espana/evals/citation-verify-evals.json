@@ -1,6 +1,6 @@
 {
   "skill_name": "citation-content-verify",
-  "description": "Acceptance eval set para la skill citation-content-verify (BetterCallClaude España). Grupos: fabricated (12, esperado 100% UNVERIFIED + delivery_blocked), genuine (20, esperado MATCH, tasa de falsos positivos MISMATCH < 5% es decir máximo 1), mismatch (4, cita real + afirmación no respaldada o contradicha), partial (2), doctrine-informal (1, esperado SKIPPED). Ejecutar cada prompt contra los servidores MCP en vivo (legal-citations-esp, boe-legislacion, cendoj-jurisprudencia, tribunal-constitucional, eu-law-esp, doctrina-academica) y comparar el estado por cita. Nota: las sentencias del Tribunal Supremo se citan por número de resolución (p. ej. STS 241/2013); su ECLI CENDOJ difiere del número de resolución (p. ej. ECLI:ES:TS:2013:1916) — normalizar vía convert_to_ecli o buscar por número/año en search_jurisprudencia antes de declarar UNVERIFIED.",
+  "description": "Acceptance eval set para la skill citation-content-verify (BetterCallClaude España). Grupos: fabricated (12, esperado 100% UNVERIFIED + delivery_blocked), genuine (20, esperado MATCH, tasa de falsos positivos MISMATCH ≤ 5% es decir máximo 1 de 20), mismatch (4, cita real + afirmación no respaldada o contradicha), partial (2), doctrine-informal (1, esperado SKIPPED). Ejecutar cada prompt contra los servidores MCP en vivo (legal-citations-esp, boe-legislacion, cendoj-jurisprudencia, tribunal-constitucional, eu-law-esp, doctrina-academica) y comparar el estado por cita. Nota: las sentencias del Tribunal Supremo se citan por número de resolución (p. ej. STS 241/2013); su ECLI CENDOJ difiere del número de resolución (p. ej. ECLI:ES:TS:2013:1916) — normalizar vía convert_to_ecli o buscar por número/año en search_jurisprudencia antes de declarar UNVERIFIED.",
   "evals": [
     {
       "id": "esp-fab-01",
@@ -271,8 +271,8 @@
     {
       "id": "esp-doc-01",
       "group": "doctrine-informal",
-      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"Según se explica en los manuales generales de Derecho Civil al uso, la responsabilidad extracontractual del art. 1902 CC exige acción u omisión, daño, culpa o negligencia y nexo causal.\"",
-      "expected_output": "Mención doctrinal informal sin identidad rastreable (sin obra ni autor concretos) -> estado SKIPPED (divulgado en el informe, no bloquea).",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"Según la doctrina expuesta en los manuales generales de responsabilidad civil, quien causa a otro un daño por culpa o negligencia queda obligado a repararlo.\"",
+      "expected_output": "La mención a los manuales generales de responsabilidad civil es doctrina informal sin identidad rastreable (sin obra ni autor concretos) y el borrador no contiene citas formales adicionales -> estado SKIPPED (divulgado en el informe, no bloquea).",
       "files": []
     }
   ]
