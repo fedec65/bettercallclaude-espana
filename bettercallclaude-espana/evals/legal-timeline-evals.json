@@ -1,0 +1,171 @@
+{
+  "skill_name": "legal-chronology",
+  "description": "Set de eval de aceptación para /cronologia-legal — valida los marcadores de plazos procesales del ordenamiento español (LEC/LJCA/LRJS/LECrim) contra la tabla de mapeo en skills/legal-chronology/references/deadline-mapping.md (sección A). Regla fundamental: no existe tool MCP determinista de plazos en el catálogo español; TODO marcador deriva de la tabla (fecha del evento + plazo legal) y se etiqueta SIEMPRE con basis: tabla-mapeo (indicativo). Cómputo según las reglas declaradas en el mapeo: art. 133 LEC — dies a quo el día siguiente al acto de comunicación (133.1); los plazos por días excluyen los inhábiles (133.2); los plazos por meses se computan de fecha a fecha (133.3); si el vencimiento cae en día inhábil se prorroga al siguiente hábil (133.4). Días inhábiles: sábados, domingos y festivos; el mes de agosto completo (art. 183 LOPJ; y art. 128.2 LJCA para la interposición contencioso-administrativa). Fechas de ejemplo en 2024 sobre el calendario nacional (sin festivos nacionales en los tramos de días hábiles elegidos); los festivos autonómicos/locales pueden desplazar el vencimiento: el marcador es indicativo y la verificación final corresponde a la oficina judicial competente.",
+  "evals": [
+    {
+      "id": "tl-001",
+      "description": "Apelación LEC art. 458.1 (20 días) desde notificación de sentencia de primera instancia",
+      "input": "Cronología: sentencia del Juzgado de Primera Instancia n.º 3 de Madrid (ordinario 2023/450) notificada el 2024-02-05 (evento evt-0007, fuente: diligencia de notificación de 2024-02-05). Genera los marcadores de plazo aplicables.",
+      "expected_steps": [
+        "Identificar el evento ancla de tipo notificación con fuente (evt-0007, 2024-02-05).",
+        "Reconocer el plazo procesal: apelación contra sentencia de primera instancia.",
+        "Buscar en la tabla de mapeo (sección A): art. 458.1 LEC — 20 días.",
+        "Computar desde el día siguiente a la notificación excluyendo inhábiles (arts. 133.1-133.2 LEC): 2024-02-06 → vencimiento 2024-03-04.",
+        "Emitir marcador {kind: procesal, due: 2024-03-04, basis: tabla-mapeo (indicativo), anchored_to: evt-0007} — sin tool de cómputo (no existe en el catálogo español)."
+      ],
+      "expected_plazos": [
+        { "from": "2024-02-05", "to": "2024-03-04", "basis": "tabla-mapeo (indicativo): art. 458.1 LEC (apelación, 20 días)" }
+      ]
+    },
+    {
+      "id": "tl-002",
+      "description": "Casación e infracción procesal LEC art. 479.1 (20 días) desde notificación de sentencia de segunda instancia",
+      "input": "Cronología: sentencia de la Audiencia Provincial de Madrid, Sección 10 (rollo 2023/800), notificada el 2024-02-08 (evento evt-0012, fuente: diligencia de notificación de 2024-02-08). Genera los marcadores de plazo aplicables.",
+      "expected_steps": [
+        "Identificar el evento ancla de tipo notificación con fuente (evt-0012, 2024-02-08).",
+        "Reconocer el plazo procesal: casación (e infracción procesal) contra sentencia de apelación.",
+        "Buscar en la tabla de mapeo (sección A): art. 479.1 LEC — 20 días.",
+        "Computar desde el día siguiente a la notificación excluyendo inhábiles (arts. 133.1-133.2 LEC): 2024-02-09 → vencimiento 2024-03-07.",
+        "Emitir marcador {kind: procesal, due: 2024-03-07, basis: tabla-mapeo (indicativo), anchored_to: evt-0012}."
+      ],
+      "expected_plazos": [
+        { "from": "2024-02-08", "to": "2024-03-07", "basis": "tabla-mapeo (indicativo): art. 479.1 LEC (casación e infracción procesal, 20 días)" }
+      ]
+    },
+    {
+      "id": "tl-003",
+      "description": "Reposición LEC art. 452.1 (5 días) desde notificación de providencia o auto no definitivo",
+      "input": "Cronología: providencia de 2024-02-21 que admite a trámite un incidente, notificada el 2024-02-21 (evento evt-0015, fuente: diligencia de notificación de 2024-02-21). Genera los marcadores de plazo aplicables.",
+      "expected_steps": [
+        "Identificar el evento ancla de tipo notificación con fuente (evt-0015, 2024-02-21).",
+        "Reconocer el plazo procesal: reposición contra providencia/auto no definitivo.",
+        "Buscar en la tabla de mapeo (sección A): art. 452.1 LEC — 5 días.",
+        "Computar desde el día siguiente a la notificación excluyendo inhábiles (arts. 133.1-133.2 LEC): 2024-02-22 → vencimiento 2024-02-28.",
+        "Emitir marcador {kind: procesal, due: 2024-02-28, basis: tabla-mapeo (indicativo), anchored_to: evt-0015}."
+      ],
+      "expected_plazos": [
+        { "from": "2024-02-21", "to": "2024-02-28", "basis": "tabla-mapeo (indicativo): art. 452.1 LEC (reposición, 5 días)" }
+      ]
+    },
+    {
+      "id": "tl-004",
+      "description": "Contestación a la demanda LEC art. 404.1 (20 días) desde el traslado de la demanda",
+      "input": "Cronología: demanda de juicio ordinario admitida y trasladada el 2024-02-13 (evento evt-0003, fuente: decreto de admisión de 2024-02-13). Genera los marcadores de plazo aplicables.",
+      "expected_steps": [
+        "Identificar el evento ancla de traslado/notificación con fuente (evt-0003, 2024-02-13).",
+        "Reconocer el plazo procesal: contestación a la demanda (juicio ordinario).",
+        "Buscar en la tabla de mapeo (sección A): art. 404.1 LEC — 20 días.",
+        "Computar desde el día siguiente al traslado excluyendo inhábiles (arts. 133.1-133.2 LEC): 2024-02-14 → vencimiento 2024-03-12.",
+        "Emitir marcador {kind: procesal, due: 2024-03-12, basis: tabla-mapeo (indicativo), anchored_to: evt-0003}."
+      ],
+      "expected_plazos": [
+        { "from": "2024-02-13", "to": "2024-03-12", "basis": "tabla-mapeo (indicativo): art. 404.1 LEC (contestación, 20 días)" }
+      ]
+    },
+    {
+      "id": "tl-005",
+      "description": "Proceso monitorio LEC art. 815.1 (20 días) desde el requerimiento de pago",
+      "input": "Cronología: requerimiento de pago de proceso monitorio notificado el 2024-02-26 (evento evt-0009, fuente: acuse de notificación de 2024-02-26). Genera los marcadores de plazo aplicables.",
+      "expected_steps": [
+        "Identificar el evento ancla de tipo requerimiento con fuente (evt-0009, 2024-02-26).",
+        "Reconocer el plazo procesal: pagar u oponerse en el monitorio.",
+        "Buscar en la tabla de mapeo (sección A): art. 815.1 LEC — 20 días.",
+        "Computar desde el día siguiente al requerimiento excluyendo inhábiles (arts. 133.1-133.2 LEC): 2024-02-27 → vencimiento 2024-03-25.",
+        "Emitir marcador {kind: procesal, due: 2024-03-25, basis: tabla-mapeo (indicativo), anchored_to: evt-0009}."
+      ],
+      "expected_plazos": [
+        { "from": "2024-02-26", "to": "2024-03-25", "basis": "tabla-mapeo (indicativo): art. 815.1 LEC (monitorio, 20 días)" }
+      ]
+    },
+    {
+      "id": "tl-006",
+      "description": "Juicio cambiario LEC art. 824.1 (10 días) desde el requerimiento de pago",
+      "input": "Cronología: requerimiento de pago de juicio cambiario notificado el 2024-02-22 (evento evt-0021, fuente: acuse de notificación de 2024-02-22). Genera los marcadores de plazo aplicables.",
+      "expected_steps": [
+        "Identificar el evento ancla de tipo requerimiento con fuente (evt-0021, 2024-02-22).",
+        "Reconocer el plazo procesal: demanda de oposición cambiaria.",
+        "Buscar en la tabla de mapeo (sección A): art. 824.1 LEC — 10 días.",
+        "Computar desde el día siguiente al requerimiento excluyendo inhábiles (arts. 133.1-133.2 LEC): 2024-02-23 → vencimiento 2024-03-07.",
+        "Emitir marcador {kind: procesal, due: 2024-03-07, basis: tabla-mapeo (indicativo), anchored_to: evt-0021}."
+      ],
+      "expected_plazos": [
+        { "from": "2024-02-22", "to": "2024-03-07", "basis": "tabla-mapeo (indicativo): art. 824.1 LEC (cambiario, 10 días)" }
+      ]
+    },
+    {
+      "id": "tl-007",
+      "description": "Recurso contencioso-administrativo LJCA art. 46.1 (2 meses; prórroga al siguiente hábil) desde notificación de resolución que agota la vía administrativa",
+      "input": "Cronología: resolución de la Dirección General de Tributos que agota la vía administrativa, notificada el 2024-01-30 (evento evt-0033, fuente: acuse de notificación de 2024-01-30). Genera los marcadores de plazo aplicables.",
+      "expected_steps": [
+        "Identificar el evento ancla de tipo notificación con fuente (evt-0033, 2024-01-30).",
+        "Reconocer el plazo procesal: recurso contencioso-administrativo contra acto que agota la vía administrativa (2 meses; 6 meses si silencio — no aplica).",
+        "Buscar en la tabla de mapeo (sección A): art. 46.1 LJCA — 2 meses.",
+        "Computar de fecha a fecha (art. 133.3 LEC): el plazo comienza el 2024-01-31 y vence el día correlativo a la notificación, 2024-03-30 (sábado); al ser inhábil, se prorroga al siguiente día hábil (art. 133.4 LEC): 2024-04-01.",
+        "Emitir marcador {kind: procesal, due: 2024-04-01, basis: tabla-mapeo (indicativo), anchored_to: evt-0033}; si el 2024-04-01 fuera festivo en la sede (p. ej. Lunes de Pascua en algunas CCAA), prórroga al siguiente día hábil — indicativo."
+      ],
+      "expected_plazos": [
+        { "from": "2024-01-30", "to": "2024-04-01", "basis": "tabla-mapeo (indicativo): art. 46.1 LJCA (contencioso-administrativo, 2 meses)" }
+      ]
+    },
+    {
+      "id": "tl-008",
+      "description": "Apelación contencioso-administrativa LJCA art. 85.1 (15 días) desde notificación de sentencia",
+      "input": "Cronología: sentencia del Juzgado de lo Contencioso-Administrativo n.º 5 de Madrid notificada el 2024-02-14 (evento evt-0040, fuente: diligencia de notificación de 2024-02-14). Genera los marcadores de plazo aplicables.",
+      "expected_steps": [
+        "Identificar el evento ancla de tipo notificación con fuente (evt-0040, 2024-02-14).",
+        "Reconocer el plazo procesal: apelación contra sentencia contencioso-administrativa.",
+        "Buscar en la tabla de mapeo (sección A): art. 85.1 LJCA — 15 días.",
+        "Computar desde el día siguiente a la notificación excluyendo inhábiles (arts. 133.1-133.2 LEC): 2024-02-15 → vencimiento 2024-03-06.",
+        "Emitir marcador {kind: procesal, due: 2024-03-06, basis: tabla-mapeo (indicativo), anchored_to: evt-0040}."
+      ],
+      "expected_plazos": [
+        { "from": "2024-02-14", "to": "2024-03-06", "basis": "tabla-mapeo (indicativo): art. 85.1 LJCA (apelación C-A, 15 días)" }
+      ]
+    },
+    {
+      "id": "tl-009",
+      "description": "Despido LRJS art. 103 (20 días hábiles, plazo de caducidad) desde la fecha del despido",
+      "input": "Cronología: comunicación de despido disciplinario de 2024-02-19 (evento evt-0051, fuente: carta de despido de 2024-02-19). Genera los marcadores de plazo aplicables.",
+      "expected_steps": [
+        "Identificar el evento ancla con fuente (evt-0051, 2024-02-19).",
+        "Reconocer el plazo: demanda por despido — plazo de CADUCIDAD de 20 días hábiles (no se interrumpe; art. 103 LRJS).",
+        "Buscar en la tabla de mapeo (sección A): art. 103 LRJS — 20 días hábiles.",
+        "Computar desde el día siguiente al despido excluyendo sábados, domingos y festivos: 2024-02-20 → vencimiento 2024-03-18.",
+        "Emitir marcador {kind: procesal, caducidad: true, due: 2024-03-18, basis: tabla-mapeo (indicativo), anchored_to: evt-0051}; anotar que es caducidad y no admite interrupción, si bien puede quedar suspendida por conciliación o reclamación previa (art. 65 LRJS); en este input no hay conciliación, por lo que el cómputo no varía."
+      ],
+      "expected_plazos": [
+        { "from": "2024-02-19", "to": "2024-03-18", "basis": "tabla-mapeo (indicativo): art. 103 LRJS (despido, 20 días hábiles, caducidad)" }
+      ]
+    },
+    {
+      "id": "tl-010",
+      "description": "Apelación penal (delitos leves) LECrim art. 976.1 (5 días) desde notificación de sentencia",
+      "input": "Cronología: sentencia de delito leve del Juzgado de Instrucción n.º 7 de Valencia notificada el 2024-02-07 (evento evt-0058, fuente: diligencia de notificación de 2024-02-07). Genera los marcadores de plazo aplicables.",
+      "expected_steps": [
+        "Identificar el evento ancla de tipo notificación con fuente (evt-0058, 2024-02-07).",
+        "Reconocer el plazo procesal: apelación contra sentencia penal por delito leve.",
+        "Buscar en la tabla de mapeo (sección A): art. 976.1 LECrim — 5 días.",
+        "Computar desde el día siguiente a la notificación excluyendo inhábiles (arts. 133.1-133.2 LEC): 2024-02-08 → vencimiento 2024-02-14.",
+        "Emitir marcador {kind: procesal, due: 2024-02-14, basis: tabla-mapeo (indicativo), anchored_to: evt-0058}."
+      ],
+      "expected_plazos": [
+        { "from": "2024-02-07", "to": "2024-02-14", "basis": "tabla-mapeo (indicativo): art. 976.1 LECrim (apelación delitos leves, 5 días)" }
+      ]
+    },
+    {
+      "id": "tl-011",
+      "description": "Cómputo con mes inhábil: apelación LEC art. 458.1 (20 días) con agosto inhábil (art. 183 LOPJ)",
+      "input": "Cronología: sentencia del Juzgado de Primera Instancia n.º 8 de Sevilla notificada el 2024-07-25 (evento evt-0064, fuente: diligencia de notificación de 2024-07-25). Genera los marcadores de plazo aplicables.",
+      "expected_steps": [
+        "Identificar el evento ancla de tipo notificación con fuente (evt-0064, 2024-07-25).",
+        "Reconocer el plazo procesal: apelación contra sentencia de primera instancia (art. 458.1 LEC — 20 días).",
+        "Computar desde el día siguiente a la notificación excluyendo inhábiles, incluido el mes de agosto completo (art. 183 LOPJ): los días de agosto no computan.",
+        "Contar 20 días hábiles: 2024-07-26 a 2024-07-31 (4 días), agosto excluido, se reanuda el 2024-09-02 → vencimiento 2024-09-23.",
+        "Emitir marcador {kind: procesal, due: 2024-09-23, basis: tabla-mapeo (indicativo), anchored_to: evt-0064}."
+      ],
+      "expected_plazos": [
+        { "from": "2024-07-25", "to": "2024-09-23", "basis": "tabla-mapeo (indicativo): art. 458.1 LEC (apelación, 20 días) con agosto inhábil (art. 183 LOPJ)" }
+      ]
+    }
+  ]
+}

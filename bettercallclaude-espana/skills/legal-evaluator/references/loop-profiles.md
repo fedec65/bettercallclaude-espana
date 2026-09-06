@@ -4,7 +4,7 @@
 
 **Objetivo**: anti-alucinación. Cada cita en el artefacto es validada via MCP.
 
-**Worker**: agente de redacción (via `/draft`)
+**Worker**: agente de redacción (via `/borrador`)
 **Evaluador**: especialista en citas (agente citation)
 
 **Condiciones de éxito**:
@@ -23,7 +23,7 @@
 
 **Objetivo**: quality gate de redacción. El artefacto satisface citas + estructura + afirmaciones con apoyo.
 
-**Worker**: drafter (via `/draft`)
+**Worker**: drafter (via `/borrador`)
 **Evaluador**: analista judicial (agente judicial)
 
 **Condiciones de éxito**:

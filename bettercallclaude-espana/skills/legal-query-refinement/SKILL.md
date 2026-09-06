@@ -1,6 +1,6 @@
 ---
 name: legal-query-refinement
-description: "Socratic dialogue to refine vague legal queries into actionable research tasks. Triggered when a user's query is underspecified, ambiguous, or lacks essential context for Spanish legal analysis. Identifies missing information and reformulates queries with proper Spanish legal terminology."
+description: "Diálogo socrático para refinar consultas jurídicas vagas en tareas de investigación accionables. Se activa cuando la consulta del usuario está subespecificada, es ambigua o carece de contexto esencial para el análisis jurídico español. Identifica la información faltante y reformula las consultas con la terminología jurídica española adecuada."
 tools:
   - Read
   - Grep
@@ -10,120 +10,120 @@ tools:
   - WebFetch
 ---
 
-# Legal Query Refinement
+# Refinamiento de la Consulta Jurídica
 
-## Objective
-Transform vague or underspecified legal queries into precise, actionable research tasks through a Socratic dialogue. Identify missing information and reformulate the query using proper Spanish legal terminology.
+## Objetivo
+Transformar consultas jurídicas vagas o subespecificadas en tareas de investigación precisas y accionables mediante un diálogo socrático. Identificar la información faltante y reformular la consulta usando la terminología jurídica española adecuada.
 
-## Trigger Conditions
-Activate when the user query lacks any of the following:
-- Jurisdiction (state vs. CCAA)
-- Legal domain (civil, penal, mercantil, laboral, administrativo, constitucional)
-- Party position (claimant / defendant / third party)
-- Relief sought (condena, declaración, medida cautelar)
-- Factual context (timeline, amounts, parties)
-- Output type (research memo, contract, court submission, opinion)
+## Condiciones de Activación
+Actívate cuando la consulta del usuario carezca de alguno de los siguientes elementos:
+- Jurisdicción (estatal vs. CCAA)
+- Dominio jurídico (civil, penal, mercantil, laboral, administrativo, constitucional)
+- Posición de la parte (demandante / demandado / tercero)
+- Pretensión buscada (condena, declaración, medida cautelar)
+- Contexto fáctico (cronología, importes, partes)
+- Tipo de output (informe de investigación, contrato, escrito judicial, dictamen)
 
-## Socratic Dialogue Protocol
+## Protocolo de Diálogo Socrático
 
-### Round 1: Jurisdiction
-**Question:** ¿Se trata de una cuestión de derecho estatal o autonómico? ¿Hay alguna Comunidad Autónoma específica involucrada?
-**Purpose:** Determine if state law (CC, CP, LEC) or CCAA law (foral systems: PV, NC, GA) applies.
+### Ronda 1: Jurisdicción
+**Pregunta:** ¿Se trata de una cuestión de derecho estatal o autonómico? ¿Hay alguna Comunidad Autónoma específica involucrada?
+**Propósito:** Determinar si aplica el derecho estatal (CC, CP, LEC) o el derecho de las CCAA (sistemas forales: PV, NC, GA).
 
-### Round 2: Legal Domain
-**Question:** ¿En qué área del derecho se enmarca su consulta? (civil, penal, mercantil, laboral, administrativo, constitucional)
-**Purpose:** Route to the correct legal framework and procedural rules.
+### Ronda 2: Dominio Jurídico
+**Pregunta:** ¿En qué área del derecho se enmarca su consulta? (civil, penal, mercantil, laboral, administrativo, constitucional)
+**Propósito:** Dirigir hacia el marco jurídico y las normas procesales correctos.
 
-### Round 3: Party Position
-**Question:** ¿Cuál es su posición en el asunto? ¿Actúa como demandante, demandado, o tercero?
-**Purpose:** Frame the analysis from the correct perspective (offensive vs. defensive strategy).
+### Ronda 3: Posición de la Parte
+**Pregunta:** ¿Cuál es su posición en el asunto? ¿Actúa como demandante, demandado, o tercero?
+**Propósito:** Enmarcar el análisis desde la perspectiva correcta (estrategia ofensiva vs. defensiva).
 
-### Round 4: Relief Sought
-**Question:** ¿Qué resultado busca? (condena económica, declaración de derechos, medida cautelar, resolución de contrato, etc.)
-**Purpose:** Identify the applicable procedural pathway and legal remedies.
+### Ronda 4: Pretensión Buscada
+**Pregunta:** ¿Qué resultado busca? (condena económica, declaración de derechos, medida cautelar, resolución de contrato, etc.)
+**Propósito:** Identificar la vía procesal aplicable y los remedios jurídicos.
 
-### Round 5: Factual Context
-**Question:** ¿Puede proporcionar los hechos relevantes? (fechas, montos, partes, contratos, documentos)
-**Purpose:** Ground the legal analysis in concrete facts.
+### Ronda 5: Contexto Fáctico
+**Pregunta:** ¿Puede proporcionar los hechos relevantes? (fechas, importes, partes, contratos, documentos)
+**Propósito:** Fundamentar el análisis jurídico en hechos concretos.
 
-### Round 6: Output Type
-**Question:** ¿Qué tipo de respuesta necesita? (informe jurídico, borrador de contrato, escrito judicial, análisis de estrategia)
-**Purpose:** Determine the format and depth of the output.
+### Ronda 6: Tipo de Output
+**Pregunta:** ¿Qué tipo de respuesta necesita? (informe jurídico, borrador de contrato, escrito judicial, análisis de estrategia)
+**Propósito:** Determinar el formato y la profundidad del output.
 
-## Query Reformulation
-After gathering information, reformulate the query into a structured legal research task:
+## Reformulación de la Consulta
+Tras recopilar la información, reformula la consulta en una tarea de investigación jurídica estructurada:
 
-### Structured Query Format
+### Formato de Consulta Estructurada
 ```
-# Refined Legal Query
-**Original query:** [User's original question]
-**Date refined:** [YYYY-MM-DD]
+# Consulta Jurídica Refinada
+**Consulta original:** [Pregunta original del usuario]
+**Fecha de refinamiento:** [AAAA-MM-DD]
 
-## 1. Jurisdiction
-- **Level:** [Estatal / Autonómico / Mixto]
-- **CCAA:** [Name / None]
-- **Foral law:** [Applicable / Not applicable]
+## 1. Jurisdicción
+- **Nivel:** [Estatal / Autonómico / Mixto]
+- **CCAA:** [Nombre / Ninguna]
+- **Derecho foral:** [Aplicable / No aplicable]
 
-## 2. Legal Domain
-- **Primary:** [Civil / Penal / Mercantil / Laboral / Administrativo / Constitucional]
-- **Sub-domain:** [Contracts / Property / Family / Corporate / etc.]
+## 2. Dominio Jurídico
+- **Principal:** [Civil / Penal / Mercantil / Laboral / Administrativo / Constitucional]
+- **Subdominio:** [Contratos / Propiedad / Familia / Sociedades / etc.]
 
-## 3. Party Position
-- **Role:** [Demandante / Demandado / Tercero / Neutral]
-- **Interests:** [Summary of party's objectives]
+## 3. Posición de la Parte
+- **Rol:** [Demandante / Demandado / Tercero / Neutral]
+- **Intereses:** [Resumen de los objetivos de la parte]
 
-## 4. Relief Sought
-- **Primary:** [Condena / Declaración / Medida cautelar / etc.]
-- **Secondary:** [Alternative relief]
-- **Amount:** [EUR / Not applicable]
+## 4. Pretensión Buscada
+- **Principal:** [Condena / Declaración / Medida cautelar / etc.]
+- **Secundaria:** [Pretensión alternativa]
+- **Importe:** [EUR / No aplicable]
 
-## 5. Factual Summary
-- **Timeline:** [Key dates]
-- **Parties:** [Names / roles]
-- **Documents:** [List of relevant documents]
-- **Dispute:** [Core factual conflict]
+## 5. Resumen Fáctico
+- **Cronología:** [Fechas clave]
+- **Partes:** [Nombres / roles]
+- **Documentos:** [Lista de documentos relevantes]
+- **Controversia:** [Conflicto fáctico central]
 
-## 6. Output Requirements
-- **Type:** [Informe / Contrato / Escrito / Estrategia]
-- **Language:** [ES / EN / Bilingual]
-- **Urgency:** [Immediate / Standard / Low priority]
-- **Depth:** [Preliminary / Detailed / Exhaustive]
+## 6. Requisitos del Output
+- **Tipo:** [Informe / Contrato / Escrito / Estrategia]
+- **Idioma:** [ES / EN / Bilingüe]
+- **Urgencia:** [Inmediata / Estándar / Baja prioridad]
+- **Profundidad:** [Preliminar / Detallada / Exhaustiva]
 
-## 7. Suggested Workflow
-1. [Step 1: e.g., legal research on Art. X CC]
-2. [Step 2: e.g., case law search for STS on point]
-3. [Step 3: e.g., document drafting]
-4. [Step 4: e.g., adversarial analysis]
+## 7. Flujo de Trabajo Sugerido
+1. [Paso 1: p. ej., investigación jurídica sobre el art. X CC]
+2. [Paso 2: p. ej., búsqueda de jurisprudencia de STS sobre la cuestión]
+3. [Paso 3: p. ej., redacción de documentos]
+4. [Paso 4: p. ej., análisis adversarial]
 ```
 
-## Optimal Workflow Suggestions
-Based on the refined query, suggest the most efficient sequence of skills:
+## Sugerencias de Flujo de Trabajo Óptimo
+Según la consulta refinada, sugiere la secuencia de skills más eficiente:
 
-| Query Type | Suggested Workflow |
-|-----------|-------------------|
-| General legal question | `spanish-legal-research` |
-| Contract review | `spanish-document-analysis` → `spanish-legal-drafting` |
-| Litigation planning | `legal-query-refinement` → `spanish-legal-research` → `spanish-legal-strategy` |
-| Complex dispute | `legal-briefing` → `spanish-legal-research` → `adversarial-analysis` → `spanish-legal-drafting` |
-| Cross-border matter | `spanish-legal-research` → `spanish-legal-translation` → `spanish-legal-drafting` |
-| Compliance review | `spanish-document-analysis` → `compliance-frameworks` → `data-protection-law` |
+| Tipo de Consulta | Flujo de Trabajo Sugerido |
+|------------------|---------------------------|
+| Cuestión jurídica general | `spanish-legal-research` |
+| Revisión de contrato | `spanish-document-analysis` → `spanish-legal-drafting` |
+| Planificación de litigio | `legal-query-refinement` → `spanish-legal-research` → `spanish-legal-strategy` |
+| Controversia compleja | `legal-briefing` → `spanish-legal-research` → `adversarial-analysis` → `spanish-legal-drafting` |
+| Asunto transfronterizo | `spanish-legal-research` → `spanish-legal-translation` → `spanish-legal-drafting` |
+| Revisión de cumplimiento | `spanish-document-analysis` → `compliance-frameworks` → `data-protection-law` |
 
-## Output Format
+## Formato de Output
 ```
-# Query Refinement Report
-**Date:** [YYYY-MM-DD]
+# Informe de Refinamiento de la Consulta
+**Fecha:** [AAAA-MM-DD]
 
-## Refined Query
-[Structured query as above]
+## Consulta Refinada
+[Consulta estructurada según el formato anterior]
 
-## Missing Information Identified
-- [List of items the user did not initially provide]
+## Información Faltante Identificada
+- [Lista de elementos que el usuario no proporcionó inicialmente]
 
-## Suggested Next Steps
-1. [Workflow step 1]
-2. [Workflow step 2]
-3. [Workflow step 3]
+## Próximos Pasos Sugeridos
+1. [Paso del flujo de trabajo 1]
+2. [Paso del flujo de trabajo 2]
+3. [Paso del flujo de trabajo 3]
 
-## Recommended Skills
-- [List of skills to invoke]
+## Skills Recomendadas
+- [Lista de skills a invocar]
 ```
