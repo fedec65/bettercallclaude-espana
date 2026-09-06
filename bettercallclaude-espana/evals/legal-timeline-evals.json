@@ -100,7 +100,7 @@
         "Identificar el evento ancla de tipo notificación con fuente (evt-0033, 2024-01-30).",
         "Reconocer el plazo procesal: recurso contencioso-administrativo contra acto que agota la vía administrativa (2 meses; 6 meses si silencio — no aplica).",
         "Buscar en la tabla de mapeo (sección A): art. 46.1 LJCA — 2 meses.",
-        "Computar de fecha a fecha desde el día siguiente a la notificación (art. 133.3 LEC): dies a quo 2024-01-31 → vencimiento natural 2024-03-31 (domingo), inhábil → prórroga al siguiente día hábil (art. 133.4 LEC): 2024-04-01.",
+        "Computar de fecha a fecha (art. 133.3 LEC): el plazo comienza el 2024-01-31 y vence el día correlativo a la notificación, 2024-03-30 (sábado); al ser inhábil, se prorroga al siguiente día hábil (art. 133.4 LEC): 2024-04-01.",
         "Emitir marcador {kind: procesal, due: 2024-04-01, basis: tabla-mapeo (indicativo), anchored_to: evt-0033}; si el 2024-04-01 fuera festivo en la sede (p. ej. Lunes de Pascua en algunas CCAA), prórroga al siguiente día hábil — indicativo."
       ],
       "expected_plazos": [
@@ -131,7 +131,7 @@
         "Reconocer el plazo: demanda por despido — plazo de CADUCIDAD de 20 días hábiles (no se interrumpe; art. 103 LRJS).",
         "Buscar en la tabla de mapeo (sección A): art. 103 LRJS — 20 días hábiles.",
         "Computar desde el día siguiente al despido excluyendo sábados, domingos y festivos: 2024-02-20 → vencimiento 2024-03-18.",
-        "Emitir marcador {kind: procesal, caducidad: true, due: 2024-03-18, basis: tabla-mapeo (indicativo), anchored_to: evt-0051}; anotar que es caducidad y no admite interrupción."
+        "Emitir marcador {kind: procesal, caducidad: true, due: 2024-03-18, basis: tabla-mapeo (indicativo), anchored_to: evt-0051}; anotar que es caducidad y no admite interrupción, si bien puede quedar suspendida por conciliación o reclamación previa (art. 65 LRJS); en este input no hay conciliación, por lo que el cómputo no varía."
       ],
       "expected_plazos": [
         { "from": "2024-02-19", "to": "2024-03-18", "basis": "tabla-mapeo (indicativo): art. 103 LRJS (despido, 20 días hábiles, caducidad)" }
