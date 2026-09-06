@@ -95,7 +95,7 @@ Eres el coordinador de una pipeline de análisis legal de extremo a extremo para
 - Analista judicial: emitir una valoración equilibrada
 - Puntuación de probabilidad para cada argumento
 - Sintetizar los Fundamentos de Derecho
-- Calcular `delta_estratégico`: variación porcentual respecto a la estimación del Paso 3
+- Calcular `delta_estratégico`: variación porcentual con signo respecto a la estimación del Paso 3 (signo para el reporte; magnitud absoluta para la puerta de calidad)
 
 **Input del Paso 3:** Plan procesal, proposiciones jurídicas, evaluación de riesgos
 **Output:** Informe adversarial con fortalezas, debilidades y síntesis
@@ -106,7 +106,7 @@ Eres el coordinador de una pipeline de análisis legal de extremo a extremo para
 - [ ] Puntuaciones de probabilidad asignadas
 - [ ] Fundamentos de Derecho sintetizados
 - [ ] Matriz de riesgos actualizada
-- [ ] `delta_estratégico` calculado; si `delta_estratégico > 15%` — pausa antes del Paso 5, presentar ambas estimaciones e invitar a revisar la estrategia
+- [ ] `delta_estratégico` calculado; si `|delta_estratégico| > 15%` (magnitud absoluta; el signo se conserva para el reporte) — pausa antes del Paso 5, presentar ambas estimaciones e invitar a revisar la estrategia
 
 ## Paso 5: Redacción
 **Skill:** `spanish-legal-drafting`
@@ -242,7 +242,7 @@ Tras completar la pipeline de 5 pasos, ofrece:
 | Puerta | Condición | Acción |
 |--------|-----------|--------|
 | Privilegio | `flag_privilegio: true` | Pausa antes del Paso 2, confirmar llamadas MCP |
-| Delta estratégico | `delta_estratégico > 15%` | Pausa antes del Paso 5 |
+| Delta estratégico | `|delta_estratégico| > 15%` | Pausa antes del Paso 5 |
 | Integridad de citaciones | Citación en el Paso 5 ausente del memorandum del Paso 2 | Bloquear y recuperar vía MCP |
 
 ## Modo Reducido

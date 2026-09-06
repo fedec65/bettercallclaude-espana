@@ -23,14 +23,14 @@ Determinar la jurisdicción legal aplicable (estatal frente a CCAA), identificar
 | Abreviatura | CCAA | Capital | Lengua Cooficial | Derecho Civil Foral |
 |--------------|------|---------|----------------------|-----------------|
 | AN | Andalucía | Sevilla | — | — |
-| AR | Aragón | Zaragoza | — | — |
+| AR | Aragón | Zaragoza | — | Derecho Civil Aragonés |
 | AS | Asturias | Oviedo | — | — |
-| IB | Islas Baleares | Palma | Catalán (cooficial) | — |
+| IB | Islas Baleares | Palma | Catalán (cooficial) | Derecho Civil Balear |
 | CN | Canarias | Santa Cruz / Las Palmas | — | — |
 | CB | Cantabria | Santander | — | — |
 | CM | Castilla-La Mancha | Toledo | — | — |
 | CL | Castilla y León | Valladolid | — | — |
-| CT | Cataluña | Barcelona | Catalán (cooficial) | — |
+| CT | Cataluña | Barcelona | Catalán (cooficial) | Derecho Civil Catalán |
 | CE | Ceuta | Ceuta | — | — |
 | VC | Comunidad Valenciana | Valencia | Valenciano (cooficial) | — |
 | EX | Extremadura | Mérida | — | — |
@@ -45,22 +45,42 @@ Determinar la jurisdicción legal aplicable (estatal frente a CCAA), identificar
 *Nota: Hay 19 regiones en total (17 CCAA + 2 ciudades autónomas: Ceuta y Melilla).*
 
 ## Sistemas Forales (Derecho Foral)
-Tres CCAA mantienen tradiciones de derecho civil propias:
+Seis CCAA conservan, modifican o desarrollan derechos civiles forales o especiales conforme al art. 149.1.8ª CE y al rigen competencial del art. 148 CE (ver `shared/references/spanish-jurisdictions.md:86-88`):
 
 ### País Vasco (PV)
-- **Sistema:** Derecho Civil Vasco
+- **Sistema:** Derecho Civil Vasco por territorio histórico (Ley 5/2015: Bizkaia y parte de Álava)
 - **Diferencias clave:** Derecho de familia (alimentos, régimen económico matrimonial), sucesiones (legítima foral), regímenes patrimoniales
 - **Boletín:** BOPV
 - **Lengua:** Castellano + vasco (cooficial)
+- **Régimen foral fiscal:** Concierto Económico gestionado por los Territorios Históricos
 
 ### Navarra (NC)
-- **Sistema:** Derecho Civil Navarro
+- **Sistema:** Derecho Civil Navarro (propio y completo)
 - **Diferencias clave:** Régimen económico matrimonial, derecho de sucesiones, formalidades contractuales
 - **Boletín:** BON
 - **Lengua:** Castellano + vasco (cooficial en algunas zonas)
+- **Régimen foral fiscal:** Concierto Económico
+
+### Cataluña (CT)
+- **Sistema:** Codi Civil de Catalunya (7 libros)
+- **Diferencias clave:** Sucesiones, régimen económico matrimonial, derecho de familia, obligaciones y prescripción
+- **Boletín:** DOGC
+- **Lengua:** Castellano + catalán (cooficial)
+
+### Aragón (AR)
+- **Sistema:** Derecho Civil Aragonés (Ley 1/1999)
+- **Diferencias clave:** Sucesiones, régimen económico matrimonial consensual, derecho de familia
+- **Boletín:** BOA
+- **Lengua:** Castellano
+
+### Islas Baleares (IB)
+- **Sistema:** Compilación de Derecho Civil de Baleares
+- **Diferencias clave:** Sucesiones (legítima balear), régimen económico matrimonial, derechos reales
+- **Boletín:** BOIB
+- **Lengua:** Castellano + catalán (cooficial)
 
 ### Galicia (GA)
-- **Sistema:** Derecho Civil Gallego
+- **Sistema:** Derecho Civil Gallego (Ley 2/2006)
 - **Diferencias clave:** Sucesiones (legítima gallega), derecho de familia, propiedad rural
 - **Boletín:** DOGA
 - **Lengua:** Castellano + gallego (cooficial)
@@ -75,14 +95,18 @@ Cinco CCAA tienen lenguas cooficiales; los documentos jurídicos pueden presenta
 
 ## Jerarquía Judicial
 ```
-Juzgado de Primera Instancia / Juzgado de lo Social / Juzgado de lo Contencioso-Administrativo
+Juzgado de Primera Instancia / Juzgado de lo Social / Juzgado de lo Contencioso-Administrativo / Juzgado de lo Mercantil
     ↓
-Audiencia Provincial (AP) — órgano de apelación territorial
+Audiencia Provincial (AP) — órgano de apelación territorial (una por provincia; 50 en total)
     ↓
-Tribunal Supremo (TS) — órgano superior de la jurisdicción ordinaria
+Tribunal Superior de Justicia de la CCAA (TSJ) — casación cuando la sentencia se funda en derecho foral o especial de la CCAA; suplicación (social); cierre del orden contencioso-administrativo cuando el acto emana de la CCAA
     ↓
-Tribunal Constitucional (TC) — control de constitucionalidad (derechos fundamentales)
+Tribunal Supremo (TS) — órgano superior de la jurisdicción ordinaria (Madrid; Salas 1ª Civil, 2ª Penal, 3ª Cont.-Adm., 4ª Social, 5ª Militar)
+    ↓
+Tribunal Constitucional (TC) — control de constitucionalidad (derechos fundamentales; fuera del poder judicial)
 ```
+
+> Ceuta y Melilla dependen del ámbito del TSJ de Andalucía, Ceuta y Melilla (sección 6ª de la AP de Cádiz en Ceuta; sección 7ª de la AP de Málaga en Melilla). La Audiencia Nacional (Madrid) actúa en paralelo a AP/TSJ para materia penal central, contencioso-administrativo estatal y social de convenios de ámbito estatal (ver `shared/references/spanish-jurisdictions.md:23-28`).
 
 ### Jurisdicciones Especializadas
 - **Juzgados de lo Social:** Controversias laborales
@@ -123,8 +147,8 @@ Las CCAA pueden asumir competencias en:
 | Materia | Derecho Estatal | Derecho CCAA | Notas |
 |--------|-----------|----------|-------|
 | Obligaciones civiles generales | CC | — | Marco estatal |
-| Derecho de familia (PV, NC, GA) | — | Código civil foral | Verificar la CCAA concreta |
-| Sucesiones (PV, NC, GA) | — | Código civil foral | Legítima foral/gallega |
+| Derecho de familia (PV, NC, GA, CT, AR, IB) | — | Código civil foral o propio | Verificar la CCAA concreta |
+| Sucesiones (PV, NC, GA, CT, AR, IB) | — | Código civil foral o propio | Legítima foral/gallega/catalana/aragonesa/balear |
 | Contratos mercantiles | LSC / CC | — | Derecho estatal |
 | Relaciones laborales | ET | — | Marco estatal; las CCAA pueden regular el sector público |
 | Procedimiento administrativo | LPAC | — | Derecho estatal |
@@ -157,7 +181,7 @@ Las CCAA pueden asumir competencias en:
 | Boletín | BOE | [Boletín CCAA] | [Boletín CCAA] | ... |
 
 ## 4. Consideraciones de Derecho Foral
-- [Si procede: diferencias del Derecho Civil Vasco/Navarro/Gallego]
+- [Si procede: diferencias del Derecho Civil Vasco/Navarro/Gallego/Catalán/Aragonés/Balear]
 
 ## 5. Requisitos de Lengua Cooficial
 - [Si procede: requisitos de presentación en catalán, vasco, gallego, valenciano]
