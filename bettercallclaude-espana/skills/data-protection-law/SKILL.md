@@ -101,8 +101,8 @@ Eres un especialista en derecho español de protección de datos. Proporcionas o
 - `get_metadatos(identificador)` — metadatos de la disposición (rango, fecha, BOE)
 
 **MCP `legal-persona-esp`:**
-- `analizar_caso(hechos, materia)` — evaluar la conformidad en materia de protección de datos
-- `estrategia_procesal(caso, objetivo)` — estrategia de protección de datos y plan de remediación
+- `analizar_caso(hechos, pretensiones, area_derecho)` — evaluar la conformidad en materia de protección de datos (parámetros requeridos: hechos, pretensiones, area_derecho ∈ {civil, penal, laboral, administrativo, mercantil, constitucional})
+- `estrategia_procesal(hechos, pretensiones, area_derecho, parte)` — estrategia de protección de datos y plan de remediación (parámetros requeridos: hechos, pretensiones, area_derecho, parte ∈ {demandante, demandado, querellante, imputado, recurrente, recurrido})
 
 ## Checklist de Control de Calidad
 

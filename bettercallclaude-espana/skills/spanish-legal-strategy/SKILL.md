@@ -19,41 +19,41 @@ Diseñar estrategias eficaces de litigación y resolución de conflictos bajo la
 
 ## Vías Procesales (LEC)
 
-> **Base legal:** Arts. 249 y 250 LEC (Ley 1/2000, texto consolidado). La asignación por cuantía convive con materias legalmente atribuidas con independencia del importe (Art. 250 LEC).
+> **Base legal:** Arts. 249 y 250 LEC (Ley 1/2000, texto consolidado). La asignación por cuantía convive con materias tasadas atribuidas al juicio verbal con independencia del importe (Art. 250.1 LEC, numerus clausus). Umbral por cuantía: **15.000 EUR**, según la redacción de los arts. 249.2 y 250.2 LEC dada por el RDL 6/2023 (en vigor desde el 20/03/2024). La LO 1/2025 (eficiencia del Servicio Público de Justicia) no ha modificado estos umbrales; afecta a la organización de los órganos judiciales.
 
 ### 1. Procedimiento Ordinario
-- **Umbral:** Cuantía del litigio > 6.000 EUR (Art. 249.2 LEC)
+- **Umbral:** Cuantía del litigio > 15.000 EUR o interés económico incalculable, ni siquiera de modo relativo (Art. 249.2 LEC)
 - **Características:** Fase probatoria completa, vista oral, casos complejos
 - **Primera instancia:** Juzgado de Primera Instancia
 - **Recurso:** AP (apelación)
-- **Plazo:** 12–24 meses (primera instancia)
+- **Plazo (estimación indicativa):** 12–24 meses en primera instancia
 
 ### 2. Procedimiento Verbal
-- **Umbral:** Cuantía del litigio ≤ 6.000 EUR (Art. 249.2 LEC)
-- **Materias tassativas (Art. 250 LEC):** reclamación de alimentos, posesión, deslinde y amojonamiento, propiedad horizontal, retracto, responsabilidad extracontractual, competencia desleal, propiedad industrial e intelectual, publicidad, condiciones generales de la contratación, arrendamientos urbanos y rústicos, propiedad horizontal, juicios verbales sobre materia electoral, etc.
+- **Umbral (regla general por cuantía):** Cuantía del litigio ≤ 15.000 EUR y no incursa en el art. 249.1 LEC (Art. 250.2 LEC)
+- **Materias atribuidas al Verbal con independencia de la cuantía (Art. 250.1 LEC, numerus clausus):** reclamación de rentas o cantidades debidas por el arrendatario y recuperación de la posesión de la finca arrendada (ordinaria, financiera o en aparcería) o cedida en precario; recuperación de la plena posesión de finca en precario; puesta en posesión de bienes adquiridos por herencia; tutela sumaria de la posesión frente a despojo o perturbación; suspensión sumaria de obra nueva; demolición o derribo de obra, edificio u objeto en ruina que amenace daños; efectividad de derechos reales inscritos; alimentos debidos por disposición legal o por otro título; rectificación de hechos inexactos y perjudiciales; incumplimiento de obligaciones de contratos inscritos de venta a plazos de bienes muebles o de arrendamiento financiero; cesación en defensa de intereses colectivos y difusos de consumidores y usuarios; efectividad de los derechos reconocidos en el art. 160 CC; acciones individuales sobre condiciones generales de la contratación; reclamaciones de cantidad de la Ley de Propiedad Horizontal; división de la cosa común.
 - **Características:** Simplificado, más rápido, prueba limitada
 - **Primera instancia:** Juzgado de Primera Instancia
 - **Recurso:** AP (apelación)
-- **Plazo:** 6–12 meses (primera instancia)
+- **Plazo (estimación indicativa):** 6–12 meses en primera instancia
 
 ### 3. Procedimiento Monitorio
 - **Finalidad:** Reclamación de deudas líquidas, vencidas y exigibles
 - **Umbral:** Sin límite de cuantía; uso habitual para facturas, préstamos
 - **Características:** Sin vista inicial si no hay oposición; se convierte en ordinario/verbal si hay oposición
 - **Primera instancia:** Juzgado de Primera Instancia
-- **Plazo:** 3–6 meses sin oposición; más largo si hay oposición
+- **Plazo (estimación indicativa):** 3–6 meses sin oposición; más largo si hay oposición
 
 ### 4. Procedimiento Cambiario
 - **Finalidad:** Ejecución de títulos cambiarios (letras de cambio, pagarés, cheques)
 - **Características:** Urgente; ejecución directa si el título es regular
 - **Primera instancia:** Juzgado de Primera Instancia
-- **Plazo:** 3–6 meses
+- **Plazo (estimación indicativa):** 3–6 meses
 
 ### 5. Procedimiento Ejecutivo
 - **Finalidad:** Ejecución de sentencias, títulos ejecutivos y escrituras notariales
 - **Características:** Sin revisión del fondo si el título es claro; centrado en el embargo de bienes
 - **Primera instancia:** Juzgado de Primera Instancia
-- **Plazo:** Muy variable (6–36 meses según la complejidad patrimonial)
+- **Plazo (estimación indicativa):** Muy variable (6–36 meses según la complejidad patrimonial)
 
 ## Análisis de Costes
 
@@ -83,22 +83,25 @@ Diseñar estrategias eficaces de litigación y resolución de conflictos bajo la
 
 ## Estimaciones de Plazos
 
-| Procedimiento | Primera Instancia | Apelación (AP) | Casación (TS) |
-|---------------|-------------------|----------------|---------------|
+| Procedimiento | Primera Instancia (indicativo) | Apelación (AP) (indicativo) | Casación (TS) (indicativo) |
+|---------------|-------------------------------|-----------------------------|---------------------------|
 | Ordinario | 12–24 meses | 6–12 meses | 12–24 meses |
 | Verbal | 6–12 meses | 6–12 meses | Raramente aplicable |
 | Monitorio (sin oposición) | 3–6 meses | N/A | N/A |
 | Monitorio (con oposición) | 12–24 meses | 6–12 meses | 12–24 meses |
 | Ejecutivo | 6–36 meses | 6–12 meses | 12–24 meses |
 
-*Nota: Los plazos son estimaciones basadas en la carga de trabajo actual de los juzgados. Los tiempos reales pueden variar significativamente.*
+*Nota: Todos los plazos de duración de este documento son **estimaciones indicativas** basadas en la carga de trabajo actual de los juzgados; los tiempos reales pueden variar significativamente. No constituyen asesoramiento legal.*
 
 ## Estrategia de Recursos
 
 ### Apelación (AP)
 - **Motivos:** Errores de derecho o de hecho en primera instancia
 - **Plazo:** 20 días desde la notificación (Art. 457 LEC)
-- **Efecto:** La interposición **no suspende por sí sola** la ejecución (Art. 455 LEC). La regla general es que las sentencias **de condena** son **provisionalmente ejecutables** mientras se sustancia el recurso (Art. 524 LEC), salvo que el tribunal acuerde la suspensión por causar daños de difícil reparación o que la ejecución sea desaconsejable por la naturaleza de la pretensión. Solo quedan **fuera de la ejecución provisional** las sentencias meramente declarativas y las constitutivas que no sean de condena (Art. 525 LEC).
+- **Efecto:** La interposición del recurso **no suspende por sí sola** la ejecución provisional: las sentencias **de condena** no firmes son **provisionalmente ejecutables** mientras se sustancia el recurso (Art. 524 LEC). El ejecutado solo puede oponerse **una vez despachada** la ejecución (Art. 528.1 LEC) y por las causas tasadas de los arts. 528 a 531 LEC:
+  - **Condena dineraria (Arts. 528.3 y 531 LEC):** no cabe oponerse a la ejecución provisional en sí, sino solo a actuaciones concretas del apremio que causarían una situación absolutamente imposible de restaurar o compensar, debiendo proponer medidas alternativas y ofrecer caución; sin medidas alternativas ni caución la oposición no se admite. La ejecución además se suspende si el ejecutado **consigna** la cantidad reclamada más los intereses y las costas (Art. 531 LEC).
+  - **Condena no dineraria (Arts. 528.2.2.º, 529.3 y 530.2 LEC):** procede la oposición cuando resulte imposible o extremadamente difícil restaurar la situación anterior o resarcir al ejecutado en caso de revocación; el ejecutante puede neutralizarla ofreciendo caución suficiente y, si aun con caución la restauración o el resarcimiento resultara imposible o extremadamente difícil, el tribunal deja en suspenso la ejecución, subsistiendo los embargos y las medidas de garantía.
+  - **Fuera de la ejecución provisional (Art. 525 LEC):** las sentencias sobre paternidad, filiación, nulidad/separación/divorcio, capacidad y análogas (salvo sus pronunciamientos patrimoniales conexos), las que condenen a emitir una declaración de voluntad, las que declaren la nulidad o caducidad de títulos de propiedad industrial, y los pronunciamientos indemnizatorios por vulneración del honor, la intimidad y la propia imagen.
 
 ### Casación (TS)
 - **Motivos:** Infracción de ley o vicios procesales (Art. 477 LEC)
