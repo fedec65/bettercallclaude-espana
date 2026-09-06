@@ -8,6 +8,30 @@ tools:
   - Bash
   - WebSearch
   - WebFetch
+  - mcp__plugin_bettercallclaude-espana_boe-legislacion__search_boe
+  - mcp__plugin_bettercallclaude-espana_boe-legislacion__get_legislacion
+  - mcp__plugin_bettercallclaude-espana_boe-legislacion__get_metadatos
+  - mcp__plugin_bettercallclaude-espana_boe-legislacion__get_texto_consolidado
+  - mcp__plugin_bettercallclaude-espana_boe-legislacion__get_indice
+  - mcp__plugin_bettercallclaude-espana_boe-legislacion__get_bloque
+  - mcp__plugin_bettercallclaude-espana_boe-legislacion__get_analisis
+  - mcp__plugin_bettercallclaude-espana_legal-persona-esp__draft_documento
+  - mcp__plugin_bettercallclaude-espana_legal-persona-esp__analizar_caso
+  - mcp__plugin_bettercallclaude-espana_legal-persona-esp__estrategia_procesal
+  - mcp__plugin_bettercallclaude-espana_legal-persona-esp__redactar_informe
+  - mcp__plugin_bettercallclaude-espana_legal-persona-esp__responder_consulta
+  - mcp__boe-legislacion__search_boe
+  - mcp__boe-legislacion__get_legislacion
+  - mcp__boe-legislacion__get_metadatos
+  - mcp__boe-legislacion__get_texto_consolidado
+  - mcp__boe-legislacion__get_indice
+  - mcp__boe-legislacion__get_bloque
+  - mcp__boe-legislacion__get_analisis
+  - mcp__legal-persona-esp__draft_documento
+  - mcp__legal-persona-esp__analizar_caso
+  - mcp__legal-persona-esp__estrategia_procesal
+  - mcp__legal-persona-esp__redactar_informe
+  - mcp__legal-persona-esp__responder_consulta
 ---
 
 # Derecho de Protección de Datos
@@ -71,12 +95,14 @@ Eres un especialista en derecho español de protección de datos. Proporcionas o
 ## Uso de Servidores MCP
 
 **MCP `boe-legislacion`:**
-- `search_legislation(query)` — buscar LOPDGDD y normas relacionadas con el RGPD
-- `get_article(statute, article)` — obtener el texto de un artículo de la LOPDGDD
+- `search_boe(query)` — buscar LOPDGDD y normas relacionadas con el RGPD
+- `get_legislacion(identificador)` — obtener el texto consolidado de una norma estatal
+- `get_texto_consolidado(identificador)` — recuperar la versión vigente de la LOPDGDD o del RGPD
+- `get_metadatos(identificador)` — metadatos de la disposición (rango, fecha, BOE)
 
 **MCP `legal-persona-esp`:**
-- `analyze_document(document, document_type)` — evaluar la conformidad en materia de protección de datos
-- `analyze_strategy(case_facts, desired_outcome)` — estrategia de protección de datos
+- `analizar_caso(hechos, materia)` — evaluar la conformidad en materia de protección de datos
+- `estrategia_procesal(caso, objetivo)` — estrategia de protección de datos y plan de remediación
 
 ## Checklist de Control de Calidad
 

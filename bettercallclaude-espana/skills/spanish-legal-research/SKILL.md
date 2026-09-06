@@ -21,6 +21,14 @@ tools:
   - mcp__plugin_bettercallclaude-espana_tribunal-constitucional__search_sentencias_tc
   - mcp__plugin_bettercallclaude-espana_tribunal-constitucional__get_sentencia_tc
   - mcp__plugin_bettercallclaude-espana_tribunal-constitucional__search_by_tema
+  - mcp__plugin_bettercallclaude-espana_doctrina-academica__search_doctrina
+  - mcp__plugin_bettercallclaude-espana_doctrina-academica__search_by_autor
+  - mcp__plugin_bettercallclaude-espana_legal-citations-esp__validate_citation
+  - mcp__plugin_bettercallclaude-espana_legal-citations-esp__parse_citation
+  - mcp__plugin_bettercallclaude-espana_legal-citations-esp__format_citation
+  - mcp__plugin_bettercallclaude-espana_legal-citations-esp__convert_to_ecli
+  - mcp__plugin_bettercallclaude-espana_legal-citations-esp__convert_to_boe_id
+  - mcp__plugin_bettercallclaude-espana_legal-citations-esp__extract_citations
   - mcp__boe-legislacion__search_boe
   - mcp__boe-legislacion__get_legislacion
   - mcp__boe-legislacion__get_metadatos
@@ -34,6 +42,14 @@ tools:
   - mcp__tribunal-constitucional__search_sentencias_tc
   - mcp__tribunal-constitucional__get_sentencia_tc
   - mcp__tribunal-constitucional__search_by_tema
+  - mcp__doctrina-academica__search_doctrina
+  - mcp__doctrina-academica__search_by_autor
+  - mcp__legal-citations-esp__validate_citation
+  - mcp__legal-citations-esp__parse_citation
+  - mcp__legal-citations-esp__format_citation
+  - mcp__legal-citations-esp__convert_to_ecli
+  - mcp__legal-citations-esp__convert_to_boe_id
+  - mcp__legal-citations-esp__extract_citations
 ---
 
 # Investigación Jurídica Española
@@ -57,7 +73,7 @@ Realiza investigación jurídica rigurosa y verificada en las fuentes a lo largo
 - `search_boe` — Busca leyes y reglamentos en el BOE y en los boletines oficiales de las CCAA.
 - `get_legislacion` — Recupera una disposición concreta de una norma española (p. ej., Art. 1255 CC).
 - `get_texto_consolidado` — Recupera el texto consolidado de una norma (última versión actualizada).
-- `search_doctrine` — Recupera comentarios académicos y resúmenes doctrinales.
+- `search_doctrina` — Recupera comentarios académicos y resúmenes doctrinales.
 - `search_sentencias_tc` — Busca resoluciones del Tribunal Constitucional (STC, Auto del TC).
 
 ## Protocolo de Investigación
@@ -81,7 +97,7 @@ Identifica:
 4. Usa `get_sentencia_by_ecli` para recuperar los textos completos de los precedentes clave.
 
 ### Paso 4: Revisión Doctrinal
-1. Consulta `search_doctrine` para los comentarios académicos de referencia.
+1. Consulta `search_doctrina` para los comentarios académicos de referencia.
 2. Cuando exista ambigüedad interpretativa, recupera la historia legislativa y la exposición de motivos en el BOE mediante `get_texto_consolidado` o `get_legislacion`.
 
 ### Paso 5: Análisis de Precedentes

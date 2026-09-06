@@ -36,7 +36,7 @@ Estructura estándar:
 - Art. 6 CC: Los contratos deben ajustarse a las normas imperativas.
 - Art. 1255 CC: Autonomía de la voluntad dentro de los límites legales.
 - Art. 1101 CC: Responsabilidad contractual por incumplimiento.
-- Art. 1895 CC: Las cláusulas de limitación de responsabilidad están sujetas a la buena fe.
+- Art. 1107 CC: La limitación de responsabilidad contractual es válida en términos generales, salvo dolo o culpa grave del deudor; los daños imputables al deudor comprenden los previstos o previsibles al tiempo de contratar, y solo se extienden a los imprevisibles cuando media dolo o mora.
 
 ### 2. Escritos Procesales (Escritos / Demandas)
 Estructura estándar (LEC):

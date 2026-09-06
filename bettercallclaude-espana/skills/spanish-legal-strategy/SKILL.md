@@ -19,15 +19,18 @@ Diseñar estrategias eficaces de litigación y resolución de conflictos bajo la
 
 ## Vías Procesales (LEC)
 
+> **Base legal:** Arts. 249 y 250 LEC (Ley 1/2000, texto consolidado). La asignación por cuantía convive con materias legalmente atribuidas con independencia del importe (Art. 250 LEC).
+
 ### 1. Procedimiento Ordinario
-- **Umbral:** Cuantía del litigio > 6.000 EUR
+- **Umbral:** Cuantía del litigio > 6.000 EUR (Art. 249.2 LEC)
 - **Características:** Fase probatoria completa, vista oral, casos complejos
 - **Primera instancia:** Juzgado de Primera Instancia
 - **Recurso:** AP (apelación)
 - **Plazo:** 12–24 meses (primera instancia)
 
 ### 2. Procedimiento Verbal
-- **Umbral:** Cuantía del litigio ≤ 6.000 EUR
+- **Umbral:** Cuantía del litigio ≤ 6.000 EUR (Art. 249.2 LEC)
+- **Materias tassativas (Art. 250 LEC):** reclamación de alimentos, posesión, deslinde y amojonamiento, propiedad horizontal, retracto, responsabilidad extracontractual, competencia desleal, propiedad industrial e intelectual, publicidad, condiciones generales de la contratación, arrendamientos urbanos y rústicos, propiedad horizontal, juicios verbales sobre materia electoral, etc.
 - **Características:** Simplificado, más rápido, prueba limitada
 - **Primera instancia:** Juzgado de Primera Instancia
 - **Recurso:** AP (apelación)
@@ -95,13 +98,13 @@ Diseñar estrategias eficaces de litigación y resolución de conflictos bajo la
 ### Apelación (AP)
 - **Motivos:** Errores de derecho o de hecho en primera instancia
 - **Plazo:** 20 días desde la notificación (Art. 457 LEC)
-- **Efecto:** Suspensivo (paraliza la ejecución salvo que el tribunal disponga otra cosa)
+- **Efecto:** La interposición **no suspende por sí sola** la ejecución (Art. 455 LEC). La regla general es que las sentencias **de condena** son **provisionalmente ejecutables** mientras se sustancia el recurso (Art. 524 LEC), salvo que el tribunal acuerde la suspensión por causar daños de difícil reparación o que la ejecución sea desaconsejable por la naturaleza de la pretensión. Solo quedan **fuera de la ejecución provisional** las sentencias meramente declarativas y las constitutivas que no sean de condena (Art. 525 LEC).
 
 ### Casación (TS)
-- **Motivos:** Infracción de ley o vicios procesales
-- **Requisitos:** Puede exigirse provisión de fondos (garantía de costas)
-- **Plazo:** 20 días desde la notificación de la sentencia de la AP
-- **Efecto:** Suspensivo
+- **Motivos:** Infracción de ley o vicios procesales (Art. 477 LEC)
+- **Requisitos:** Puede exigirse provisión de fondos (garantía de costas); interés casacional acreditado
+- **Plazo:** 20 días desde la notificación de la sentencia de la AP (Art. 479 LEC)
+- **Efecto:** No suspensivo por regla general. La ejecución provisional de la sentencia recurrida sigue siendo posible bajo el régimen del Art. 524 LEC. La suspensión solo se concede de forma excepcional, con petición expresa y caución.
 
 ### Amparo (TC)
 - **Motivos:** Vulneración de derechos fundamentales (Art. 53 CE)

@@ -72,9 +72,9 @@ Evaluar las obligaciones de cumplimiento normativo de entidades que operan bajo 
 - Ley 20/2015 (ordenación, supervisión y solvencia de entidades aseguradoras)
 
 ### Inmobiliario
-- Ley 2/1985 (de arrendamientos urbanos) — LAU
-- Ley 49/1960 (de propiedad horizontal) — LPH
-- Ley 13/2015 (de remisión de deudas, segunda oportunidad, etc.)
+- Ley 29/1994, de 24 de noviembre, de Arrendamientos Urbanos — LAU (vigente; la Ley 2/1985 fue derogada por ésta)
+- Ley 49/1960, de 21 de julio, sobre propiedad horizontal — LPH
+- Ley 25/2015, de 28 de julio, de mecanismo de segunda oportunidad, reducción de la carga financiera y otras medidas de orden social — Ley de Segunda Oportunidad
 
 ### Energía
 - CNMC (Comisión Nacional de los Mercados y la Competencia)
