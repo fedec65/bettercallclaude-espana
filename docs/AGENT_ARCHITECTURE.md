@@ -66,7 +66,7 @@ Las skills son material de referencia que los comandos aplican según `COMMAND_S
 ### 2.2 Estrategia y adversarial
 
 - **`spanish-legal-strategy`** — estrategia de litigación y resolución de conflictos bajo la LEC.
-- **`adversarial-analysis`** — somete a prueba posiciones jurídicas con tres agentes (abogado, adversario, analista judicial).
+- **`adversarial-analysis`** — somete a prueba posiciones jurídicas con una metodología de tres roles (abogado de una parte, abogado contrario, analista judicial), con puntuación de probabilidad y síntesis judicial.
 
 ### 2.3 Redacción y traducción
 
@@ -119,7 +119,7 @@ El plugin expone **12 servidores** en `.mcp.json` (ver `docs/MCP_TOOLS.md`): `bo
 
 ## 4. Matriz comando ↔ skill
 
-En esta arquitectura las skills se vinculan a los **comandos**, no a los agentes: los comandos orquestadores (12, con tool `Task` en su frontmatter) despachan a los agentes y aplican la skill correspondiente según `COMMAND_SKILL_MAP` en `scripts/tool-contracts.js`. El usuario también puede invocar una skill directamente en la conversación.
+En esta arquitectura las skills se vinculan a los **comandos**, no a los agentes. `scripts/tool-contracts.js` declara dos conjuntos distintos: `COMMAND_SKILL_MAP` (las skills que cada comando aplica) y `MULTI_AGENT_COMMANDS` (12 comandos orquestadores con tool `Task` en su frontmatter, que despachan subagentes; solo `/legal`, `/legal-5step` y `/briefing` pertenecen a ambos conjuntos). La tabla cubre las 15 entradas de `COMMAND_SKILL_MAP` (dos pares de comandos comparten fila). El usuario también puede invocar una skill directamente en la conversación.
 
 | Comando | Skills que aplica |
 |---|---|
@@ -129,6 +129,7 @@ En esta arquitectura las skills se vinculan a los **comandos**, no a los agentes
 | `/investigacion`, `/precedente` | `spanish-legal-research` |
 | `/federal` | `spanish-legal-research`, `spanish-jurisdictions` |
 | `/analisis-adversarial` | `adversarial-analysis` |
+| `/estrategia` | `spanish-legal-strategy` |
 | `/borrador` | `spanish-legal-drafting` |
 | `/traducir` | `spanish-legal-translation` |
 | `/resumir` | `output-summarization` |
@@ -140,7 +141,7 @@ Fuera de la tabla anterior, los comandos aplican skills desde su propio cuerpo: 
 
 ## 5. Enrutado y flujo de datos
 
-`/legal` puede enrutar en modo directo a **13 agentes especialistas** con `@agente` (researcher, drafter, litigation-strategist, citation-expert, compliance-expert, risk-analyst, procedure-expert, legal-translator, fiscal-expert, corporate-expert, autonomic-law-expert, realestate-expert y data-protection-expert); la ruta directa omite el briefing con `--skip-briefing`/`--direct`. El resto de los 21 se activan mediante flujos que despachan subagentes con `Task`: los de pasarela y coordinación (`spanish-orchestrator`, `spanish-briefing-coordinator`, `spanish-prompt-engineer`, `spanish-summarizer`) operan dentro del flujo orquestado (briefing, refinado socrático y consolidación de salida); la capa adversarial (`spanish-advocate`, `spanish-adversary`, `spanish-judicial-analyst`) se lanza con `/analisis-adversarial`; y `chronology-builder` con `/cronologia-legal`.
+`/legal` puede enrutar en modo directo a **13 agentes especialistas** con `@agente` (researcher, drafter, litigation-strategist, citation-expert, compliance-expert, risk-analyst, procedure-expert, legal-translator, fiscal-expert, corporate-expert, autonomic-law-expert, realestate-expert y data-protection-expert); la ruta directa omite el briefing con `--skip-briefing`/`--direct`. Del resto de los 21: los de pasarela y coordinación (`spanish-orchestrator`, `spanish-briefing-coordinator`, `spanish-prompt-engineer`, `spanish-summarizer`) no se enrutan desde `/legal` sino que operan dentro de los flujos orquestados (briefing, refinado socrático y consolidación de salida); `chronology-builder` se despacha con `Task` desde `/cronologia-legal`. Los agentes adversariales dedicados (`spanish-advocate`, `spanish-adversary`, `spanish-judicial-analyst`) se invocan con `@` directo o como perfiles worker del goal-loop (`/objetivo-legal` → `/bucle-legal`). `/analisis-adversarial` no los despacha: ejecuta el análisis adversarial de tres fases encarnando los roles de la skill `adversarial-analysis` (abogado de una parte, abogado contrario, analista judicial) sobre `spanish-litigation-strategist`, `spanish-risk-analyst` y `spanish-procedure-expert`, sin tool `Task`.
 
 ```
 Consulta del usuario
@@ -158,7 +159,7 @@ Control de calidad: verificación de citas (existence + contenido) y derecho apl
 Entrega con aviso profesional; salida larga a archivo en bcc-output (convención shared)
 ```
 
-Los flujos multiagente empaquetados son los cuatro de `/workflow`: `due-diligence`, `litigation-prep`, `contract-lifecycle` y `realestate-closing`, cada uno con su panel de especialistas (ver `docs/command-reference.md`). El análisis adversarial de tres agentes vive en `/analisis-adversarial`.
+Los flujos multiagente empaquetados son los cuatro de `/workflow`: `due-diligence`, `litigation-prep`, `contract-lifecycle` y `realestate-closing`, cada uno con su panel de especialistas (ver `docs/command-reference.md`). El análisis adversarial de tres fases vive en `/analisis-adversarial`.
 
 ## 6. Notas de diseño
 
