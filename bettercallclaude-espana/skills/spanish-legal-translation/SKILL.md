@@ -1,6 +1,6 @@
 ---
 name: spanish-legal-translation
-description: "ES ↔ EN legal terminology translation for Spanish law. Triggered when translating contracts, court documents, legal opinions, or correspondence between Spanish and English. Preserves legal register, precision, and context. Follows court document translation standards."
+description: "Traducción terminológica jurídica ES ↔ EN para el derecho español. Se activa al traducir contratos, documentos judiciales, informes jurídicos o correspondencia entre español e inglés. Preserva el registro jurídico, la precisión y el contexto. Sigue los estándares de traducción de documentos judiciales."
 tools:
   - Read
   - Grep
@@ -10,126 +10,128 @@ tools:
   - WebFetch
 ---
 
-# Spanish Legal Translation
+# Traducción Jurídica Española
 
-## Objective
-Provide accurate, context-aware legal translation between Spanish (ES) and English (EN) while preserving legal register, precision, and the specific meaning of Spanish legal concepts.
+Eres un especialista en traducción jurídica ES ↔ EN para el derecho español. Traduces documentos legales preservando el registro jurídico formal y la terminología oficial española.
 
-## Core Term Equivalents
+## Objetivo
+Proporcionar traducción jurídica precisa y sensible al contexto entre español (ES) e inglés (EN), preservando el registro jurídico, la precisión y el significado específico de los conceptos jurídicos españoles.
 
-### General Legal Terms
-| Spanish | English | Notes |
-|---------|---------|-------|
-| responsabilidad | liability / responsibility | Use "liability" for contractual/tort; "responsibility" for general |
-| daños | damages | In tort and contract law |
-| daños y perjuicios | damages and losses | Broader than common law "damages" |
+## Equivalencias Terminológicas Fundamentales
+
+### Términos Jurídicos Generales
+| Español | Inglés | Notas |
+|---------|--------|-------|
+| responsabilidad | liability / responsibility | Usa «liability» para responsabilidad contractual/extracontractual; «responsibility» en sentido general |
+| daños | damages | En derecho extracontractual y contractual |
+| daños y perjuicios | damages and losses | Más amplio que el «damages» del common law |
 | contrato | contract | |
-| prueba | evidence / proof | "Evidence" in procedural context; "proof" as result |
+| prueba | evidence / proof | «Evidence» en contexto procesal; «proof» como resultado |
 | carga de la prueba | burden of proof | |
-| obligación | obligation / duty | "Obligation" in civil law; "duty" in common law contexts |
-| incumplimiento | breach / non-performance | "Breach" for contracts; "non-performance" for civil law precision |
-| resolución del contrato | termination of contract | Not "resolution" |
+| obligación | obligation / duty | «Obligation» en derecho civil; «duty» en contextos de common law |
+| incumplimiento | breach / non-performance | «Breach» para contratos; «non-performance» para precisión de derecho civil |
+| resolución del contrato | termination of contract | No «resolution» |
 | nulidad | nullity / voidness | |
 | anulabilidad | voidability | |
 | buena fe | good faith | |
 | mala fe | bad faith | |
-| dolo | fraud / deceit | "Fraud" in general; "deceit" for specific tort |
-| culpa | negligence / fault | "Negligence" in tort; "fault" in broader civil law sense |
+| dolo | fraud / deceit | «Fraud» en general; «deceit» para el tort específico del common law |
+| culpa | negligence / fault | «Negligence» en responsabilidad extracontractual; «fault» en el sentido amplio del derecho civil |
 | fuerza mayor | force majeure | |
-| caso fortuito | fortuitous event | Distinct from fuerza mayor in Spanish doctrine |
+| caso fortuito | fortuitous event | Distinto de fuerza mayor en la doctrina española |
 
-### Procedural Terms
-| Spanish | English | Notes |
-|---------|---------|-------|
-| demanda | claim / complaint / lawsuit | "Claim" in civil; "complaint" in criminal |
-| demandante | claimant / plaintiff | "Claimant" preferred in civil law contexts |
+### Términos Procesales
+| Español | Inglés | Notas |
+|---------|--------|-------|
+| demanda | claim / complaint / lawsuit | «Claim» en lo civil; «complaint» en lo penal |
+| demandante | claimant / plaintiff | «Claimant» preferido en contextos de derecho civil |
 | demandado | defendant / respondent | |
-| escrito | submission / pleading / brief | Context-dependent |
-| sentencia | judgment / decision | "Judgment" for final decisions |
-| auto | order / ruling | Procedural decisions; "ruling" in common law |
+| escrito | submission / pleading / brief | Depende del contexto |
+| sentencia | judgment / decision | «Judgment» para decisiones finales |
+| auto | order / ruling | Decisiones procesales; «ruling» en common law |
 | recurso de apelación | appeal | |
-| recurso de casación | cassation appeal | To Tribunal Supremo |
-| recurso de amparo | constitutional appeal | To Tribunal Constitucional |
+| recurso de casación | cassation appeal | Ante el Tribunal Supremo |
+| recurso de amparo | constitutional appeal | Ante el Tribunal Constitucional |
 | prueba documental | documentary evidence | |
 | prueba testifical | witness evidence / testimony | |
 | prueba pericial | expert evidence | |
 | declaración de parte | party witness statement | |
 
-### Corporate Terms
-| Spanish | English | Notes |
-|---------|---------|-------|
+### Términos Mercantiles
+| Español | Inglés | Notas |
+|---------|--------|-------|
 | sociedad anónima (SA) | public limited company | |
 | sociedad de responsabilidad limitada (SL / SRL) | private limited company | |
-| administrador | director / manager | "Director" for board members |
+| administrador | director / manager | «Director» para miembros del consejo |
 | junta general | general meeting / shareholders' meeting | |
 | consejo de administración | board of directors | |
-| escritura pública | public deed | Notarized document |
+| escritura pública | public deed | Documento notarial |
 | registro mercantil | commercial registry | |
 | objeto social | corporate purpose | |
 | capital social | share capital | |
 
-### Property Terms
-| Spanish | English | Notes |
-|---------|---------|-------|
+### Términos Inmobiliarios
+| Español | Inglés | Notas |
+|---------|--------|-------|
 | propiedad | ownership / property | |
 | posesión | possession | |
-| usufructo | usufruct | Civil law concept |
-| arrendamiento | lease / tenancy | "Lease" for property; "tenancy" for residential |
+| usufructo | usufruct | Concepto de derecho civil |
+| arrendamiento | lease / tenancy | «Lease» para inmuebles; «tenancy» para arrendamiento de vivienda |
 | compraventa | sale and purchase | |
 | hipoteca | mortgage | |
 | gravamen | charge / encumbrance / lien | |
-| comunidad de propietarios | owners' association | Under Ley de Propiedad Horizontal |
+| comunidad de propietarios | owners' association | Según la Ley de Propiedad Horizontal |
 
-### Criminal Terms
-| Spanish | English | Notes |
-|---------|---------|-------|
+### Términos Penales
+| Español | Inglés | Notas |
+|---------|--------|-------|
 | delito | crime / offense | |
-| falta | misdemeanor / petty offense | Less serious than delito |
-| pena | sentence / penalty / punishment | "Sentence" for judicial decision |
+| falta | misdemeanor / petty offense | Menos grave que delito |
+| pena | sentence / penalty / punishment | «Sentence» para la decisión judicial |
 | prisión | imprisonment / prison | |
 | libertad provisional | bail / release on bail | |
 | detención | arrest / detention | |
 | instrucción | investigation / pre-trial | |
 | juicio oral | trial / hearing | |
 
-## Context-Aware Translation Rules
-1. **Preserve legal register:** Use formal, precise language appropriate for legal documents.
-2. **Distinguish homonyms:** "Sentencia" = judgment (final) vs. "auto" = order (procedural).
-3. **Civil law precision:** Spanish civil law concepts (e.g., obligaciones, contratos) may not map perfectly to common law; add explanatory notes where needed.
-4. **Statute references:** Keep original abbreviations (CC, CP, LEC) with English expansion in first use.
-5. **Court names:** Translate descriptively but keep abbreviations (Tribunal Supremo = Supreme Court, but keep "TS").
+## Reglas de Traducción Según el Contexto
+1. **Preserva el registro jurídico:** usa lenguaje formal y preciso, apropiado para documentos jurídicos.
+2. **Distingue homónimos:** «sentencia» = judgment (final) frente a «auto» = order (procesal).
+3. **Precisión de derecho civil:** los conceptos del derecho civil español (p. ej., obligaciones, contratos) pueden no corresponder exactamente con el common law; añade notas explicativas cuando sea necesario.
+4. **Referencias normativas:** mantén las abreviaturas originales (CC, CP, LEC) con la expansión en inglés en el primer uso.
+5. **Nombres de tribunales:** traduce descriptivamente pero conserva las abreviaturas (Tribunal Supremo = Supreme Court, pero mantén «TS»).
 
-## Court Document Translation Standards
-- **Certified translation:** For filing in Spanish courts, translations must be by a *traductor jurado* (sworn translator).
-- **Formatting:** Preserve original document structure and paragraph numbering.
-- **Annotations:** Flag untranslatable concepts with translator's notes.
-- **Bilingual alignment:** Maintain paragraph-level correspondence for verification.
+## Estándares de Traducción de Documentos Judiciales
+- **Traducción certificada:** para su presentación ante tribunales españoles, las traducciones deben ser realizadas por un *traductor jurado*.
+- **Formato:** preserva la estructura del documento original y la numeración de párrafos.
+- **Anotaciones:** señala los conceptos intraducibles con notas del traductor.
+- **Alineación bilingüe:** mantén la correspondencia a nivel de párrafo para facilitar la verificación.
 
-## Quality Standards
-- [ ] Legal register preserved (formal, precise)
-- [ ] Terminology consistent throughout document
-- [ ] Ambiguous terms flagged with translator's notes
-- [ ] Statute and court abbreviations preserved
-- [ ] Certified translator requirement noted for court filings
-- [ ] Disclaimer included
+## Estándares de Calidad
+- [ ] Registro jurídico preservado (formal, preciso)
+- [ ] Terminología consistente en todo el documento
+- [ ] Términos ambiguos señalados con notas del traductor
+- [ ] Abreviaturas normativas y de tribunales preservadas
+- [ ] Requisito de traductor jurado indicado para presentaciones judiciales
+- [ ] Descargo de responsabilidad incluido
 
-## Output Format
+## Formato de Salida
 ```
-# Legal Translation — [Document Type]
-**Source language:** [ES / EN]
-**Target language:** [EN / ES]
-**Domain:** [Civil / Corporate / Criminal / Labor / Administrative]
-**Date:** [YYYY-MM-DD]
-**Disclaimer:** This translation is for informational purposes. For court filing, use a traductor jurado (sworn translator).
+# Traducción Jurídica — [Tipo de Documento]
+**Idioma de origen:** [ES / EN]
+**Idioma de destino:** [EN / ES]
+**Dominio:** [Civil / Mercantil / Penal / Laboral / Administrativo]
+**Fecha:** [AAAA-MM-DD]
+**Descargo de responsabilidad:** Esta traducción tiene fines meramente informativos. Para presentación judicial, utiliza un traductor jurado.
 
-## Translation
-[Translated text with preserved structure]
+## Traducción
+[Texto traducido con la estructura preservada]
 
-## Terminology Glossary
-| Source term | Target term | Context |
-|-------------|-------------|---------|
-| [term] | [translation] | [context] |
+## Glosario Terminológico
+| Término origen | Término destino | Contexto |
+|----------------|-----------------|----------|
+| [término] | [traducción] | [contexto] |
 
-## Translator's Notes
-- [Note on untranslatable or ambiguous concepts]
+## Notas del Traductor
+- [Nota sobre conceptos intraducibles o ambiguos]
 ```
