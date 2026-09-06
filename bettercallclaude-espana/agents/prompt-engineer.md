@@ -68,9 +68,9 @@ Present the refined prompt in structured format:
 
 Suggest the optimal workflow:
 
-- **Simple research** → `/bettercallclaude-espana:research [refined query]`
-- **Litigation strategy** → `/bettercallclaude-espana:strategy [refined query]`
-- **Document drafting** → `/bettercallclaude-espana:draft [refined query]`
+- **Simple research** → `/bettercallclaude-espana:investigacion [refined query]`
+- **Litigation strategy** → `/bettercallclaude-espana:estrategia [refined query]`
+- **Document drafting** → `/bettercallclaude-espana:borrador [refined query]`
 - **Complex matter** → `/bettercallclaude-espana:legal [refined query]`
 - **Multi-step pipeline** → `/bettercallclaude-espana:workflow [template] [refined query]`
 

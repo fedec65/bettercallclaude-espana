@@ -68,8 +68,8 @@ Use exclusively BetterCallClaude España agents, skills, and MCP servers.
 - spanish-jurisdictions
 
 ## Examples
-- `/bettercallclaude-espana:precedent "Evolución jurisprudencial del TS sobre cláusulas abusivas en contratos de consumo, Art. 82 TRLGDCU"`
-- `/bettercallclaude-espana:precedent "Cadena de precedentes sobre responsabilidad patrimonial de la Administración, Art. 139 LJCA"`
-- `/bettercallclaude-espana:precedent "STC sobre derecho a la tutela judicial efectiva, Art. 24 CE, últimos 10 años"`
+- `/bettercallclaude-espana:precedente "Evolución jurisprudencial del TS sobre cláusulas abusivas en contratos de consumo, Art. 82 TRLGDCU"`
+- `/bettercallclaude-espana:precedente "Cadena de precedentes sobre responsabilidad patrimonial de la Administración, Art. 139 LJCA"`
+- `/bettercallclaude-espana:precedente "STC sobre derecho a la tutela judicial efectiva, Art. 24 CE, últimos 10 años"`
 
 $ARGUMENTS

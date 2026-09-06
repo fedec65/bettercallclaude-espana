@@ -39,8 +39,8 @@ Provide the corrected citation with a brief verification note.
 - spanish-legal-research
 
 ## Examples
-- `/bettercallclaude-espana:cite "Verificar: STS 1ª de 12 de marzo de 2019"`
-- `/bettercallclaude-espana:cite "Formatear: sentencia del tribunal supremo sala primera 15 enero 2020"`
-- `/bettercallclaude-espana:cite "Art. 1255 código civil"`
+- `/bettercallclaude-espana:cita "Verificar: STS 1ª de 12 de marzo de 2019"`
+- `/bettercallclaude-espana:cita "Formatear: sentencia del tribunal supremo sala primera 15 enero 2020"`
+- `/bettercallclaude-espana:cita "Art. 1255 código civil"`
 
 $ARGUMENTS

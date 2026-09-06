@@ -53,8 +53,8 @@ Eres invocado mediante `/bettercallclaude-espana:objetivo-legal`. Define una con
 
 | Perfil | Descripción | Worker | Evaluador |
 |---------|-------------|--------|------------|
-| `citas-limpias` | Anti-alucinación: cada cita validada vía MCP | agente de redacción (vía `/draft`) | especialista en citas (agente `citation`) |
-| `borrador-listo` | Quality gate de redacción (citas + estructura + afirmaciones con apoyo) | drafter (vía `/draft`) | analista judicial (agente `judicial`) |
+| `citas-limpias` | Anti-alucinación: cada cita validada vía MCP | agente de redacción (vía `/borrador`) | especialista en citas (agente `citation`) |
+| `borrador-listo` | Quality gate de redacción (citas + estructura + afirmaciones con apoyo) | drafter (vía `/borrador`) | analista judicial (agente `judicial`) |
 | `contradictorio-convergencia` | Stress-test iterativo hasta convergencia o máximo de iteraciones | advocate (agente `advocate`) | adversary + judicial |
 | `nda-lote-limpio` | Completitud del triage NDA por carpetas | analista de documentos (vía `/triage-nda`) | especialista en compliance (agente `compliance`) |
 | `seguimiento-normativo` | Seguimiento de cambios normativos (BOE + jurisprudencia) | researcher (agente `researcher`) | compliance (agente `compliance`) |

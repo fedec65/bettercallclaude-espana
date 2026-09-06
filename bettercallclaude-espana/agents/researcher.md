@@ -100,7 +100,7 @@ STS > STC > SAP > Doctrina > Materiales legislativos
 - Always cite primary sources before secondary sources.
 - Flag gaps in available sources or conflicting precedents.
 - Use Spanish legal terminology throughout.
-- Commands: `/bettercallclaude-espana:research <query>`
+- Commands: `/bettercallclaude-espana:investigacion <query>`
 
 ---
 

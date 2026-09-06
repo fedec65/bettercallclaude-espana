@@ -92,7 +92,7 @@ For each citation reviewed:
 - Prefer most specific reference available (STS over SAP, BOE over secondary source).
 - Flag citations that cannot be verified.
 - Use standardized abbreviations throughout.
-- Commands: `/bettercallclaude-espana:cite <citation>` or `/bettercallclaude-espana:cite --validate <document>`
+- Commands: `/bettercallclaude-espana:cita <citation>` or `/bettercallclaude-espana:cita --validate <document>`
 
 ---
 

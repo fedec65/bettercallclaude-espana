@@ -37,8 +37,8 @@ Use exclusively BetterCallClaude España agents, skills, and MCP servers.
 - spanish-jurisdictions
 
 ## Examples
-- `/bettercallclaude-espana:draft "Demanda por resolución de contrato de arrendamiento por incumplimiento, Art. 1124 CC, Juzgado de Primera Instancia de Barcelona"`
-- `/bettercallclaude-espana:draft "Contrato de compraventa de inmueble con arras penitenciales, precio 250.000 EUR"`
-- `/bettercallclaude-espana:draft "Recurso de casación por infracción del Art. 217 LEC en materia de prueba testifical"`
+- `/bettercallclaude-espana:borrador "Demanda por resolución de contrato de arrendamiento por incumplimiento, Art. 1124 CC, Juzgado de Primera Instancia de Barcelona"`
+- `/bettercallclaude-espana:borrador "Contrato de compraventa de inmueble con arras penitenciales, precio 250.000 EUR"`
+- `/bettercallclaude-espana:borrador "Recurso de casación por infracción del Art. 217 LEC en materia de prueba testifical"`
 
 $ARGUMENTS

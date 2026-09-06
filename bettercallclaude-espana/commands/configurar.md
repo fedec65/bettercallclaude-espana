@@ -39,7 +39,7 @@ This command operates on the plugin's infrastructure layer.
 - Diagnostic recommendations (if issues found)
 
 ## Examples
-- `/bettercallclaude-espana:setup`
-- `/bettercallclaude-espana:setup --verbose`
+- `/bettercallclaude-espana:configurar`
+- `/bettercallclaude-espana:configurar --verbose`
 
 $ARGUMENTS

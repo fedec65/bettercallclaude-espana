@@ -6,6 +6,7 @@
  *   - SERVER_TOOLS           server → tool list (canonical inventory)
  *   - AGENT_SERVER_MAP       agent → servers it must expose
  *   - MULTI_AGENT_COMMANDS   orchestrator commands that must whitelist `Task`
+ *   - DEPRECATED_COMMANDS    legacy EN command slugs kept as alias stubs
  *   - GENERIC_TOOLS          built-in tools every agent/command/skill gets
  *
  * Consumed by both scripts/generate-tool-frontmatter.js (which writes the
@@ -117,6 +118,26 @@ const MULTI_AGENT_COMMANDS = new Set([
 
 const GENERIC_TOOLS = ['Read', 'Grep', 'Glob', 'Bash', 'WebSearch', 'WebFetch'];
 
+// Legacy EN command names kept as retro-compat alias stubs (deprecation
+// notices added in #44). Future check should warn when one is invoked.
+const DEPRECATED_COMMANDS = new Set([
+  'adversarial.md',
+  'autonomic.md',
+  'cite.md',
+  'doc-analyze.md',
+  'draft.md',
+  'help.md',
+  'precedent.md',
+  'privacy.md',
+  'refine.md',
+  'research.md',
+  'setup.md',
+  'strategy.md',
+  'summarize.md',
+  'translate.md',
+  'validate.md',
+]);
+
 // Naming conventions: hosts differ (scoped names on Claude Code CLI and current
 // Cowork builds, bare server names on older Cowork builds).
 const SCOPED_PREFIX = 'mcp__plugin_bettercallclaude-espana_';
@@ -136,6 +157,7 @@ module.exports = {
   COMMAND_SKILL_MAP,
   AGENT_SERVER_MAP,
   MULTI_AGENT_COMMANDS,
+  DEPRECATED_COMMANDS,
   GENERIC_TOOLS,
   SCOPED_PREFIX,
   BARE_PREFIX,

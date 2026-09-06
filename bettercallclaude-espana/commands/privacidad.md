@@ -47,9 +47,9 @@ This command operates on the plugin's configuration layer.
 - Configuration file path
 
 ## Examples
-- `/bettercallclaude-espana:privacy`
-- `/bettercallclaude-espana:privacy --set strict`
-- `/bettercallclaude-espana:privacy --set balanced`
-- `/bettercallclaude-espana:privacy --set cloud`
+- `/bettercallclaude-espana:privacidad`
+- `/bettercallclaude-espana:privacidad --set strict`
+- `/bettercallclaude-espana:privacidad --set balanced`
+- `/bettercallclaude-espana:privacidad --set cloud`
 
 $ARGUMENTS

@@ -95,7 +95,7 @@ Consider:
 
 - Always evaluate the possibility of settlement (transacción, convenio) before recommending litigation.
 - Consider interim measures (medidas cautelares) where appropriate.
-- Commands: `/bettercallclaude-espana:strategy <case-summary>`
+- Commands: `/bettercallclaude-espana:estrategia <case-summary>`
 
 ---
 

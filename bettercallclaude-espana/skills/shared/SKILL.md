@@ -21,7 +21,7 @@ Todo comando que produzca una salida larga (memoria, investigación, estrategia,
 1. Escribir el resultado completo como archivo en la carpeta de trabajo.
 2. Mostrar en chat solo un **resumen de 3-5 líneas** más la ruta al archivo escrito.
 
-Salidas cortas (citación, verificación, refinar, versión, ayuda, privacidad, summarize --breve) pueden quedarse en chat.
+Salidas cortas (citación, verificación, refinar, versión, ayuda, privacidad, resumir --breve) pueden quedarse en chat.
 
 ## Estructura de Carpeta
 
@@ -73,17 +73,17 @@ Comandos que producen archivos de salida con esta convención:
 | Comando | Archivo de Salida |
 |---------|-------------------|
 | `legal` (multi-agente) | varía según workflow |
-| `research` | `02-investigacion.md` |
-| `strategy` | `03-estrategia.md` |
-| `draft` | `05-borrador-<doc>.md` o `.docx` |
-| `adversarial` | `04-contradictorio.md` |
+| `investigacion` | `02-investigacion.md` |
+| `estrategia` | `03-estrategia.md` |
+| `borrador` | `05-borrador-<doc>.md` o `.docx` |
+| `analisis-adversarial` | `04-contradictorio.md` |
 | `workflow` | todos los archivos del pipeline |
-| `translate` | `traduccion-<doc>.md` |
-| `doc-analyze` | `analisis-<doc>.md` |
-| `precedent` | `cadena-precedentes-<tema>.md` |
+| `traducir` | `traduccion-<doc>.md` |
+| `analizar-doc` | `analisis-<doc>.md` |
+| `precedente` | `cadena-precedentes-<tema>.md` |
 | `legal-5step` | los 5 archivos + `fuentes.md` |
 | `briefing` | `plan-briefing.md` |
-| `autonomic` *(CCAA)* | `dictamen-autonomico-<ccaa>.md` |
+| `autonomico` *(CCAA)* | `dictamen-autonomico-<ccaa>.md` |
 | `cronologia-legal` | `bcc-output/cronologia/` — `events.json` + `cronologia.md`/`.html`/`.docx` (excepción deliberada: artefacto vivo del caso, sin carpeta fechada) |
 | `mapa-legal` | `bcc-output/YYYY-MM-DD-<slug>/wayfinder/map.md` + `wayfinder/tickets/` (mapa decisional: carpeta fechada del caso) |
 | `percurso-legal` | actualiza in situ `wayfinder/map.md` y `wayfinder/tickets/`; memos y prototipos en `assets/` |
@@ -91,4 +91,4 @@ Comandos que producen archivos de salida con esta convención:
 | `bucle-legal` | `bcc-output/loops/<goal-id>/` — `iteration-N.md`, `summary.md`, `final/` |
 | `triage-nda` | `bcc-output/YYYY-MM-DD-<slug>/triage-nda-<doc>.md` (lote: + tabla resumen) |
 
-Comandos que se quedan en chat: `cite`, `validate`, `refine`, `summarize --breve`, `version`, `help`, `privacy`, `setup`. Los comandos de Map B que también permanecen en chat: `start`, `doctor`.
+Comandos que se quedan en chat: `cita`, `validar`, `refinar`, `resumir --breve`, `version`, `ayuda`, `privacidad`, `configurar`. Los comandos de Map B que también permanecen en chat: `start`, `doctor`.

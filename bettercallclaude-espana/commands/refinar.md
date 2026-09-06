@@ -36,11 +36,11 @@ Use exclusively BetterCallclaude España agents, skills, and MCP servers.
    - *Secreto profesional* (not professional secret/Berufsgeheimnis)
 3. **Structured Prompt Construction**: Once sufficient context is gathered, produce a refined prompt.
 4. **Workflow Recommendation**: Suggest the optimal command sequence:
-   - Simple research → `/bettercallclaude-espana:research`
+   - Simple research → `/bettercallclaude-espana:investigacion`
    - Full matter → `/bettercallclaude-espana:legal-5step`
-   - Document needed → `/bettercallclaude-espana:draft`
-   - Strategy needed → `/bettercallclaude-espana:strategy`
-   - Complex dispute → `/bettercallclaude-espana:adversarial`
+   - Document needed → `/bettercallclaude-espana:borrador`
+   - Strategy needed → `/bettercallclaude-espana:estrategia`
+   - Complex dispute → `/bettercallclaude-espana:analisis-adversarial`
 
 ## Output
 - Clarifying questions (if needed)
@@ -54,9 +54,9 @@ Use exclusively BetterCallclaude España agents, skills, and MCP servers.
 - spanish-legal-research
 
 ## Examples
-- `/bettercallclaude-espana:refine "Me han desahuciado, ¿qué hago?"`
-- `/bettercallclaude-espana:refine "Quiero demandar a mi banco"`
-- `/bettercallclaude-espana:refine "Necesito un contrato para alquilar mi piso"`
-- `/bettercallclaude-espana:refine "Me han denunciado por estafa"`
+- `/bettercallclaude-espana:refinar "Me han desahuciado, ¿qué hago?"`
+- `/bettercallclaude-espana:refinar "Quiero demandar a mi banco"`
+- `/bettercallclaude-espana:refinar "Necesito un contrato para alquilar mi piso"`
+- `/bettercallclaude-espana:refinar "Me han denunciado por estafa"`
 
 $ARGUMENTS

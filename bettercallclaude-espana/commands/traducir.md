@@ -45,8 +45,8 @@ Use exclusively BetterCallClaude España agents, skills, and MCP servers.
 - spanish-citation-formats
 
 ## Examples
-- `/bettercallclaude-espana:translate ES→EN "Traducir demanda por resolución contractual por incumplimiento, Art. 1124 CC"`
-- `/bettercallclaude-espana:translate EN→ES "Translate this NDA and employment agreement for use under Spanish law (CC, ET)"`
-- `/bettercallclaude-espana:translate ES→EN "Traducir escrito de recurso de apelación contra SAP Madrid, Sección 15ª, 234/2023"`
+- `/bettercallclaude-espana:traducir ES→EN "Traducir demanda por resolución contractual por incumplimiento, Art. 1124 CC"`
+- `/bettercallclaude-espana:traducir EN→ES "Translate this NDA and employment agreement for use under Spanish law (CC, ET)"`
+- `/bettercallclaude-espana:traducir ES→EN "Traducir escrito de recurso de apelación contra SAP Madrid, Sección 15ª, 234/2023"`
 
 $ARGUMENTS

@@ -38,8 +38,8 @@ Use exclusively BetterCallClaude España agents, skills, and MCP servers.
 - spanish-citation-formats
 
 ## Examples
-- `/bettercallclaude-espana:summarize --short "[paste multi-agent output]"`
-- `/bettercallclaude-espana:summarize --long "Consolidar resultados de due diligence de empresa en Madrid"`
-- `/bettercallclaude-espana:summarize --medium "Resumir análisis adversarial sobre demanda por cláusula suelo"`
+- `/bettercallclaude-espana:resumir --short "[paste multi-agent output]"`
+- `/bettercallclaude-espana:resumir --long "Consolidar resultados de due diligence de empresa en Madrid"`
+- `/bettercallclaude-espana:resumir --medium "Resumir análisis adversarial sobre demanda por cláusula suelo"`
 
 $ARGUMENTS

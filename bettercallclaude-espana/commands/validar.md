@@ -41,7 +41,7 @@ Produce a validation report with:
 - spanish-legal-research
 
 ## Examples
-- `/bettercallclaude-espana:validate [paste list of citations]`
-- `/bettercallclaude-espana:validate "Art. 1255 CC; STS 1ª de 12-03-2019; SAP Madrid 345/2018; BOE núm. 123 de 20-05-2020"`
+- `/bettercallclaude-espana:validar [paste list of citations]`
+- `/bettercallclaude-espana:validar "Art. 1255 CC; STS 1ª de 12-03-2019; SAP Madrid 345/2018; BOE núm. 123 de 20-05-2020"`
 
 $ARGUMENTS

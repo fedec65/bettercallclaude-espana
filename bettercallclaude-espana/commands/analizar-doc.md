@@ -42,8 +42,8 @@ Use exclusively BetterCallClaude España agents, skills, and MCP servers.
 - compliance-frameworks
 
 ## Examples
-- `/bettercallclaude-espana:doc-analyze "Analizar contrato de franquicia, verificar cláusulas de exclusividad y territorio bajo el CC y jurisprudencia del TS"`
-- `/bettercallclaude-espana:doc-analyze "Revisar demanda interpuesta ante Juzgado de Primera Instancia de Madrid, verificar citas al Art. 1902 CC y STS aplicables"`
-- `/bettercallclaude-espana:doc-analyze "Analizar política de privacidad conforme al RGPD y la LOPDGDD, verificar citas a AEPD"`
+- `/bettercallclaude-espana:analizar-doc "Analizar contrato de franquicia, verificar cláusulas de exclusividad y territorio bajo el CC y jurisprudencia del TS"`
+- `/bettercallclaude-espana:analizar-doc "Revisar demanda interpuesta ante Juzgado de Primera Instancia de Madrid, verificar citas al Art. 1902 CC y STS aplicables"`
+- `/bettercallclaude-espana:analizar-doc "Analizar política de privacidad conforme al RGPD y la LOPDGDD, verificar citas a AEPD"`
 
 $ARGUMENTS
