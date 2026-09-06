@@ -101,7 +101,7 @@ La plantilla (`templates/bettercallclaude-espana.local.md.example.es`) incluye l
 - **Umbrales de confidencialidad** (p. ej. duración máxima aceptable de un NDA).
 - **Estilo y formato**: carpeta de salida (`bcc-output` por defecto), idioma de los documentos.
 
-Si no existe playbook, los comandos que lo usan (`/start`, `/triage-nda`, …) ofrecen una entrevista guiada de 5-6 preguntas que genera el archivo automáticamente.
+Si no existe playbook, `/start` ofrece una entrevista guiada de 5-6 preguntas que genera el archivo automáticamente. El resto de comandos que consultan el playbook (p. ej. `/triage-nda`) aplican los defaults españoles y recomiendan crear el archivo.
 
 ## 4. Renombrado de comandos v1.x → v2.0
 
