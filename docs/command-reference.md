@@ -1,6 +1,6 @@
 # Referencia de Comandos — BetterCallClaude España
 
-Referencia completa de los **29 comandos activos** del plugin BetterCallClaude España en v2.0, agrupados por categoría, con su sintaxis y sus flags. Complementa a `INSTALACION.md` (instalación, playbook local y tabla de renombrado v1.x → v2.0) y a `docs/PLAYBOOK.md` (uso práctico y flujos recomendados).
+Referencia completa de los **29 comandos activos** del plugin BetterCallClaude España (nomenclatura de comandos v2.0), agrupados por categoría, con su sintaxis y sus flags. Complementa a `INSTALACION.md` (instalación, playbook local y tabla de renombrado v1.x → v2.0) y a `docs/PLAYBOOK.md` (uso práctico y flujos recomendados).
 
 ## Sintaxis de los comandos
 
@@ -57,6 +57,8 @@ Prepara un briefing estructurado antes de la ejecución: reúne un panel de espe
 ### `/workflow` — flujos multi-agente
 
 Orquesta flujos multi-agente para asuntos complejos que requieren coordinación de varios especialistas. Cuatro flujos predefinidos: **due diligence** (`due-diligence`), **preparación de litigio** (`litigation-prep`), **ciclo de vida del contrato** (`contract-lifecycle`) y **cierre inmobiliario** (`realestate-closing`).
+
+> **Nota sobre flujos persistentes**: los flujos guardados con checkpoints y reanudación (`--resume`) que se describen en `INSTALACION.md` §2 — comando `create-workflow`, subcomandos `list`/`show`/`delete` y servidor MCP `workflows-esp` — **no forman parte de este paquete**: no existe tal comando en `commands/` ni tal servidor en `.mcp.json` (12 servidores, ver `docs/MCP_TOOLS.md`). `/workflow` cubre únicamente las cuatro plantillas fijas de esta sección.
 
 - `/workflow due-diligence "Due diligence de empresa tecnológica en Madrid, adquisición del 100% del capital social"`
 - `/workflow litigation-prep "Preparar demanda por nulidad de cláusula suelo, Banco Santander, Juzgado de Primera Instancia nº 12 de Madrid"`
