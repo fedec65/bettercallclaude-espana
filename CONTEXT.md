@@ -173,7 +173,7 @@ _Avoid_: playbook contrattuale, contract playbook
 - #41 research spec traduzione 15 skill (spec t36) → guida di #42/#43
 - #42 traduzione 15 skill legacy EN→ES — PR #57 (legal, 7) + #58 (method, 8), merged su `dev`
 - #59/#60 fix review Devin residui (5 bug + 3 analisi + 6 thread re-review), merged su `dev` `b1f8aad`
-- #43 questo file (glossary + convenzioni di stile)
+- #43 CONTEXT.md glossary v2 — PR #61, merged su `dev` `7a5f496`
 
 **Residui (in ordine):**
 - #44 rename 15 comandi + alias stub

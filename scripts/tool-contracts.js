@@ -44,21 +44,21 @@ for (const [server, tools] of Object.entries(SERVER_TOOLS)) {
 }
 
 const COMMAND_SKILL_MAP = {
-  'adversarial.md': ['adversarial-analysis'],
+  'analisis-adversarial.md': ['adversarial-analysis'],
+  'analizar-doc.md': ['spanish-document-analysis'],
+  'borrador.md': ['spanish-legal-drafting'],
   'briefing.md': ['legal-briefing'],
-  'cite.md': ['spanish-citation-formats'],
-  'doc-analyze.md': ['spanish-document-analysis'],
-  'draft.md': ['spanish-legal-drafting'],
+  'cita.md': ['spanish-citation-formats'],
+  'estrategia.md': ['spanish-legal-strategy'],
   'federal.md': ['spanish-legal-research', 'spanish-jurisdictions'],
+  'investigacion.md': ['spanish-legal-research'],
   'legal-5step.md': ['legal-5step-framework', 'spanish-legal-research', 'spanish-legal-strategy', 'adversarial-analysis', 'spanish-legal-drafting', 'spanish-citation-formats'],
   'legal.md': ['spanish-legal-research', 'legal-briefing'],
-  'precedent.md': ['spanish-legal-research'],
-  'refine.md': ['legal-query-refinement'],
-  'research.md': ['spanish-legal-research'],
-  'strategy.md': ['spanish-legal-strategy'],
-  'summarize.md': ['output-summarization'],
-  'translate.md': ['spanish-legal-translation'],
-  'validate.md': ['spanish-citation-formats'],
+  'precedente.md': ['spanish-legal-research'],
+  'refinar.md': ['legal-query-refinement'],
+  'resumir.md': ['output-summarization'],
+  'traducir.md': ['spanish-legal-translation'],
+  'validar.md': ['spanish-citation-formats'],
 };
 
 // Agent → server MCP map (curated from each agent's description / role).
