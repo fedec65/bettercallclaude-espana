@@ -1,0 +1,279 @@
+{
+  "skill_name": "citation-content-verify",
+  "description": "Acceptance eval set para la skill citation-content-verify (BetterCallClaude España). Grupos: fabricated (12, esperado 100% UNVERIFIED + delivery_blocked), genuine (20, esperado MATCH, tasa de falsos positivos MISMATCH < 5% es decir máximo 1), mismatch (4, cita real + afirmación no respaldada o contradicha), partial (2), doctrine-informal (1, esperado SKIPPED). Ejecutar cada prompt contra los servidores MCP en vivo (legal-citations-esp, boe-legislacion, cendoj-jurisprudencia, tribunal-constitucional, eu-law-esp, doctrina-academica) y comparar el estado por cita. Nota: las sentencias del Tribunal Supremo se citan por número de resolución (p. ej. STS 241/2013); su ECLI CENDOJ difiere del número de resolución (p. ej. ECLI:ES:TS:2013:1916) — normalizar vía convert_to_ecli o buscar por número/año en search_jurisprudencia antes de declarar UNVERIFIED.",
+  "evals": [
+    {
+      "id": "esp-fab-01",
+      "group": "fabricated",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"El Tribunal Supremo ha declarado que la responsabilidad del notario por negligencia profesional prescribe a los treinta años (STS n.º 99999/2099).\"",
+      "expected_output": "STS n.º 99999/2099 no existe (año futuro, número fuera de rango) -> estado UNVERIFIED, delivery_blocked: true.",
+      "files": []
+    },
+    {
+      "id": "esp-fab-02",
+      "group": "fabricated",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"El Tribunal Constitucional ha afirmado que la gestación por sustitución es un derecho fundamental (STC n.º 000/2024).\"",
+      "expected_output": "STC n.º 000/2024 es un número implausible y no se encuentra -> estado UNVERIFIED, delivery_blocked: true.",
+      "files": []
+    },
+    {
+      "id": "esp-fab-03",
+      "group": "fabricated",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"La Audiencia Provincial de Madrid, Sección 999, ha resuelto que el ruido vecinal no es nunca indemnizable (AP Madrid, Secc. 999, n.º 123/2024).\"",
+      "expected_output": "La Sección 999 de la AP de Madrid no existe (fuera de cualquier rango plausible) y no consta sentencia con ese número -> estado UNVERIFIED, delivery_blocked: true.",
+      "files": []
+    },
+    {
+      "id": "esp-fab-04",
+      "group": "fabricated",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"El art. 3000 del Código Civil establece un privilegio legal a favor de los proveedores de software.\"",
+      "expected_output": "El art. 3000 CC no existe (el Código Civil tiene 1976 artículos) -> estado UNVERIFIED, delivery_blocked: true.",
+      "files": []
+    },
+    {
+      "id": "esp-fab-05",
+      "group": "fabricated",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"Conforme al art. 750 del Código Penal (LO 10/1995), la clonación de mascotas está tipificada como delito.\"",
+      "expected_output": "El art. 750 CP no existe en la LO 10/1995 -> estado UNVERIFIED, delivery_blocked: true.",
+      "files": []
+    },
+    {
+      "id": "esp-fab-06",
+      "group": "fabricated",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"El art. 900 de la Ley de Enjuiciamiento Civil introduce la mediación obligatoria en todos los procesos civiles.\"",
+      "expected_output": "El art. 900 LEC no existe (la Ley 1/2000 no alcanza ese artículo) -> estado UNVERIFIED, delivery_blocked: true.",
+      "files": []
+    },
+    {
+      "id": "esp-fab-07",
+      "group": "fabricated",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"El art. 200 de la Constitución garantiza el derecho a la vivienda como derecho fundamental directamente invocable.\"",
+      "expected_output": "El art. 200 CE no existe (la Constitución tiene 169 artículos) -> estado UNVERIFIED, delivery_blocked: true.",
+      "files": []
+    },
+    {
+      "id": "esp-fab-08",
+      "group": "fabricated",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"La Ley n.º 10000/2099 ha reformado el procedimiento de desahucio exprés.\"",
+      "expected_output": "Ley n.º 10000/2099 es un número y un año implausibles y no se encuentra en el BOE -> estado UNVERIFIED, delivery_blocked: true.",
+      "files": []
+    },
+    {
+      "id": "esp-fab-09",
+      "group": "fabricated",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"El BOE-A-2099-12345 publicó la nueva regulación del teletrabajo en la Administración.\"",
+      "expected_output": "El identificador BOE-A-2099-12345 corresponde a un año futuro inexistente y no se encuentra -> estado UNVERIFIED, delivery_blocked: true.",
+      "files": []
+    },
+    {
+      "id": "esp-fab-10",
+      "group": "fabricated",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"La sentencia ECLI:ES:TS:2099:9999 declaró la nulidad de las hipotecas multidivisa con carácter retroactivo.\"",
+      "expected_output": "ECLI:ES:TS:2099:9999 no existe (año futuro imposible) y no se recupera de CENDOJ -> estado UNVERIFIED, delivery_blocked: true.",
+      "files": []
+    },
+    {
+      "id": "esp-fab-11",
+      "group": "fabricated",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"El Reglamento (UE) 2099/999 obliga a todos los Estados miembros a crear un registro único de abogados.\"",
+      "expected_output": "El Reglamento (UE) 2099/999 no existe (numeración por año con año futuro imposible) -> estado UNVERIFIED, delivery_blocked: true.",
+      "files": []
+    },
+    {
+      "id": "esp-fab-12",
+      "group": "fabricated",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"El art. 2000 del Código de Comercio regula la sociedad unipersonal digital.\"",
+      "expected_output": "El art. 2000 del Código de Comercio no existe -> estado UNVERIFIED, delivery_blocked: true.",
+      "files": []
+    },
+    {
+      "id": "esp-gen-01",
+      "group": "genuine",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"El que por acción u omisión cause daño a otro, interviniendo culpa o negligencia, está obligado a reparar el daño causado (art. 1902 CC).\"",
+      "expected_output": "El art. 1902 CC existe y respalda literalmente la afirmación -> estado MATCH, entrega libre.",
+      "files": []
+    },
+    {
+      "id": "esp-gen-02",
+      "group": "genuine",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"Quedan sujetos a la indemnización de los daños y perjuicios los que en el cumplimiento de sus obligaciones incurrieren en dolo, negligencia o morosidad (art. 1101 CC).\"",
+      "expected_output": "El art. 1101 CC existe y respalda literalmente la afirmación -> estado MATCH, entrega libre.",
+      "files": []
+    },
+    {
+      "id": "esp-gen-03",
+      "group": "genuine",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"La facultad de resolver las obligaciones se entiende implícita en las recíprocas, para el caso de que uno de los obligados no cumpliere lo que le incumbe (art. 1124 CC).\"",
+      "expected_output": "El art. 1124 CC existe y respalda literalmente la afirmación -> estado MATCH, entrega libre.",
+      "files": []
+    },
+    {
+      "id": "esp-gen-04",
+      "group": "genuine",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"No hay contrato sino cuando concurren los requisitos de consentimiento, objeto cierto y causa de la obligación (art. 1261 CC).\"",
+      "expected_output": "El art. 1261 CC existe y respalda la afirmación (consentimiento, objeto y causa) -> estado MATCH, entrega libre.",
+      "files": []
+    },
+    {
+      "id": "esp-gen-05",
+      "group": "genuine",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"Los contratos se perfeccionan por el mero consentimiento, y desde entonces obligan no solo al cumplimiento de lo expresamente pactado, sino también a todas las consecuencias derivadas de la buena fe (art. 1258 CC).\"",
+      "expected_output": "El art. 1258 CC existe y respalda la afirmación -> estado MATCH, entrega libre.",
+      "files": []
+    },
+    {
+      "id": "esp-gen-06",
+      "group": "genuine",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"Las acciones personales que no tengan plazo especial prescriben a los cinco años (art. 1964 CC, en la redacción dada por la Ley 42/2015).\"",
+      "expected_output": "El art. 1964 CC (redacción Ley 42/2015) existe y respalda la afirmación -> estado MATCH, entrega libre.",
+      "files": []
+    },
+    {
+      "id": "esp-gen-07",
+      "group": "genuine",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"En los procesos civiles corresponde al actor la carga de probar la certeza de los hechos de los que ordinariamente se desprenda el efecto jurídico correspondiente a sus pretensiones (art. 217.2 LEC).\"",
+      "expected_output": "El art. 217.2 LEC existe y respalda la afirmación -> estado MATCH, entrega libre.",
+      "files": []
+    },
+    {
+      "id": "esp-gen-08",
+      "group": "genuine",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"Todas las personas tienen derecho a obtener la tutela efectiva de los jueces y tribunales en el ejercicio de sus derechos e intereses legítimos (art. 24.1 CE).\"",
+      "expected_output": "El art. 24.1 CE existe y respalda literalmente la afirmación -> estado MATCH, entrega libre.",
+      "files": []
+    },
+    {
+      "id": "esp-gen-09",
+      "group": "genuine",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"Los españoles son iguales ante la ley, sin que pueda prevalecer discriminación alguna por razón de nacimiento, raza, sexo, religión, opinión o cualquier otra condición o circunstancia personal o social (art. 14 CE).\"",
+      "expected_output": "El art. 14 CE existe y respalda literalmente la afirmación -> estado MATCH, entrega libre.",
+      "files": []
+    },
+    {
+      "id": "esp-gen-10",
+      "group": "genuine",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"La Administración está obligada a dictar resolución expresa y a notificarla en todos los procedimientos, cualquiera que sea su forma de iniciación (art. 21.1 de la Ley 39/2015).\"",
+      "expected_output": "El art. 21.1 de la Ley 39/2015 existe y respalda literalmente la afirmación -> estado MATCH, entrega libre.",
+      "files": []
+    },
+    {
+      "id": "esp-gen-11",
+      "group": "genuine",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"Los datos personales serán tratados de manera lícita, leal y transparente en relación con el interesado (art. 5.1.a) del Reglamento (UE) 2016/679).\"",
+      "expected_output": "El art. 5.1.a) del Reglamento (UE) 2016/679 existe y respalda la afirmación -> estado MATCH, entrega libre.",
+      "files": []
+    },
+    {
+      "id": "esp-gen-12",
+      "group": "genuine",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"Una cláusula contractual que no se haya negociado individualmente se considerará abusiva si, contrariamente a las exigencias de la buena fe, causa en detrimento del consumidor un desequilibrio importante entre los derechos y obligaciones de las partes (art. 3.1 de la Directiva 93/13/CEE).\"",
+      "expected_output": "El art. 3.1 de la Directiva 93/13/CEE existe y respalda la afirmación -> estado MATCH, entrega libre.",
+      "files": []
+    },
+    {
+      "id": "esp-gen-13",
+      "group": "genuine",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"La Directiva (UE) 2019/1937 establece normas mínimas comunes para la protección de las personas que informan sobre infracciones del Derecho de la Unión.\"",
+      "expected_output": "La Directiva (UE) 2019/1937 existe y respalda la afirmación -> estado MATCH, entrega libre.",
+      "files": []
+    },
+    {
+      "id": "esp-gen-14",
+      "group": "genuine",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"La STS 241/2013, de 9 de mayo de 2013, del Pleno de la Sala de lo Civil del Tribunal Supremo (recurso 485/2012), declaró nulas por abusivas —por no superar el control de transparencia— cláusulas suelo insertas en préstamos hipotecarios con consumidores, limitando los efectos restitutorios.\"",
+      "expected_output": "La STS 241/2013 existe (ECLI real ECLI:ES:TS:2013:1916, distinto del número de resolución) y respalda la afirmación -> estado MATCH, entrega libre.",
+      "files": []
+    },
+    {
+      "id": "esp-gen-15",
+      "group": "genuine",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"La STS 29/2020, de 20 de enero de 2020, de la Sala de lo Civil del Tribunal Supremo, fijó la doctrina sobre el régimen transitorio de la reducción del plazo de prescripción de las acciones personales (art. 1964 CC) operada por la Ley 42/2015.\"",
+      "expected_output": "La STS 29/2020 existe (ECLI real ECLI:ES:TS:2020:21, distinto del número de resolución) y respalda la afirmación -> estado MATCH, entrega libre.",
+      "files": []
+    },
+    {
+      "id": "esp-gen-16",
+      "group": "genuine",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"La STC 14/1992, de 10 de febrero de 1992, dictada por el Pleno del Tribunal Constitucional, se pronunció sobre la constitucionalidad de la ejecución basada en pólizas de préstamo intervenidas por corredor de comercio (art. 1435 de la LEC de 1881).\"",
+      "expected_output": "La STC 14/1992 existe (ECLI:ES:TC:1992:14) y respalda la afirmación -> estado MATCH, entrega libre.",
+      "files": []
+    },
+    {
+      "id": "esp-gen-17",
+      "group": "genuine",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"El Tribunal de Justicia de la Unión Europea, en sentencia de 21 de diciembre de 2016 (asuntos acumulados C-154/15, C-307/15 y C-308/15, Gutiérrez Naranjo), declaró contraria a la Directiva 93/13/CEE la limitación temporal de los efectos restitutorios de la nulidad de las cláusulas suelo acordada por el Tribunal Supremo.\"",
+      "expected_output": "La sentencia C-154/15 (Gutiérrez Naranjo) existe (ECLI:EU:C:2016:980) y respalda la afirmación -> estado MATCH, entrega libre.",
+      "files": []
+    },
+    {
+      "id": "esp-gen-18",
+      "group": "genuine",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"El tratamiento de datos personales solo será lícito si, entre otros supuestos, el interesado dio su consentimiento para una o varias finalidades específicas (art. 6.1.a) del Reglamento (UE) 2016/679).\"",
+      "expected_output": "El art. 6.1.a) del Reglamento (UE) 2016/679 existe y respalda la afirmación -> estado MATCH, entrega libre.",
+      "files": []
+    },
+    {
+      "id": "esp-gen-19",
+      "group": "genuine",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"Las obligaciones que nacen de los contratos tienen fuerza de ley entre las partes contratantes, y deben cumplirse a tenor de los mismos (art. 1091 CC).\"",
+      "expected_output": "El art. 1091 CC existe y respalda literalmente la afirmación -> estado MATCH, entrega libre.",
+      "files": []
+    },
+    {
+      "id": "esp-gen-20",
+      "group": "genuine",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"La Constitución garantiza el principio de seguridad jurídica (art. 9.3 CE).\"",
+      "expected_output": "El art. 9.3 CE existe y respalda la afirmación -> estado MATCH, entrega libre.",
+      "files": []
+    },
+    {
+      "id": "esp-mis-01",
+      "group": "mismatch",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"El arrendatario puede subarrendar la vivienda sin el consentimiento del arrendador (art. 8.2 de la Ley 29/1994).\"",
+      "expected_output": "El art. 8.2 de la Ley 29/1994 existe pero exige el consentimiento expreso del arrendador, contradiciendo la afirmación -> estado MISMATCH, delivery_blocked: true.",
+      "files": []
+    },
+    {
+      "id": "esp-mis-02",
+      "group": "mismatch",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"El derecho de huelga está prohibido en España (art. 28.2 CE).\"",
+      "expected_output": "El art. 28.2 CE existe pero reconoce el derecho de huelga, contradiciendo la afirmación -> estado MISMATCH, delivery_blocked: true.",
+      "files": []
+    },
+    {
+      "id": "esp-mis-03",
+      "group": "mismatch",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"El tipo general del IVA en España se fija en el art. 14 de la Constitución.\"",
+      "expected_output": "El art. 14 CE existe pero reconoce la igualdad ante la ley y no regula el IVA (materia de ley ordinaria, Ley 37/1992) -> estado MISMATCH, delivery_blocked: true.",
+      "files": []
+    },
+    {
+      "id": "esp-mis-04",
+      "group": "mismatch",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"Quien cause a otro un daño por culpa o negligencia nunca está obligado a repararlo (art. 1902 CC).\"",
+      "expected_output": "El art. 1902 CC existe pero impone exactamente la obligación de reparar el daño causado, contradiciendo la afirmación -> estado MISMATCH, delivery_blocked: true.",
+      "files": []
+    },
+    {
+      "id": "esp-par-01",
+      "group": "partial",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"El art. 1902 CC obliga a reparar el daño causado por culpa o negligencia y la misma norma fija el plazo de prescripción de la acción en un año.\"",
+      "expected_output": "El art. 1902 CC respalda la parte sobre la obligación de reparar, pero la prescripción anual no está en esa norma (art. 1968.2 CC) -> estado PARTIAL (divulgado, no bloquea).",
+      "files": []
+    },
+    {
+      "id": "esp-par-02",
+      "group": "partial",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"El art. 1261 CC exige consentimiento, objeto y causa para la validez del contrato y establece asimismo la necesidad de forma escrita en todo contrato.\"",
+      "expected_output": "El art. 1261 CC respalda la parte sobre los tres requisitos, pero no contiene una regla general de forma escrita (la libertad de forma está en el art. 1278 CC) -> estado PARTIAL (divulgado, no bloquea).",
+      "files": []
+    },
+    {
+      "id": "esp-doc-01",
+      "group": "doctrine-informal",
+      "prompt": "Ejecuta citation-content-verify sobre este borrador: \"Según se explica en los manuales generales de Derecho Civil al uso, la responsabilidad extracontractual del art. 1902 CC exige acción u omisión, daño, culpa o negligencia y nexo causal.\"",
+      "expected_output": "Mención doctrinal informal sin identidad rastreable (sin obra ni autor concretos) -> estado SKIPPED (divulgado en el informe, no bloquea).",
+      "files": []
+    }
+  ]
+}
