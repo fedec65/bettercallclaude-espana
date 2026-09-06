@@ -1,6 +1,6 @@
 ---
 name: output-conventions
-description: "Convenciones compartidas para los comandos de BetterCallClaude España: output-as-file (carpeta bcc-output, nomenclatura, plantilla de resumen en chat), resolución del user_id de los flujos persistentes (workflows-esp) y convenciones de ejecución de workflows."
+description: "Convención output-as-file compartida para todos los comandos de BetterCallClaude España. Define la estructura de la carpeta bcc-output, la nomenclatura de los archivos y la plantilla de resumen en chat."
 tools:
   - Read
   - Grep
@@ -8,24 +8,6 @@ tools:
   - Bash
   - WebSearch
   - WebFetch
-  - mcp__plugin_bettercallclaude-espana_workflows-esp__claim_user_id
-  - mcp__plugin_bettercallclaude-espana_workflows-esp__list_agents
-  - mcp__plugin_bettercallclaude-espana_workflows-esp__validate_pipeline
-  - mcp__plugin_bettercallclaude-espana_workflows-esp__save_workflow
-  - mcp__plugin_bettercallclaude-espana_workflows-esp__list_workflows
-  - mcp__plugin_bettercallclaude-espana_workflows-esp__get_workflow
-  - mcp__plugin_bettercallclaude-espana_workflows-esp__delete_workflow
-  - mcp__plugin_bettercallclaude-espana_workflows-esp__delete_user
-  - mcp__plugin_bettercallclaude-espana_workflows-esp__log_run
-  - mcp__workflows-esp__claim_user_id
-  - mcp__workflows-esp__list_agents
-  - mcp__workflows-esp__validate_pipeline
-  - mcp__workflows-esp__save_workflow
-  - mcp__workflows-esp__list_workflows
-  - mcp__workflows-esp__get_workflow
-  - mcp__workflows-esp__delete_workflow
-  - mcp__workflows-esp__delete_user
-  - mcp__workflows-esp__log_run
 ---
 
 # Convención de Output BetterCallClaude España
@@ -39,7 +21,7 @@ Todo comando que produzca una salida larga (memoria, investigación, estrategia,
 1. Escribir el resultado completo como archivo en la carpeta de trabajo.
 2. Mostrar en chat solo un **resumen de 3-5 líneas** más la ruta al archivo escrito.
 
-Salidas cortas (citación, verificación, refinar, versión, ayuda, privacidad, summarize --breve) pueden quedarse en chat.
+Salidas cortas (citación, verificación, refinar, versión, ayuda, privacidad, resumir --breve) pueden quedarse en chat.
 
 ## Estructura de Carpeta
 
@@ -84,32 +66,6 @@ Documento completo: `bcc-output/YYYY-MM-DD-slug/filename.md`
 Fuentes: `bcc-output/YYYY-MM-DD-slug/fuentes.md`
 ```
 
-## User ID Resolution (flujos persistentes)
-
-Los comandos de flujos persistentes (`create-workflow`, `workflow`) identifican al usuario con un `user_id` ante el servidor `workflows-esp`. Resuélvelo siempre en este orden:
-
-1. **Plugin setting** `${user_config.user_id}` — si se resuelve a un valor no vacío (el placeholder no aparece literalmente), úsalo.
-2. **Custom instructions** (Cowork Desktop) — línea de la forma `BetterCallClaude España workflow user ID: <id>`. Es la fuente duradera en Cowork: la app guarda las instrucciones y sobreviven a los reinicios, a diferencia del filesystem del sandbox.
-3. **Config local** — línea `user_id:` en `~/.betterask/config.yaml`, si existe. Caché de conveniencia: Cowork borra el home del sandbox al reiniciar.
-4. **Genera, reclama y persiste** — candidato `bcc-<hex>` (8 bytes aleatorios, p. ej. `openssl rand -hex 8`), reclamado con el tool `claim_user_id` (hasta 3 reintentos ante colisión) y persistido **añadiendo** `user_id: bcc-<hex>` a `~/.betterask/config.yaml`.
-
-Reglas: **nunca** uses un ID compartido `default`; para un ID de los pasos 1–3, llama a `claim_user_id` una vez antes de la primera operación (`claimed: false` = ya registrado — normal si es tuyo desde otra máquina, continúa); si el archivo no se puede escribir, entrega el ID al usuario para que lo fije como custom instruction (Cowork) o plugin setting (CLI) y detente.
-
-## Workflow Execution Conventions
-
-`workflow` escribe los artefactos de cada ejecución de pipeline en:
-
-```
-<carpeta trabajo>/bcc-output/workflow/<user_id>/<slug>/
-  progress.json        estado de la ejecución: pasos `completed` y checkpoint
-  NN-<agent_id>.md     output de cada etapa (NN = número de paso: 01, 02, …)
-```
-
-- **Sin carpeta fechada**: el directorio lo fijan `user_id` + `slug` del flujo (excepción deliberada a la carpeta `YYYY-MM-DD-<slug>` — permite reanudar la misma ejecución).
-- **`progress.json`** es el contrato de reanudación: `workflow --resume` lo lee y salta las etapas completadas. Un paso se considera completado solo si su archivo de output existe **y** `progress.json` lo marca `completed`.
-- **Idempotencia**: una etapa completada no se re-ejecuta en `--resume` salvo petición explícita; `--paso=N` fuerza la reanudación desde el paso N.
-- Los flujos guardados viven en el servidor `workflows-esp`, no en disco: este directorio contiene solo los artefactos de ejecución.
-
 ## Aplicabilidad
 
 Comandos que producen archivos de salida con esta convención:
@@ -117,18 +73,17 @@ Comandos que producen archivos de salida con esta convención:
 | Comando | Archivo de Salida |
 |---------|-------------------|
 | `legal` (multi-agente) | varía según workflow |
-| `research` | `02-investigacion.md` |
-| `strategy` | `03-estrategia.md` |
-| `draft` | `05-borrador-<doc>.md` o `.docx` |
-| `adversarial` | `04-contradictorio.md` |
-| `workflow` | `bcc-output/workflow/<user_id>/<slug>/` — `progress.json` + un `.md` por etapa (sin carpeta fechada; ver «Workflow execution conventions») |
-| `create-workflow` | sin archivo de salida — persiste el flujo en el servidor `workflows-esp` |
-| `translate` | `traduccion-<doc>.md` |
-| `doc-analyze` | `analisis-<doc>.md` |
-| `precedent` | `cadena-precedentes-<tema>.md` |
+| `investigacion` | `02-investigacion.md` |
+| `estrategia` | `03-estrategia.md` |
+| `borrador` | `05-borrador-<doc>.md` o `.docx` |
+| `analisis-adversarial` | `04-contradictorio.md` |
+| `workflow` | todos los archivos del pipeline |
+| `traducir` | `traduccion-<doc>.md` |
+| `analizar-doc` | `analisis-<doc>.md` |
+| `precedente` | `cadena-precedentes-<tema>.md` |
 | `legal-5step` | los 5 archivos + `fuentes.md` |
 | `briefing` | `plan-briefing.md` |
-| `autonomic` *(CCAA)* | `dictamen-autonomico-<ccaa>.md` |
+| `autonomico` *(CCAA)* | `dictamen-autonomico-<ccaa>.md` |
 | `cronologia-legal` | `bcc-output/cronologia/` — `events.json` + `cronologia.md`/`.html`/`.docx` (excepción deliberada: artefacto vivo del caso, sin carpeta fechada) |
 | `mapa-legal` | `bcc-output/YYYY-MM-DD-<slug>/wayfinder/map.md` + `wayfinder/tickets/` (mapa decisional: carpeta fechada del caso) |
 | `percurso-legal` | actualiza in situ `wayfinder/map.md` y `wayfinder/tickets/`; memos y prototipos en `assets/` |
@@ -136,4 +91,4 @@ Comandos que producen archivos de salida con esta convención:
 | `bucle-legal` | `bcc-output/loops/<goal-id>/` — `iteration-N.md`, `summary.md`, `final/` |
 | `triage-nda` | `bcc-output/YYYY-MM-DD-<slug>/triage-nda-<doc>.md` (lote: + tabla resumen) |
 
-Comandos que se quedan en chat: `cite`, `validate`, `refine`, `summarize --breve`, `version`, `help`, `privacy`, `setup`. Los comandos de Map B que también permanecen en chat: `start`, `doctor`. `create-workflow` tampoco escribe archivos de salida: persiste el flujo en el servidor `workflows-esp` y confirma en chat.
+Comandos que se quedan en chat: `cita`, `validar`, `refinar`, `resumir --breve`, `version`, `ayuda`, `privacidad`, `configurar`. Los comandos de Map B que también permanecen en chat: `start`, `doctor`.

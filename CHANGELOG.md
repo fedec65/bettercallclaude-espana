@@ -1,5 +1,45 @@
 # Changelog
 
+## [2.0.0] - 2026-09-06 — Plugin full-ES parity IT (Map C)
+
+Plugin completamente en español, paridad funcional con BetterCallClaude Italia v2.3.0.
+
+### Major changes
+- **15 comandos renombrados al español** con alias retro-compatibles (2 release):
+  - `research` → `investigacion`
+  - `draft` → `borrador`
+  - `cite` → `cita`
+  - `adversarial` → `analisis-adversarial`
+  - `autonomic` → `autonomico`
+  - `doc-analyze` → `analizar-doc`
+  - `precedent` → `precedente`
+  - `privacy` → `privacidad`
+  - `refine` → `refinar`
+  - `setup` → `configurar`
+  - `strategy` → `estrategia`
+  - `summarize` → `resumir`
+  - `translate` → `traducir`
+  - `validate` → `validar`
+  - `help` → `ayuda`
+- **21 skills en español** (15 tradotte da EN con legal transposition + 6 nuove di Map A: `citation-content-verify`, `legal-chronology`, `legal-evaluator`, `legal-intake`, `legal-wayfinder`, `shared`).
+- **`CONTEXT.md`** — 21 termini legal-method con sinonimi rifiutati.
+- **Docs ES (4)** — `INSTALACION.md` (rename + acento), `PLAYBOOK.md`, `docs/command-reference.md`, `docs/AGENT_ARCHITECTURE.md`.
+- **`evals/`** — 2 set (`citation-verify` 39 voci ES, `legal-timeline` 11 voci LEC procesal plazo).
+- **`testdocs/cronologia/`** — 4 fixture fittizie per `cronologia-legal`.
+- **`templates/`** — `bettercallclaude-espana.local.md.example.es` (per-despatcho playbook).
+
+### Changed
+- `commands/help.md` → `commands/ayuda.md` (con 30 comandi elencati).
+- `INSTALL_ES.md` → `INSTALACION.md` (con acento, alla root).
+- `scripts/tool-contracts.js` — `COMMAND_SKILL_MAP` e `MULTI_AGENT_COMMANDS` aggiornati ai nomi nuovi; nuovo `Set DEPRECATED_COMMANDS` per i 15 alias stub.
+- 15 file stub di deprecamento creati (es. `research.md` → delega a `investigacion.md`).
+- 5 docs ES riscritti: `AGENT_ARCHITECTURE.md` (21 agenti, 21 skill, matrice grounded), `command-reference.md` (29 comandi v2.0), `PLAYBOOK.md` (flussi pratici), `CONTEXT.md` glossario v2, `INSTALACION.md` con accento.
+
+### Notes
+- **Breaking change**: chiunque importi slug di comandi nei propri workflow deve aggiornare a v2.0.0.
+- Alias retro-compat attivi per 2 release (rimossi in v2.1.0).
+- Map C: #40.
+
 ## [1.1.1] - 2026-09-05 — Add workflows-esp consumer commands
 
 Delta incrementale sobre v1.1.0: trae a `main` el commit `feat(workflows-esp): plugin commands create-workflow + workflow hub` (#37), que añade el comando consumer `/create-workflow` y convierte `/workflow` en un hub de gestión de flujos. Resuelto el conflicto de rebase en `scripts/generate-tool-frontmatter.js` moviendo `SERVER_TOOLS` / `MULTI_AGENT_COMMANDS` a `scripts/tool-contracts.js` (single source of truth compartida con `check-tool-names.js`).
@@ -23,7 +63,7 @@ Delta incrementale sobre v1.1.0: trae a `main` el commit `feat(workflows-esp): p
 - **Comando `/bettercallclaude-espana:create-workflow`** — entrevista guiada para diseñar un workflow, validarlo contra el manifest y guardarlo en el servidor.
 - **Comando `/bettercallclaude-espana:workflow`** (reescrito como hub) — plantillas fijas (litigation-prep, due-diligence, contract-lifecycle, realestate-closing) + flujos guardados, con `--resume` desde el último paso completado.
 - **Setting `user_id`** en `plugin.json` (CLI) más cadena de resolución 4-fallback (plugin setting → custom instructions Cowork → `~/.betterask/config.yaml` → generado y reclamado).
-- **Sección «Workflows persistentes»** en `INSTALL_ES.md` con ejemplo `flusso-nda` (NDA review chain) y notas de privacidad.
+- **Sección «Workflows persistentes»** en `INSTALACION.md` con ejemplo `flusso-nda` (NDA review chain) y notas de privacidad.
 - **Doc `docs/workflows-esp.md`** en el repo MCP con arquitectura, schema DB y ejemplos.
 - **Test E2E** `scripts/test-flusso-nda-e2e.mjs` que arranca el aggregator MCP, guarda `flusso-nda`, simula reinicio de Cowork (subprocess kill/relaunch) y verifica la persistencia + `--resume`. Invocable con `npm run test:flusso-nda`.
 - **PR bifase**: plugin-side (este PR) + MCP-side (#3 en `BetterCallClaudeMCP_Espana`); merge coordinado.

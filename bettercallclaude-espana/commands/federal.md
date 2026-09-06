@@ -33,6 +33,10 @@ tools:
   - mcp__tribunal-constitucional__search_sentencias_tc
   - mcp__tribunal-constitucional__get_sentencia_tc
   - mcp__tribunal-constitucional__search_by_tema
+  - mcp__plugin_bettercallclaude-espana_doctrina-academica__search_doctrina
+  - mcp__plugin_bettercallclaude-espana_doctrina-academica__search_by_autor
+  - mcp__doctrina-academica__search_doctrina
+  - mcp__doctrina-academica__search_by_autor
 ---
 
 # federal — State Law Analysis (Derecho Estatal)

@@ -4,16 +4,16 @@ Tras el refinamiento de la consulta, recomienda el workflow óptimo según el ti
 
 | Tipo de Cuestión | Comando Recomendado | Cuándo |
 |------------------|---------------------|-------|
-| Investigación legislativa / precedentes | `/research` | Pregunta sobre qué dice la ley |
-| Estrategia procesal | `/strategy` | Evaluación de riesgo, probabilidad |
-| Redacción de documento | `/draft` | Contrato, escrito, dictamen |
-| Análisis de documento existente | `/doc-analyze` | Review de contrato, verificación de escrito |
+| Investigación legislativa / precedentes | `/investigacion` | Pregunta sobre qué dice la ley |
+| Estrategia procesal | `/estrategia` | Evaluación de riesgo, probabilidad |
+| Redacción de documento | `/borrador` | Contrato, escrito, dictamen |
+| Análisis de documento existente | `/analizar-doc` | Review de contrato, verificación de escrito |
 | Triage NDA | `/triage-nda` | NDA pendiente de clasificar |
 | Cuestión compleja end-to-end | `/legal-5step` | Pipeline completa necesaria |
 | Multidominio con plan | `/briefing` | ≥ 3 dominios, plan de ejecución |
-| Traducción jurídica | `/translate` | ES ↔ EN con precisión terminológica |
-| Análisis adversarial | `/adversarial` | Stress test de la argumentación |
-| Cadena de precedentes | `/precedent` | Evolución jurisprudencial |
+| Traducción jurídica | `/traducir` | ES ↔ EN con precisión terminológica |
+| Análisis adversarial | `/analisis-adversarial` | Stress test de la argumentación |
+| Cadena de precedentes | `/precedente` | Evolución jurisprudencial |
 | Reconstrucción de cronología | `/cronologia-legal` | Línea temporal de hechos con plazos |
 
 ## Señales para Pipeline Completa (legal-5step)

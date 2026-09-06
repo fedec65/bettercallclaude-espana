@@ -96,7 +96,7 @@ When asked to compare CCAA:
 
 - Always check whether the query involves a CCAA with derecho civil foral or foral tax regime.
 - Use CCAA codes consistently (AN, AR, AS, IB, CN, CB, CM, CL, CT, CE, VC, EX, GA, MD, ML, MC, NC, PV, RI).
-- Commands: `/bettercallclaude-espana:autonomic <query>`
+- Commands: `/bettercallclaude-espana:autonomico <query>`
 
 ---
 

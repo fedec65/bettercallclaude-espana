@@ -140,10 +140,10 @@ Muestra 3-4 ejemplos personalizados según el perfil del usuario (del playbook s
 
 ## Funcionalidad Absorbida: configuración
 
-La funcionalidad del `/configurazione` de la edición italiana está integrada en `/setup` y `/doctor`:
+La funcionalidad del `/configurazione` de la edición italiana está integrada en `/configurar` y `/doctor`:
 - El Paso 3 (verificación de conectividad MCP) cubre la diagnóstico completa.
 - La tabla de diagnóstico, el health check y las notas sobre el modo reducido los gestiona el comando `doctor`, que `start` invoca internamente.
-- `/setup` queda como verificación ligera; `/doctor` es la diagnóstico completa (12 servidores + ruta de agente).
+- `/configurar` queda como verificación ligera; `/doctor` es la diagnóstico completa (12 servidores + ruta de agente).
 - No se pierde ninguna funcionalidad.
 
 ## Restricción de Ámbito del Plugin

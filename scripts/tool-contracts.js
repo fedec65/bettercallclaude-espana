@@ -6,6 +6,7 @@
  *   - SERVER_TOOLS           server → tool list (canonical inventory)
  *   - AGENT_SERVER_MAP       agent → servers it must expose
  *   - MULTI_AGENT_COMMANDS   orchestrator commands that must whitelist `Task`
+ *   - DEPRECATED_COMMANDS    legacy EN command slugs kept as alias stubs
  *   - GENERIC_TOOLS          built-in tools every agent/command/skill gets
  *
  * Consumed by both scripts/generate-tool-frontmatter.js (which writes the
@@ -45,21 +46,21 @@ for (const [server, tools] of Object.entries(SERVER_TOOLS)) {
 }
 
 const COMMAND_SKILL_MAP = {
-  'adversarial.md': ['adversarial-analysis'],
+  'analisis-adversarial.md': ['adversarial-analysis'],
+  'analizar-doc.md': ['spanish-document-analysis'],
+  'borrador.md': ['spanish-legal-drafting'],
   'briefing.md': ['legal-briefing'],
-  'cite.md': ['spanish-citation-formats'],
-  'doc-analyze.md': ['spanish-document-analysis'],
-  'draft.md': ['spanish-legal-drafting'],
+  'cita.md': ['spanish-citation-formats'],
+  'estrategia.md': ['spanish-legal-strategy'],
   'federal.md': ['spanish-legal-research', 'spanish-jurisdictions'],
+  'investigacion.md': ['spanish-legal-research'],
   'legal-5step.md': ['legal-5step-framework', 'spanish-legal-research', 'spanish-legal-strategy', 'adversarial-analysis', 'spanish-legal-drafting', 'spanish-citation-formats'],
   'legal.md': ['spanish-legal-research', 'legal-briefing'],
-  'precedent.md': ['spanish-legal-research'],
-  'refine.md': ['legal-query-refinement'],
-  'research.md': ['spanish-legal-research'],
-  'strategy.md': ['spanish-legal-strategy'],
-  'summarize.md': ['output-summarization'],
-  'translate.md': ['spanish-legal-translation'],
-  'validate.md': ['spanish-citation-formats'],
+  'precedente.md': ['spanish-legal-research'],
+  'refinar.md': ['legal-query-refinement'],
+  'resumir.md': ['output-summarization'],
+  'traducir.md': ['spanish-legal-translation'],
+  'validar.md': ['spanish-citation-formats'],
 };
 
 // Agent → server MCP map (curated from each agent's description / role).
@@ -119,6 +120,26 @@ const MULTI_AGENT_COMMANDS = new Set([
 
 const GENERIC_TOOLS = ['Read', 'Grep', 'Glob', 'Bash', 'WebSearch', 'WebFetch'];
 
+// Legacy EN command names kept as retro-compat alias stubs (deprecation
+// notices added in #44). Future check should warn when one is invoked.
+const DEPRECATED_COMMANDS = new Set([
+  'adversarial.md',
+  'autonomic.md',
+  'cite.md',
+  'doc-analyze.md',
+  'draft.md',
+  'help.md',
+  'precedent.md',
+  'privacy.md',
+  'refine.md',
+  'research.md',
+  'setup.md',
+  'strategy.md',
+  'summarize.md',
+  'translate.md',
+  'validate.md',
+]);
+
 // Naming conventions: hosts differ (scoped names on Claude Code CLI and current
 // Cowork builds, bare server names on older Cowork builds).
 const SCOPED_PREFIX = 'mcp__plugin_bettercallclaude-espana_';
@@ -138,6 +159,7 @@ module.exports = {
   COMMAND_SKILL_MAP,
   AGENT_SERVER_MAP,
   MULTI_AGENT_COMMANDS,
+  DEPRECATED_COMMANDS,
   GENERIC_TOOLS,
   SCOPED_PREFIX,
   BARE_PREFIX,

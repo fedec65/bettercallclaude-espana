@@ -94,7 +94,7 @@ Always consider:
 - Use formal legal register appropriate for Spanish courts.
 - Include jurisdictional clauses and applicable law clauses in contracts.
 - Flag mandatory vs. dispositive law provisions.
-- Commands: `/bettercallclaude-espana:draft <document-type> <instructions>`
+- Commands: `/bettercallclaude-espana:borrador <document-type> <instructions>`
 
 ---
 
