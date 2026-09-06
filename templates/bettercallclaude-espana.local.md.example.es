@@ -7,8 +7,8 @@
 - **Ubicación preferida (Claude Code)**: copia el archivo en la carpeta `.claude/` del proyecto y renómbralo a `bettercallclaude-espana.local.md`. Se aplica automáticamente a las sesiones que abran ese proyecto.
 - **Ubicación alternativa (Cowork Desktop)**: copia el archivo en la carpeta compartida de BetterCallClaude y renómbrarlo igual. Aplica a todas las conversaciones iniciadas en ese entorno.
 - **No contiene secretos**: este playbook no almacena claves API, tokens ni credenciales. Para datos sensibles usa los modos de privacidad (ver `## Privacidad y Secreto Profesional`).
-- **Cambiar modo de privacidad por defecto**: ejecuta `/bettercallclaude-espana:privacidad --set <equilibrado|estricto|nube>` tras instalar el playbook. La elección se persiste en `~/.betterask/config.yaml`.
-- **Regenerar**: tras cada release mayor revisa esta plantilla por cambios en comandos, hooks o workflows.
+- **Cambiar modo de privacidad**: ejecuta `/bettercallclaude-espana:privacidad --set <estricto|equilibrado|nube>` tras instalar el playbook. El archivo `~/.betterask/config.yaml` solo puede *elevar* la protección (guarda el modo `strict`): el modo `nube` no se activa desde el archivo local — requiere la configuración de usuario de Cowork Desktop (`CLAUDE_PLUGIN_USER_CONFIG`).
+- **Regenerar**: tras cada versión principal revisa esta plantilla por cambios en comandos, hooks o flujos de trabajo.
 
 ## Perfil del despacho
 
@@ -32,11 +32,11 @@
 ## Umbrales de riesgo
 
 - **Valor a partir del cual se requiere revisión humana obligatoria**: > EUR [importe].
-- **Cláusulas que requieren escalation inmediata**:
+- **Cláusulas que requieren escalamiento inmediato**:
   - Renuncia a derechos irrenunciables del trabajador o del consumidor.
   - Garantías ilimitadas o indemnizaciones sin tope.
   - Limitación de responsabilidad por dolo o culpa grave (art. 1102 CC, no disponible convencionalmente).
-  - Renuncia o modificación del saneamiento por vicios ocultos (arts. 1484 y 1490 CC): plazos y derechos son inderogables en perjuicio del adquirente.
+  - Renuncia o modificación del saneamiento por vicios ocultos (arts. 1484, 1485 y 1490 CC): los plazos y derechos son inderogables en perjuicio del adquirente, sin perjuicio de la exoneración del art. 1485 CC cuando el vendedor desconocía los vicios y no ha prestado declaración expresa de garantía.
   - No-competencia postcontractual: revisar límites del art. 21.2 ET (relación laboral) y el principio general del art. 1255 CC (autonomía de la voluntad, sin contravenir normas imperativas).
   - Sumisión a fuero extranjero o arbitraje con sede fuera de España.
   - Contratación con consumidores: aplicación imperativa del TRLGDCU (RDL 1/2007) y de la LCGC (Ley 7/1998); las cláusulas abusivas no son válidas.
@@ -44,7 +44,7 @@
 ## Privacidad y secreto profesional
 
 - **Modos de privacidad disponibles** (configurar con `/bettercallclaude-espana:privacidad --set <modo>`):
-  - **estricto** — secreto profesional reforzado (art. 24 LOPJ, art. 542 CP): 100% local, sin llamadas a APIs externas, ideal para datos cubiertos por el secreto profesional del abogado.
+  - **estricto** — secreto profesional reforzado (art. 542.3 LOPJ, art. 199.2 CP): el hook `privacy-check` deniega automáticamente las llamadas salientes (MCP, WebFetch, Bash con red) cuyo contenido active un marcador procesal del art. 437 LEC. Ollama queda exento. Para garantía plena de aislamiento local, configure también el proceso Cowork Desktop sin acceso a red.
   - **equilibrado** (modo por defecto) — privacidad reforzada con verificación previa; adecuado para la mayoría de procedimientos.
   - **nube** — habilita APIs en la nube; úsalo solo con datos no cubiertos por secreto profesional o con consentimiento expreso del cliente.
 - **Modelo local recomendado**: Ollama (MCP `ollama`) para datos especialmente sensibles; verificar que no haya filtraciones externas.
@@ -53,7 +53,7 @@
 - **DPO**: [sí / no / no obligatorio].
 - **Transferencias internacionales fuera del EEE**: requieren garantías adecuadas (arts. 44 y ss. RGPD); documentar SCC, DPF o decisión de adecuación correspondiente.
 
-## Workflows preferidos
+## Flujos de trabajo preferidos
 
 - **Plantillas de flujo activadas por defecto**: [p. ej. `litigation-prep`, `due-diligence`, `contract-lifecycle`, `realestate-closing`].
 - **Estado persistente por usuario**: `user_id` `[user_id]` para reanudar cronologías, expedientes y borradores entre sesiones.
@@ -78,7 +78,7 @@
 
 ## Notas internas
 
-- [Notas internas, observaciones y particularidades del despacho, p. ej. instrucciones internas para compliance, criterios de honorarios, criterios de derivación a procurador, etc.]
+- [Notas internas, observaciones y particularidades del despacho, p. ej. instrucciones internas para cumplimiento normativo, criterios de honorarios, criterios de derivación a procurador, etc.]
 
 ## Estilo y formato
 
